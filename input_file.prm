@@ -1,0 +1,131 @@
+# Listing of Parameters
+# ---------------------
+subsection computational
+  # time to steady state (in terms of characteristic time)
+  set end time           = 5e4
+
+  # 2nd end time for restarting at end time
+  set end time 2         = 1e5
+
+  # number of global refinements
+  set global refinements = 4
+
+  # number of local refinements in predefined critical areas
+  set local refinements  = 1
+
+  # whether to use end of last run as start for this one
+  set restart status     = false
+
+  # number of output files until end time
+  set time stamps        = 100
+
+  # scaled time step size of both subdomains
+  set time step size     = 0.05
+end
+
+
+subsection electrons
+  # electron mobility [v/cm^{2}]
+  set mobility               = 1350.0
+
+  # Recombination rate/time of electrons [s]
+  set recombination time     = 5e-5
+
+  # Recombination velocity of electrons [cm/s]
+  set recombination velocity = 3e5
+
+  # transfer rate of electrons [cm^{4} s^{-1}]
+  set transfer rate          = 1e-19
+end
+
+
+subsection holes
+  # hole mobility [v/cm^{2}]
+  set mobility               = 480.0
+
+  # Recombination rate/time of holes [s]
+  set recombination time     = 5e-5
+
+  # Recombination velocity of holes [cm/s]
+  set recombination velocity = 2.9e5
+
+  # transfer rate of holes [cm^{4} s^{-1}]
+  set transfer rate          = 1e-14
+end
+
+
+subsection mesh
+  # width of boundary layer
+  set boundary layer = 0.1
+
+  # scaled domain height in y coordinate
+  set mesh height    = 1
+
+  # scaled domain length in x coordinate
+  set mesh length    = 1.0
+
+  # top radius of wire
+  set radius one     = 0.5
+
+  # bottom radius of wire
+  set radius two     = 0.5
+end
+
+
+subsection oxidants
+  # oxidant mobility [v/cm^{2}]
+  set mobility = 1.0
+end
+
+
+subsection physical
+  # absoprtion coefficient averaged over all energies  [cm^{-1} ]
+  set absorption coefficient     = 1.74974e5
+
+  # the applied bias [v]
+  set applied bias               = 0.0
+
+  # the built in / SCR  bias [V]
+  set built in bias              = 0.41
+
+  # the characteristic density scale [cm^{-3}]
+  set characteristic density     = 1.0e16
+
+  # the characteristic length scale [cm]
+  set characteristic length      = 1.0e-4
+
+  # the characteristic time scale [s]
+  set characteristic time        = 1.0e-12
+
+  # electrolyte permittivity const []
+  set electrolyte permittivity   = 1000
+
+  # true means that the cell is illuminated, false means its not.
+  set illumination status        = true
+
+  # whether device is insulated. See Grid::make_Neumann_boundaries
+  set insulated                  = true
+
+  # the intrinsic density scale [cm^{-3}]
+  set intrinsic density          = 2.564e9
+
+  # intensity of light  [cm^{-2}s^{-1} ]
+  set photon flux                = 1.2e17
+
+  # the Schottky barrier/applied  bias [V]
+  set schottky bias              = 0.0
+
+  # whether to have schottky contact. See Grid::make_Schottky_boundaries
+  set schottky status            = true
+
+  # semiconductor permittivity const []
+  set semiconductor permittivity = 11.9
+end
+
+
+subsection reductants
+  # reductant mobility [v/cm^{2}]
+  set mobility = 1.0
+end
+
+
