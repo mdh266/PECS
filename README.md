@@ -32,7 +32,7 @@ To clean up the runtime output files type:
 
 **Documentation**
 
-For more information cd into /Documentation and run doxygen to generate thorough documentation.
+For more information cd into "/Documentation" and run "doxygen dox" to generate thorough html documentation.
 
 
 **Questions**
