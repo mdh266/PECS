@@ -6,14 +6,14 @@ using namespace dealii;
 template<int dim>
 PostProcessor<dim>::
 PostProcessor(const ParameterSpace::Parameters 			& sim_params,
-							const bool														& print_carrier,
-							const std::string											& name)
+							const bool					& print_carrier,
+							const std::string			& name)
 {
 	scale_potential  = 0.02585;
 	scale_elec_field = 0.2585/sim_params.characteristic_length;
-	scale_density		 = sim_params.characteristic_denisty;
-	scale_current		 = 1.6e-19*scale_density * sim_params.characteristic_length /
-										 sim_params.characteristic_time;
+	scale_density	 = sim_params.characteristic_denisty;
+	scale_current	 = 1.6e-19* scale_density * sim_params.characteristic_length /
+								 sim_params.characteristic_time;
 
 	printing_carrier = print_carrier;	
 	if(print_carrier)
@@ -61,7 +61,7 @@ get_data_component_interpretation() const
 	for(unsigned int d=0; d<dim; d++)
 	{
 		interpretation.push_back(DataComponentInterpretation::
-																					component_is_part_of_vector);
+								component_is_part_of_vector);
 	}
 	interpretation.push_back(DataComponentInterpretation::component_is_scalar);
 
@@ -81,12 +81,12 @@ template<int dim>
 void 
 PostProcessor<dim>::
 compute_derived_quantities_vector(
-	const std::vector<Vector<double>>								&uh,
+	const std::vector<Vector<double>>					&uh,
 	const std::vector<std::vector<Tensor<1,dim>>>		&/*duh*/,
 	const std::vector<std::vector<Tensor<2,dim>>>		&/* dduh*/,
-	const std::vector<Point<dim>>										&/*normals*/,
-	const std::vector<Point<dim>>										&/*evaluated_points*/,
-	std::vector<Vector<double>>											&computed_quantities) const
+	const std::vector<Point<dim>>						&/*normals*/,
+	const std::vector<Point<dim>>						&/*evaluated_points*/,
+	std::vector<Vector<double>>							&computed_quantities) const
 {
 
 	

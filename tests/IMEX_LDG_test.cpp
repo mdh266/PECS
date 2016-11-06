@@ -13,7 +13,7 @@ int main()
 
 //			MultithreadInfo::set_thread_limit(1);
 
-			ParameterHandler									prm;
+			ParameterHandler					prm;
 			ParameterSpace::ParameterReader		param(prm);
 			param.read_test_parameters("test_file.prm");
 
@@ -32,17 +32,15 @@ int main()
 			{
 				SOLARCELL::SolarCellProblem<2> 	DeviceSimulation(degree,prm);
 				DeviceSimulation.test_transient(n_refine,
-																				LDG_tran_table);
+												LDG_tran_table);
 			}
 		
 			// get the convergence rates for carrier_1 and carrier_2
-			LDG_tran_table.evaluate_convergence_rates(
-																	"u", 
-																	ConvergenceTable::reduction_rate_log2);
+			LDG_tran_table.evaluate_convergence_rates("u", 
+													ConvergenceTable::reduction_rate_log2);
 	
-			LDG_tran_table.evaluate_convergence_rates(
-																	"J", 
-																	ConvergenceTable::reduction_rate_log2);
+			LDG_tran_table.evaluate_convergence_rates("J", 
+													ConvergenceTable::reduction_rate_log2);
 	
 			// set to 3 significant digits as output
 			LDG_tran_table.set_precision("u", 3);
