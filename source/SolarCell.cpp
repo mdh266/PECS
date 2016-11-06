@@ -20,15 +20,15 @@ namespace SOLARCELL
 	degree(degree),
 	prm(param),
 	Poisson_dof_handler(Poisson_triangulation),
-	Poisson_fe(FE_RaviartThomas<dim>(degree-1), 					 1,
-						 FE_DGQ<dim>(degree-1),											 1),
+	Poisson_fe(FE_RaviartThomas<dim>(degree-1),  1,
+						 FE_DGQ<dim>(degree-1),	 1),
 	Poisson_object(),
 	semiconductor_dof_handler(semiconductor_triangulation),
 	electron_hole_pair(),
 	electrolyte_dof_handler(electrolyte_triangulation),
 	redox_pair(),
 	carrier_fe(FESystem<dim>(FE_DGQ<dim>(degree), dim), 1,
-													 FE_DGQ<dim>(degree), 1),
+			   FE_DGQ<dim>(degree), 					1),
 	Mixed_Assembler(),
 	electrons_e(),
 	holes_e(),
@@ -108,15 +108,15 @@ namespace SOLARCELL
 	setup_dofs()
 	{
 		Poisson_object.setup_dofs(Poisson_fe,
-															Poisson_dof_handler);
+								  Poisson_dof_handler);
 	
 		electron_hole_pair.setup_dofs(carrier_fe,
-																	semiconductor_dof_handler);
+									  semiconductor_dof_handler);
 
 		if(full_system)
 		{
 			redox_pair.setup_dofs(carrier_fe,
-														electrolyte_dof_handler);
+								  electrolyte_dof_handler);
 		}
 	}	// setup+dos
 
@@ -130,18 +130,18 @@ namespace SOLARCELL
 	print_sim_info()
 	{
 		std::cout << "---------------------------------------------------------\n"
-							<< "Triangulation Info\n"
-							<< "---------------------------------------------------------\n"
-							<< "Number of active cells : " 
-							<< Poisson_triangulation.n_active_cells()
-							<< std::endl
-							<< "Total number of cells: " 
-							<< Poisson_triangulation.n_cells() << std::endl
-							<< "h_min: "
-							<< GridTools::minimal_cell_diameter(Poisson_triangulation) << std::endl
-							<< "h_max: "
-							<< GridTools::maximal_cell_diameter(Poisson_triangulation) << std::endl
-							<< std::endl;
+				<< "Triangulation Info\n"
+				<< "---------------------------------------------------------\n"
+				<< "Number of active cells : " 
+				<< Poisson_triangulation.n_active_cells()
+				<< std::endl
+				<< "Total number of cells: " 
+				<< Poisson_triangulation.n_cells() << std::endl
+				<< "h_min: "
+				<< GridTools::minimal_cell_diameter(Poisson_triangulation) << std::endl
+				<< "h_max: "
+				<< GridTools::maximal_cell_diameter(Poisson_triangulation) << std::endl
+				<< std::endl;
 	
 		Poisson_object.print_info(Poisson_dof_handler);
 		electron_hole_pair.print_info(semiconductor_dof_handler);
@@ -160,14 +160,14 @@ namespace SOLARCELL
 	{
 	
 		/*----------------------------------------------------------------------*/
-		/*	Semiconductor-Electrolyte Mappings																	*/
+		/*	Semiconductor-Electrolyte Mappings									*/
 		/*----------------------------------------------------------------------*/
 		if(full_system)
 		{
 			// make vector of interface cells and vector of the faces of those cell's
 			// face that lies on the interface as well as a vector of the center point
 			// of that face
-			std::vector<Point<dim>>														semi_interface_centers;	
+			std::vector<Point<dim>>	  semi_interface_centers;	
 			typename DoFHandler<dim>::active_cell_iterator
 			semi_cell	=	semiconductor_dof_handler.begin_active(),
 			semi_endc	=	semiconductor_dof_handler.end();
@@ -183,8 +183,8 @@ namespace SOLARCELL
 					if(face->boundary_id() == Interface)
 					{
 						semi_interface_cells.push_back(
-										std::pair<unsigned int, unsigned int>(semi_cell->level(),
-																									 				semi_cell->index()));
+								std::pair<unsigned int, unsigned int>(semi_cell->level(),
+								semi_cell->index()));
 						semi_interface_faces.push_back(face_no);
 						semi_interface_centers.push_back(face->center());
 					}
@@ -195,8 +195,8 @@ namespace SOLARCELL
 			// face that lies on the interface as well as a vector of the center point
 			// of that face.
 			std::vector<std::pair<unsigned int, unsigned int>> temp_elec_interface_cells;
-			std::vector<unsigned int>													 temp_elec_interface_faces;
-			std::vector<Point<dim>>														 temp_elec_interface_centers;
+			std::vector<unsigned int>						   temp_elec_interface_faces;
+			std::vector<Point<dim>>							   temp_elec_interface_centers;
 	
 			typename DoFHandler<dim>::active_cell_iterator
 			elec_cell	=	electrolyte_dof_handler.begin_active(),
@@ -213,8 +213,8 @@ namespace SOLARCELL
 					if(face->boundary_id() == Interface)
 					{
 						temp_elec_interface_cells.push_back(
-										std::pair<unsigned int, unsigned int>(elec_cell->level(),
-																									 				elec_cell->index()));
+							std::pair<unsigned int, unsigned int>(elec_cell->level(),
+																  elec_cell->index()));
 						temp_elec_interface_faces.push_back(face_no);
 						temp_elec_interface_centers.push_back(face->center());
 					}
@@ -266,11 +266,11 @@ namespace SOLARCELL
 		/*---------------------------------------------------------------------*/
 
 		std::vector<std::pair<unsigned int, unsigned int>> semiconductor_cells;
-		std::vector<Point<dim>> 													 semiconductor_cell_centers;
+		std::vector<Point<dim>> 						   semiconductor_cell_centers;
 		std::vector<std::pair<unsigned int, unsigned int>> Poisson_cells;
-		std::vector<Point<dim>> 													 Poisson_cell_centers;
+		std::vector<Point<dim>> 						   Poisson_cell_centers;
 		std::vector<std::pair<unsigned int, unsigned int>> electrolyte_cells;
-		std::vector<Point<dim>>														 electrolyte_cell_centers;	
+		std::vector<Point<dim>>							   electrolyte_cell_centers;	
 
 		// make mapping of Poisson cells to global poisson index							 
 		typename DoFHandler<dim>::active_cell_iterator
@@ -279,8 +279,8 @@ namespace SOLARCELL
 		for(; Poisson_cell != Poisson_endc; Poisson_cell++)	
 		{
 			Poisson_cells.push_back(
-										std::pair<unsigned int, unsigned int>(Poisson_cell->level(),
-																									 				Poisson_cell->index()));
+					std::pair<unsigned int, unsigned int>(Poisson_cell->level(),
+					Poisson_cell->index()));
 			Poisson_cell_centers.push_back(Poisson_cell->center());
 		
 		} // end Poisson_cell
@@ -292,8 +292,8 @@ namespace SOLARCELL
 		for(; semi_cell != semi_endc; semi_cell++)
 		{
 			semiconductor_cells.push_back(
-													std::pair<unsigned int, unsigned int>(semi_cell->level(),
-																												 				semi_cell->index()));
+							std::pair<unsigned int, unsigned int>(semi_cell->level(),
+							semi_cell->index()));
 			semiconductor_cell_centers.push_back(semi_cell->center());
 		}
 
@@ -312,12 +312,12 @@ namespace SOLARCELL
 				if(Poisson_cell_centers[i].distance(semiconductor_cell_centers[j]) < 1e-13)
 				{
 					semi_pair = std::pair<unsigned int, unsigned int>(
-																		 semiconductor_cells[j].first, // level
-																		 semiconductor_cells[j].second); // index
+										 semiconductor_cells[j].first, // level
+										 semiconductor_cells[j].second); // index
 					
 					Poisson_pair = std::pair<unsigned int, unsigned int>(
-																			Poisson_cells[i].first, // level
-																			Poisson_cells[i].second); // index
+										Poisson_cells[i].first, // level
+										Poisson_cells[i].second); // index
 
 					// mapping from semiconductor cell to Poisson cell
 					mapping_pair.first  = semi_pair;				
@@ -337,12 +337,12 @@ namespace SOLARCELL
 			for(; elec_cell != elec_endc; elec_cell++)
 			{
 				electrolyte_cells.push_back(
-													std::pair<unsigned int, unsigned int>(elec_cell->level(),
-																																elec_cell->index()));
+							std::pair<unsigned int, unsigned int>(elec_cell->level(),
+							elec_cell->index()));
 				electrolyte_cell_centers.push_back(elec_cell->center());
 			}
 
-			std::pair<unsigned int,	unsigned int>					elec_pair;
+			std::pair<unsigned int,	unsigned int>			elec_pair;
 
 			// find cells which are in the electrolyte and poisson and make mapping between them
 			for(unsigned int i=0; i < Poisson_cells.size(); i++)
@@ -352,12 +352,12 @@ namespace SOLARCELL
 					if(Poisson_cell_centers[i].distance(electrolyte_cell_centers[j]) < 1e-13)
 					{
 						elec_pair = std::pair<unsigned int, unsigned int>(
-																		 electrolyte_cells[j].first, // level
-																		 electrolyte_cells[j].second); // index
+											electrolyte_cells[j].first, // level
+											electrolyte_cells[j].second); // index
 					
 						Poisson_pair = std::pair<unsigned int, unsigned int>(
-																			Poisson_cells[i].first,	// level
-																			Poisson_cells[i].second); // index
+											Poisson_cells[i].first,	// level
+											Poisson_cells[i].second); // index
 
 						// mapping from electrolyte cell to Poisson cell
 						mapping_pair.first  = elec_pair;				
@@ -383,24 +383,24 @@ namespace SOLARCELL
 		// it builds the above matrix by distributing over multi threads locally
 		// and then building up the global matrix sequentially (kinda)
 		WorkStream::run(Poisson_dof_handler.begin_active(),
-										Poisson_dof_handler.end(),
-										std_cxx11::bind(&MixedPoisson::MixedFEM<dim>::
-																		assemble_local_Poisson_matrix, 
-																		Mixed_Assembler, // this object object
-																		std_cxx11::_1,
-																		std_cxx11::_2,
-																		std_cxx11::_3,
-																		sim_params.semiconductor_permittivity,
-																		sim_params.electrolyte_permittivity,
-																		sim_params.scaled_debeye_length), 
-										std_cxx11::bind(&SOLARCELL::SolarCellProblem<dim>::
-																		copy_local_to_global_Poisson_matrix,
-																		this, // this object
-																		std_cxx11::_1),
-										Assembly::AssemblyScratch<dim>(Poisson_fe,
-																									 carrier_fe,
-																									 QGauss<dim>(degree+2),
-																									 QGauss<dim-1>(degree+2)),
+						Poisson_dof_handler.end(),
+						std_cxx11::bind(&MixedPoisson::MixedFEM<dim>::
+						assemble_local_Poisson_matrix, 
+						Mixed_Assembler, // this object object
+						std_cxx11::_1,
+						std_cxx11::_2,
+						std_cxx11::_3,
+						sim_params.semiconductor_permittivity,
+						sim_params.electrolyte_permittivity,
+						sim_params.scaled_debeye_length), 
+						std_cxx11::bind(&SOLARCELL::SolarCellProblem<dim>::
+						copy_local_to_global_Poisson_matrix,
+						this, // this object
+						std_cxx11::_1),
+						Assembly::AssemblyScratch<dim>(Poisson_fe,
+													   carrier_fe,
+													   QGauss<dim>(degree+2),
+													   QGauss<dim-1>(degree+2)),
 										Assembly::Poisson::CopyData<dim>(Poisson_fe)
 										);
 	} // end assemble_Poisson_matrix
@@ -408,25 +408,23 @@ namespace SOLARCELL
 	template <int dim>
 	void 
 	SolarCellProblem<dim>::
-	copy_local_to_global_Poisson_matrix(
-											const Assembly::Poisson::CopyData<dim> & data)
+	copy_local_to_global_Poisson_matrix(const Assembly::Poisson::CopyData<dim> & data)
 	{
 		// distribute local matrix to global Poisson matrix
 		Poisson_object.constraints.distribute_local_to_global(data.local_matrix,
-																									data.local_dof_indices,
-																									Poisson_object.system_matrix);
+															  data.local_dof_indices,
+															  Poisson_object.system_matrix);
 	}	// copy_local_to_global_poisson
 
 	template <int dim>
 	void 
 	SolarCellProblem<dim>::
-	copy_local_to_global_Poisson_rhs(
-											const Assembly::Poisson::CopyData<dim> & data)
+	copy_local_to_global_Poisson_rhs(const Assembly::Poisson::CopyData<dim> & data)
 	{
 		// copy the local RHS into the global RHS for Poisson
 		Poisson_object.constraints.distribute_local_to_global(data.local_rhs,
-																									 data.local_dof_indices,
-																									 Poisson_object.system_rhs);
+															  data.local_dof_indices,
+															  Poisson_object.system_rhs);
 	}	
 
 	template <int dim>
@@ -441,7 +439,7 @@ namespace SOLARCELL
 		// This is the one coupled to the semiconductor
 		/*-------------------------------------------------------------*/
 		WorkStream::run(semiconductor_dof_handler.begin_active(),
-										semiconductor_dof_handler.end(),
+						semiconductor_dof_handler.end(),
 										std_cxx11::bind(&SOLARCELL::SolarCellProblem<dim>::
 																		assemble_local_Poisson_rhs_for_semiconductor,
 																		this, // this object

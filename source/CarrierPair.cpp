@@ -23,8 +23,8 @@ namespace ChargeCarrierSpace
 	template<int dim>
 	void
 	CarrierPair<dim>::
-	setup_dofs(const FESystem<dim>	& fe,
-						DoFHandler<dim>				& dof_handler)
+	setup_dofs(const FESystem<dim>			& fe,
+			   DoFHandler<dim>				& dof_handler)
 	{
 		// distribute the dofs for the electron hole pair
 		dof_handler.distribute_dofs(fe);
@@ -38,26 +38,26 @@ namespace ChargeCarrierSpace
 		// allocate memory for [0 , 0 ; 0 , M ]
 		DynamicSparsityPattern carrier_mass_dsp(n_dofs,n_dofs);
 
-  	// create the actual sparsity pattern and allocate memory for the matrices
+ 	 	// create the actual sparsity pattern and allocate memory for the matrices
 		
 		// carrier_1s:
-  	DoFTools::make_flux_sparsity_pattern (dof_handler, carrier_system_dsp);
-  	system_sparsity_pattern.copy_from(carrier_system_dsp);
- 
+  		DoFTools::make_flux_sparsity_pattern (dof_handler, carrier_system_dsp);
+  		system_sparsity_pattern.copy_from(carrier_system_dsp);
+ 	
 		carrier_1.system_matrix.reinit(system_sparsity_pattern);
 		carrier_2.system_matrix.reinit(system_sparsity_pattern);
 
-  	DoFTools::make_sparsity_pattern (dof_handler, carrier_mass_dsp);
-  	mass_sparsity_pattern.copy_from(carrier_mass_dsp);
-  	mass_matrix.reinit (mass_sparsity_pattern);
+	  	DoFTools::make_sparsity_pattern (dof_handler, carrier_mass_dsp);
+ 	 	mass_sparsity_pattern.copy_from(carrier_mass_dsp);
+	  	mass_matrix.reinit (mass_sparsity_pattern);
 
-  	// allocate memory for carrier_solutions
-  	carrier_1.solution.reinit (n_dofs); // [vector field, density]
-  	carrier_2.solution.reinit (n_dofs); // [vector field, density]
+	  	// allocate memory for carrier_solutions
+	  	carrier_1.solution.reinit (n_dofs); // [vector field, density]
+	  	carrier_2.solution.reinit (n_dofs); // [vector field, density]
 	
 		// memeory for RHS
-  	carrier_1.system_rhs.reinit (n_dofs); // [vector field, density]
-  	carrier_2.system_rhs.reinit (n_dofs); // [vector field, density]
+ 	 	carrier_1.system_rhs.reinit (n_dofs); // [vector field, density]
+ 	 	carrier_2.system_rhs.reinit (n_dofs); // [vector field, density]
 	
 		constraints.clear();
 		constraints.close();

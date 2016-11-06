@@ -66,19 +66,19 @@ namespace Assembly
 		FEValues<dim>					Poisson_fe_values;
 
 		/** Finite element for Poisson's equation in a face of a cell. */	
-		FEFaceValues<dim>			Poisson_fe_face_values;
+		FEFaceValues<dim>				Poisson_fe_face_values;
 
 		/** Finite element for carrier in a cell. */	
 		FEValues<dim>					carrier_fe_values;
 
 		/** Finite element for carrier on a face of a cell. */	
-		FEFaceValues<dim>			carrier_fe_face_values;
+		FEFaceValues<dim>				carrier_fe_face_values;
 
 		/** Finite element for carrier on a subface of a cell. */	
-		FESubfaceValues<dim>	carrier_fe_subface_values;
+		FESubfaceValues<dim>			carrier_fe_subface_values;
 
 		/** Finite element for carrier on a neighbor cells face. */	
-		FEFaceValues<dim>			carrier_fe_neighbor_face_values;
+		FEFaceValues<dim>				carrier_fe_neighbor_face_values;
 
 		/// Vector which holds right hand values of Poissons equation
 		/// at the quadrature points of the local cell
@@ -151,7 +151,7 @@ namespace Assembly
 
 		/// Vector which holds the potential basis function values at
 		/// the quadrature points of the local cell
-		std::vector<double>					psi_i_potential;
+		std::vector<double>			psi_i_potential;
 		
 		/// Vector which holds the electric field basis function values at
 		/// the quadrature points of the local cell.
@@ -159,7 +159,7 @@ namespace Assembly
 		
 		/// Vector which holds the charge carrier density basis function values at
 		/// the quadrature points of the local cell.
-		std::vector<double>					psi_i_density;
+		std::vector<double>			psi_i_density;
 		
 		/// Vector which holds the charge carrier current basis function values at
 		/// the quadrature points of the local cell.
@@ -230,37 +230,41 @@ namespace Assembly
 			/// Local vector for this cells contribution to carrier_1 transport
 			/// equation's right hand side: drift, generation recombination and
 			/// boundary terms
-			Vector<double>												local_carrier_1_rhs;
+			Vector<double>						local_carrier_1_rhs;
+
 			/// Local vector for this cells contribution to carrier_2 transport
 			/// equation's right hand side: drift, generation recombination and
 			/// boundary terms
-			Vector<double>												local_carrier_2_rhs;
+			Vector<double>						local_carrier_2_rhs;
 
 			/// Local matrix for this cells contribution to carrier_1 transport
 			/// equation's left hand side matrix which involves body intergrals
-			FullMatrix<double>										local_matrix_1;
+			FullMatrix<double>					local_matrix_1;
 
 			/// Local matrix for this cells contribution to carrier_2 transport 
 			///	equation's left hand side matrix which involves body intergrals
-			FullMatrix<double>										local_matrix_2;
+			FullMatrix<double>					local_matrix_2;
 
 			/// Local matrix for this cells contribution to drift diffusion equation's
 			/// mass matrix
-			FullMatrix<double>										local_mass_matrix;
+			FullMatrix<double>					local_mass_matrix;
 
 			// flux matrices
 			/// Matrix for flux from both test function and trial function interior
 			/// to this cell
-			FullMatrix<double>										vi_ui_matrix;
+			FullMatrix<double>					vi_ui_matrix;
 			/// Matrix for flux from test function interior
 			/// to this cell and trial function exterior to this cell
-			FullMatrix<double>										vi_ue_matrix;
+
+			FullMatrix<double>					vi_ue_matrix;
 			/// Matrix for flux from test function exterior
 			/// to this cell and trial function interior to this cell
-			FullMatrix<double>										ve_ui_matrix;
+
+			FullMatrix<double>					ve_ui_matrix;
+
 			/// Matrix for flux from both test function and trial function exterior
 			/// to this cell
-			FullMatrix<double>										ve_ue_matrix;
+			FullMatrix<double>					ve_ue_matrix;
 
 			/// Vector which holds the local to global degrees of freedom info
 			///  of this cell

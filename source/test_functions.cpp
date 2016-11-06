@@ -22,7 +22,7 @@ namespace test_Poisson
 			{}
 			
 			virtual double value(const Point<dim> &p, 
-													 const unsigned int component = 0 ) const;
+								 const unsigned int component = 0 ) const;
 	};
 
 	template <int dim>
@@ -33,7 +33,7 @@ namespace test_Poisson
 			{}
 			
 			virtual double value(const Point<dim> &p, 
-													 const unsigned int component = 0 ) const;
+								 const unsigned int component = 0 ) const;
 	};
 
 	template <int dim>
@@ -67,14 +67,14 @@ namespace test_Poisson
 			{}
 
 			virtual void vector_value(const Point<dim> & p,
-													 			Vector<double> &valuess) const;
+									  Vector<double> &valuess) const;
 	};
 
 	template <int dim>
 	void 
 	TrueSolution<dim>::
 	vector_value(const Point<dim> &p,
-							 Vector<double> &values) const
+				 Vector<double> &values) const
 	{
 		Assert(values.size() == dim+1,	
 					 ExcDimensionMismatch(values.size(), dim+1) );
@@ -108,7 +108,7 @@ namespace test_LDG_IMEX
 		{}
 
 		virtual double value(const Point<dim>	& p,
-													 	const unsigned int component=0) const;
+							 const unsigned int component=0) const;
 	};
 
 	template<int dim>
@@ -119,7 +119,7 @@ namespace test_LDG_IMEX
 		{}
 
 		virtual double value(const Point<dim>	& p,
-												 const unsigned int component=0) const;
+							 const unsigned int component=0) const;
 	};
 
 
@@ -131,7 +131,7 @@ namespace test_LDG_IMEX
 		{}
 
 		virtual double value(const Point<dim>	& p,
-													 	const unsigned int component=0) const;
+							 const unsigned int component=0) const;
 	};
 
 	template<int dim>
@@ -142,7 +142,7 @@ namespace test_LDG_IMEX
 			{}
 
 			virtual void vector_value(const Point<dim> & p,
-													 			Vector<double> &valuess) const;
+									  Vector<double> &valuess) const;
 	};
 
 	template <int dim>
@@ -236,7 +236,7 @@ namespace test_DD_Poisson
 		{}
 
 		virtual double value(const Point<dim>	& p,
-													 	const unsigned int component=0) const;
+							 const unsigned int component=0) const;
 	};
 
 	template<int dim>
@@ -247,7 +247,7 @@ namespace test_DD_Poisson
 		{}
 
 		virtual double value(const Point<dim>	& p,
-													 	const unsigned int component=0) const;
+							 const unsigned int component=0) const;
 	};
 
 	template<int dim>
@@ -258,7 +258,7 @@ namespace test_DD_Poisson
 		{}
 
 		virtual double value(const Point<dim>	& p,
-												 const unsigned int component=0) const;
+							 const unsigned int component=0) const;
 	};
 
 	template<int dim>
@@ -269,14 +269,14 @@ namespace test_DD_Poisson
 			{}
 
 			virtual void vector_value(const Point<dim> & p,
-													 			Vector<double> &valuess) const;
+									  Vector<double> &valuess) const;
 	};
 
 	template <int dim>
 	double
 	DD_RightHandSide<dim>::
 	value(const Point<dim> &p,
-				const unsigned int) const
+		  const unsigned int) const
 	{
 		double x = p[0];
 		double y = p[1];
@@ -301,7 +301,7 @@ namespace test_DD_Poisson
 	double
 	Poisson_RightHandSide<dim>::
 	value(const Point<dim> &p,
-				const unsigned int) const
+		  const unsigned int) const
 	{	
 		double x = p[0];
 		double y = p[1];
@@ -317,7 +317,7 @@ namespace test_DD_Poisson
 	double
 	DD_DirichletBC<dim>::
 	value(const Point<dim> &p,
-				const unsigned int) const
+		  const unsigned int) const
 	{
 		double x = p[0];
 		double y = p[1];
@@ -334,7 +334,7 @@ namespace test_DD_Poisson
 	void 
 	DD_TrueSolution<dim>::
 	vector_value(const Point<dim> &p,
-							 Vector<double> &values) const
+				 Vector<double> &values) const
 	{
 		Assert(values.size() == dim+1,	
 					 ExcDimensionMismatch(values.size(), dim+1) );
@@ -378,7 +378,7 @@ namespace test_interface_problem
 			{}
 
 			virtual double value(const Point<dim> & p,
-													 	const unsigned int component=0) const;
+								 const unsigned int component=0) const;
 	};
 	
 	template<int dim>
@@ -389,7 +389,7 @@ namespace test_interface_problem
 		{}
 
 		virtual double value(const Point<dim>	& p,
-													 	const unsigned int component=0) const;
+							 const unsigned int component=0) const;
 	};
 
 	template<int dim>
@@ -400,7 +400,7 @@ namespace test_interface_problem
 		{}
 
 		virtual double value(const Point<dim>	& p,
-												 const unsigned int component=0) const;
+							 const unsigned int component=0) const;
 	};
 
 
@@ -412,7 +412,7 @@ namespace test_interface_problem
 		{}
 
 		virtual double value(const Point<dim>	& p,
-													 	const unsigned int component=0) const;
+							 const unsigned int component=0) const;
 	};
 
 	template<int dim>
@@ -423,14 +423,14 @@ namespace test_interface_problem
 			{}
 
 			virtual void vector_value(const Point<dim> & p,
-													 			Vector<double> &valuess) const;
+									  Vector<double> &valuess) const;
 	};
 
 	template <int dim>
 	double
 	InitialConditions<dim>::
 	value(const Point<dim> &p,
-				const unsigned int component) const
+		  const unsigned int component) const
 	{
 		double x = p[0];
 		double y = p[1];
@@ -451,7 +451,7 @@ namespace test_interface_problem
 	double
 	RightHandSide<dim>::
 	value(const Point<dim> &p,
-				const unsigned int) const
+		  const unsigned int) const
 	{
 		double x = p[0];
 		double y = p[1];
@@ -468,7 +468,7 @@ namespace test_interface_problem
 	double
 	DirichletBC<dim>::
 	value(const Point<dim> &p,
-				const unsigned int) const
+		  const unsigned int) const
 	{
 		double x = p[0];
 		double y = p[1];
@@ -485,7 +485,7 @@ namespace test_interface_problem
 	double
 	InterfaceFunction<dim>::
 	value(const Point<dim> &p,
-				const unsigned int) const
+		  const unsigned int) const
 	{
 		double y = p[1];
 		double x = p[0];
@@ -505,7 +505,7 @@ namespace test_interface_problem
 	void 
 	TrueSolution<dim>::
 	vector_value(const Point<dim> &p,
-							 Vector<double> &values) const
+				 Vector<double> &values) const
 	{
 		Assert(values.size() == dim+1,	
 					 ExcDimensionMismatch(values.size(), dim+1) );

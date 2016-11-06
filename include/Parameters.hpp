@@ -184,13 +184,13 @@ namespace ParameterSpace
 				this->scaled_hole_recombo_t /= this->characteristic_time;
 
 				this->scaled_electron_recombo_v *= (this->characteristic_time /
-																						this->characteristic_length);
+													this->characteristic_length);
 
 				this->scaled_hole_recombo_v *= (this->characteristic_time /
-																				this->characteristic_length);
+												this->characteristic_length);
 
 				this->scaled_photon_flux *= (this->characteristic_time /
-																			this->characteristic_denisty);
+											this->characteristic_denisty);
 
 				this->scaled_absorption_coeff *= this->characteristic_length;
 
@@ -205,9 +205,9 @@ namespace ParameterSpace
 								 this->characteristic_length);
 
 				double mobility_scale = (this->characteristic_time *
-																PhysicalConstants::thermal_voltage) /
-																(this->characteristic_length *
-																this->characteristic_length);
+										PhysicalConstants::thermal_voltage) /
+										(this->characteristic_length *
+										this->characteristic_length);
 
 				this->scaled_electron_mobility *= mobility_scale;
 				this->scaled_hole_mobility *= mobility_scale;
@@ -215,31 +215,31 @@ namespace ParameterSpace
 				this->scaled_oxidant_mobility *= mobility_scale;
 
 				this->rescaled_k_et  = PhysicalConstants::electron_charge *
-															this->scaled_k_et * 
-															this->characteristic_denisty *
-															this->characteristic_denisty;
+											this->scaled_k_et * 
+											this->characteristic_denisty *
+											this->characteristic_denisty;
 
 				this->rescaled_k_ht  = PhysicalConstants::electron_charge *
-															this->scaled_k_ht *
-															this->characteristic_denisty *
-															this->characteristic_denisty;
+											this->scaled_k_ht *
+											this->characteristic_denisty *
+											this->characteristic_denisty;
 	
 				this->scaled_k_et *= (this->characteristic_time *
-															this->characteristic_denisty /
-															this->characteristic_length);
+									  this->characteristic_denisty /
+									  this->characteristic_length);
 														
 				this->scaled_k_ht *= (this->characteristic_time *
-															this->characteristic_denisty /
-															this->characteristic_length);
+									  this->characteristic_denisty /
+									  this->characteristic_length);
 
 				this->scaled_applied_bias /= PhysicalConstants::thermal_voltage;
 				this->scaled_built_in_bias /= PhysicalConstants::thermal_voltage;
 				this->scaled_schottky_bias /= PhysicalConstants::thermal_voltage;
 
 				this->rescale_current = (PhysicalConstants::electron_charge 
-																* this->characteristic_denisty 
-																* this->characteristic_length)
-																/ this->characteristic_time;
+										* this->characteristic_denisty 
+										* this->characteristic_length)
+										/ this->characteristic_time;
 
 
 /*

@@ -31,11 +31,11 @@ namespace Poisson
 			
 			~PoissonData();
 			/** \brief Distributes the dofs for the Mixed finte element method. */
-			void setup_dofs(const FESystem<dim>	& fe,
-											DoFHandler<dim>			& dof_handler);
+			void setup_dofs(const FESystem<dim>		& fe,
+							DoFHandler<dim>			& dof_handler);
 
 			/// \brief Prints out the number of dofs for MFEM.*/
-			void	print_info(DoFHandler<dim>			& dof_handler);
+			void	print_info(DoFHandler<dim>		& dof_handler);
 			/// set the direct solver.
 			void set_solver();
 
@@ -65,10 +65,10 @@ namespace Poisson
 			* \f] 
 			*  See MixedPoisson::MixedFEM for more information on the mixed method.
  			*/
-			Vector<double>					system_rhs;
+			Vector<double>				system_rhs;
 
 			/// solution to the linear system.
-			Vector<double>					solution;
+			Vector<double>				solution;
 
 			/// Direct solver
 			SparseDirectUMFPACK			solver;

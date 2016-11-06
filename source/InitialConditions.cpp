@@ -6,7 +6,7 @@
 	double
 	Electrons_Equilibrium<dim>::
 	value(const Point<dim> &p,
-				const unsigned int component) const
+		  const unsigned int component) const
 	{
 			// dim+1 components
 		if(component < dim)

@@ -23,20 +23,20 @@ class PostProcessor : public DataPostprocessor<dim>
 		/** \brief Constructor for Poisson post processor.*/
 		/** The constructor will assign the scaling values to the object.*/
 		PostProcessor(const ParameterSpace::Parameters 			& sim_parms,
-									const bool														& print_carrier,
-									const std::string											& name);
+					  const bool								& print_carrier,
+					  const std::string							& name);
 
 		/** \brief post processing done in this function.*/
 		/** \note: This is called internally from DatOut::build_patches*/
 		virtual
 		void 
 		compute_derived_quantities_vector(
-				const std::vector<Vector<double>>								&uh,
+				const std::vector<Vector<double>>				&uh,
 				const std::vector<std::vector<Tensor<1,dim>>>	&duh,
 				const std::vector<std::vector<Tensor<2,dim>>>	&dduh,
-				const std::vector<Point<dim>>										&normals,
-				const std::vector<Point<dim>>										&evaluated_points,
-				std::vector<Vector<double>>											&computed_quantities) const;
+				const std::vector<Point<dim>>					&normals,
+				const std::vector<Point<dim>>					&evaluated_points,
+				std::vector<Vector<double>>						&computed_quantities) const;
 
 
 		/** \brief Returns a vector containing the names of the data componetnt.*/

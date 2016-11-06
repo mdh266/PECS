@@ -52,7 +52,7 @@ namespace ChargeCarrierSpace
 		void solve();
 
 		/// Name of the carrier.	
-		std::string										name;
+		std::string						name;
 
 		/** This matrix is used to store the carrier's system matrix:
 		*   \f[ \left[ \begin{matrix}
@@ -75,20 +75,20 @@ namespace ChargeCarrierSpace
 		*	\f]
 		*  	This vector will be assembled at every time step. See LDG_System::LDG for more details.
 		*/
-		Vector<double>						system_rhs;
+		Vector<double>					system_rhs;
 
 		/** The solution to this carriers system of linear equations at this time step.*/
-		Vector<double>						solution;
+		Vector<double>					solution;
 
 		/** The linear solver for this carrier object. */
-		SparseDirectUMFPACK						solver;
+		SparseDirectUMFPACK				solver;
 	
 		/** The terms \f$\mu\f$ in the carriers transport equation. */
 
-		double 												scaled_mobility;
+		double 							scaled_mobility;
 
 		/** The terms \f$\alpha_{i}\f$ in the carriers transport equation. */
-		double												charge_number;
+		double							charge_number;
 
 //		double 												diff;	
 		// SOMETHING ABOUT WHETHER IT HAS RECOMBINATION OR GENERATION ?/

@@ -57,7 +57,7 @@ using namespace dealii;
 	
 			/** \brief Returns the value of the generation function at this points.*/		
 			virtual double value(const Point<dim> &p, 
-													 const unsigned int component = 0 ) const;
+								 const unsigned int component = 0 ) const;
 			
 		private:
 			/** \brief The scaled photon flux.*/

@@ -43,12 +43,12 @@ namespace ChargeCarrierSpace
 			/** \brief Distributes the dofs for the carrier pair. 
  			* Both carriers have the same distribution of dofs.*/
 			void 
-			setup_dofs(const FESystem<dim>	& fe,
-								DoFHandler<dim>			& dof_handler);
+			setup_dofs(const FESystem<dim>	     & fe,
+								DoFHandler<dim>	 & dof_handler);
 
 			/** \brief Prints the number DOFS in each of the carriers.	*/
 			void
-			print_info(DoFHandler<dim>		& dof_handler);
+			print_info(DoFHandler<dim>			 & dof_handler);
 
 			/** \brief Prints the DOFS into a files to be read in. */
 			void 
@@ -67,7 +67,7 @@ namespace ChargeCarrierSpace
 			set_electrolyte_for_testing(const ParameterSpace::Parameters & sim_params);
 	
 			/** Name of the material: semiconductor or electrolyte */
-			std::string									material_name;
+			std::string					material_name;
 
 			/** Sparsity pattern for system matrix to be inverted foreach carrier in
  			* 	this pair. */
@@ -79,28 +79,28 @@ namespace ChargeCarrierSpace
 			/** Constraint matrix for this pair.  This is mostly used to disributed 
  			* 	local dofs to global dofs during constructrion, since for DG methods
  			* 	there is not much to constrain. */
-			ConstraintMatrix						constraints;
+			ConstraintMatrix			constraints;
 
 			/** Mass matrix for the carrier pair.  Note we only need one, this implies
  			*	they use the same time step delta_t. */
-			SparseMatrix<double>			mass_matrix;
+			SparseMatrix<double>		mass_matrix;
 
 			/** Carrier 1 should be electron or reductant.*/
-			Carrier<dim>							carrier_1;
+			Carrier<dim>				carrier_1;
 
 			/** Carrier 2 should be hole or oxidant.*/
-			Carrier<dim>							carrier_2;
+			Carrier<dim>				carrier_2;
 
 			/** The penalty term for fluxes in LDG.  This is the same for each carrier 
  			*		in a pair since they have the same mesh. */
-			double 											penalty;
+			double 						penalty;
 
 			/** Time step for each of the carriers.  This is the same.  Any time you
  			*		want to change this you need to update the mass matrix and system matrix.*/
-			double											delta_t;
+			double						delta_t;
 
 			/** The dieletric constant for this material.*/
-			double											material_permittivity;
+			double						material_permittivity;
 
 	};
 

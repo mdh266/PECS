@@ -16,7 +16,7 @@
 
 			/** \brief Returns value of \f$\rho_{n}^{e}\f$ at point p.*/
 			virtual double value(const Point<dim> & p,
-													 	const unsigned int component=0) const;
+								 const unsigned int component=0) const;
 	};
 
 	/** \brief Initial/Boundary conditions for holes, \f$ \rho_{p}^{e} \f$.*/
@@ -30,7 +30,7 @@
 
 			/** \brief Returns value of \f$\rho_{p}^{e}\f$ at point p.*/
 			virtual double value(const Point<dim> & p,
-													 	const unsigned int component=0) const;
+								 const unsigned int component=0) const;
 	};
 
 	/** \brief Initial/Boundary conditions for reductants, \f$ \rho_{r}^{\infty} \f$.*/
@@ -44,7 +44,7 @@
 
 			/** \brief Returns value of \f$\rho_{r}^{\infty}\f$ at point p.*/
 			virtual double value(const Point<dim> & p,
-													 	const unsigned int component=0) const;
+								 const unsigned int component=0) const;
 	};
 
 	
@@ -60,7 +60,7 @@
 
 			/** \brief Returns value of \f$\rho_{o}^{\infty}\f$ at point p.*/
 			virtual double value(const Point<dim> & p,
-													 	const unsigned int component=0) const;
+								 const unsigned int component=0) const;
 	};
 
 

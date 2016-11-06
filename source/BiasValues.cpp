@@ -12,7 +12,7 @@ template <int dim>
 double 
 Built_In_Bias<dim>::
 value(const dealii::Point<dim> &p, 
-			const unsigned int ) const
+	  const unsigned int ) const
 {
 	// potential applied at y = 0, a positive potential is a foward bias,
 	// a negative potential is a reverse bias
@@ -50,7 +50,7 @@ template <int dim>
 double 
 Schottky_Bias<dim>::
 value(const dealii::Point<dim> &p, 
-			const unsigned int ) const
+	  const unsigned int ) const
 {
 	// potential applied at y = 0, a positive potential is a foward bias,
 	// a negative potential is a reverse bias
@@ -76,7 +76,7 @@ template <int dim>
 double 
 Applied_Bias<dim>::
 value(const dealii::Point<dim> &p, 
-			const unsigned int ) const
+	  const unsigned int ) const
 {
 	// potential applied at y = 0, a positive potential is a foward bias,
 	// a negative potential is a reverse bias
@@ -100,7 +100,7 @@ template <int dim>
 double 
 Bulk_Bias<dim>::
 value(const dealii::Point<dim> &p, 
-			const unsigned int ) const
+	  const unsigned int ) const
 {
 	// potential applied at y = 0, a positive potential is a foward bias,
 	// a negative potential is a reverse bias
