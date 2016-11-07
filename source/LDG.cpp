@@ -1163,7 +1163,8 @@ namespace LDG_System
 									+ 
 									(penalty/h) * psi_i_density) * 
 									scratch.carrier_1_bc_values[q] *
-									scratch.carrier_fe_face_values.JxW(q);										} // for i
+									scratch.carrier_fe_face_values.JxW(q);	
+						} // for i
 					}	// for q
 				} // end Dirichlet
 				else if(face->boundary_id() == Interface)

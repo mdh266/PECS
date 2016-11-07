@@ -413,7 +413,7 @@ namespace SOLARCELL
 		// distribute local matrix to global Poisson matrix
 		Poisson_object.constraints.distribute_local_to_global(data.local_matrix,
 								data.local_dof_indices,
-															  Poisson_object.system_matrix);
+								Poisson_object.system_matrix);
 	}	// copy_local_to_global_poisson
 
 	template <int dim>
@@ -422,7 +422,8 @@ namespace SOLARCELL
 	copy_local_to_global_Poisson_rhs(const Assembly::Poisson::CopyData<dim> & data)
 	{
 		// copy the local RHS into the global RHS for Poisson
-		Poisson_object.constraints.distribute_local_to_global(data.local_rhs,											  data.local_dof_indices,
+		Poisson_object.constraints.distribute_local_to_global(data.local_rhs,
+						  data.local_dof_indices,
 						  Poisson_object.system_rhs);
 	}	
 
