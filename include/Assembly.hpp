@@ -52,9 +52,9 @@ namespace Assembly
 		 *   sequentially.
 		*/ 
 		AssemblyScratch(const FiniteElement<dim> & Poisson_fe,
-									 const FiniteElement<dim> & carrier_fe,
-									 const Quadrature<dim>		& quadrature,
-									 const Quadrature<dim-1>	& face_quadrature);
+				const FiniteElement<dim> & carrier_fe,
+				const Quadrature<dim>	& quadrature,
+				const Quadrature<dim-1>	& face_quadrature);
 
 		/** This is the copy constructor that will be called in the WorkStream
 	 	* 	 call that will build and distribute the local matrices and vectors
@@ -63,22 +63,22 @@ namespace Assembly
 		AssemblyScratch(const AssemblyScratch & scratch);
 
 		/** Finite element for Poisson's equation in a cell. */	
-		FEValues<dim>					Poisson_fe_values;
+		FEValues<dim>				Poisson_fe_values;
 
 		/** Finite element for Poisson's equation in a face of a cell. */	
-		FEFaceValues<dim>				Poisson_fe_face_values;
+		FEFaceValues<dim>			Poisson_fe_face_values;
 
 		/** Finite element for carrier in a cell. */	
-		FEValues<dim>					carrier_fe_values;
+		FEValues<dim>				carrier_fe_values;
 
 		/** Finite element for carrier on a face of a cell. */	
-		FEFaceValues<dim>				carrier_fe_face_values;
+		FEFaceValues<dim>			carrier_fe_face_values;
 
 		/** Finite element for carrier on a subface of a cell. */	
 		FESubfaceValues<dim>			carrier_fe_subface_values;
 
 		/** Finite element for carrier on a neighbor cells face. */	
-		FEFaceValues<dim>				carrier_fe_neighbor_face_values;
+		FEFaceValues<dim>			carrier_fe_neighbor_face_values;
 
 		/// Vector which holds right hand values of Poissons equation
 		/// at the quadrature points of the local cell
@@ -94,23 +94,23 @@ namespace Assembly
 
 		/// Vector which holds the electric field values
 		///	at the quadrature points of the local cell
-		std::vector<Tensor<1,dim>>  electric_field_values;
+		std::vector<Tensor<1,dim>>  		electric_field_values;
 
 		/// Vector which holds the carrier_1 density values
 		///	at the quadrature points of the local cell
-		std::vector<double> 		old_carrier_1_density_values;
-
+		std::vector<double> 			old_carrier_1_density_values;
+	
 		/// Vector which holds the carrier_2 density values
 		///	at the quadrature points of the local cell
 		std::vector<double>			old_carrier_2_density_values;
 
 		/// Vector which holds the carrier_1 current density values
 		/// at the quadrature points of the local cell
-		std::vector<Tensor<1,dim>>  carrier_1_current_values;
+		std::vector<Tensor<1,dim>>  		carrier_1_current_values;
 	
 		/// Vector which holds the carrier_2 current density values
 		/// at the quadrature points of the local cell
-		std::vector<Tensor<1,dim>>  carrier_2_current_values;
+		std::vector<Tensor<1,dim>>  		carrier_2_current_values;
 
 		/// Vector which holds the donor doping profile density values
 		///	at the quadrature points of the local cell
@@ -155,7 +155,7 @@ namespace Assembly
 		
 		/// Vector which holds the electric field basis function values at
 		/// the quadrature points of the local cell.
-		std::vector<Tensor<1,dim>>	psi_i_field;
+		std::vector<Tensor<1,dim>>		psi_i_field;
 		
 		/// Vector which holds the charge carrier density basis function values at
 		/// the quadrature points of the local cell.
@@ -163,11 +163,11 @@ namespace Assembly
 		
 		/// Vector which holds the charge carrier current basis function values at
 		/// the quadrature points of the local cell.
-		std::vector<Tensor<1,dim>>	psi_i_current;
+		std::vector<Tensor<1,dim>>		psi_i_current;
 
 		/// Vector which holds the normal vector values at
 		/// the quadrature points of the local face.
-		std::vector<Tensor<1,dim>>	normals;
+		std::vector<Tensor<1,dim>>		normals;
 
 	};
 
@@ -195,10 +195,12 @@ namespace Assembly
 		
 			/// Local vector for this cells contribution to Poissons equation's
 			/// right hand side
-			Vector<double>												local_rhs;
+			Vector<double>				local_rhs;
+
 			/// Local matrix for this cells contribution to Poissons equation's
 			/// left hand side matrix
-			FullMatrix<double>										local_matrix;
+			FullMatrix<double>			local_matrix;
+
 			/// Vector which holds the local to global degrees of freedom info
 			///  of this cell
 			std::vector<types::global_dof_index>	local_dof_indices;
@@ -231,7 +233,7 @@ namespace Assembly
 			/// equation's right hand side: drift, generation recombination and
 			/// boundary terms
 			Vector<double>						local_carrier_1_rhs;
-
+f
 			/// Local vector for this cells contribution to carrier_2 transport
 			/// equation's right hand side: drift, generation recombination and
 			/// boundary terms
