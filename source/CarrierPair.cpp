@@ -80,10 +80,10 @@ namespace ChargeCarrierSpace
 //		std::cout << "n_density = " << n_density << std::endl;	
 											 
 		std::cout << "Number of DOFS carrier: "
-							<< 2 * dof_handler.n_dofs()
-							<< " = 2 x ( " << dof_handler.n_dofs() << " ) "
-							<< " = 2 x (" << n_current << " + " << n_density << ")"
-							<< std::endl;
+				  << 2 * dof_handler.n_dofs()
+				  << " = 2 x ( " << dof_handler.n_dofs() << " ) "
+				  << " = 2 x (" << n_current << " + " << n_density << ")"
+				  << std::endl;
 	}
 
 	template<int dim>
