@@ -23,7 +23,7 @@ namespace ChargeCarrierSpace
 	template<int dim>
 	void
 	CarrierPair<dim>::
-	setup_dofs(const FESystem<dim>			& fe,
+	setup_dofs(const FESystem<dim>		& fe,
 			DoFHandler<dim>				& dof_handler)
 	{
 		// distribute the dofs for the electron hole pair

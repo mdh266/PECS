@@ -12,13 +12,13 @@ namespace Grid_Maker
 	Grid<dim>::
 	Grid(const ParameterSpace::Parameters & sim_params)
 	{
-		scaled_domain_height 	= sim_params.scaled_domain_height;
-		scaled_domain_length 	= sim_params.scaled_domain_length;
+		scaled_domain_height	= sim_params.scaled_domain_height;
+		scaled_domain_length	= sim_params.scaled_domain_length;
 		scaled_radius_one		= sim_params.scaled_radius_one;
 		scaled_radius_two		= sim_params.scaled_radius_two;
-		scaled_boundary_layer	=	sim_params.scaled_boundary_layer;
+		scaled_boundary_layer	= sim_params.scaled_boundary_layer;
 		n_global_refine			= sim_params.n_global_refine;	
-		n_local_refine			=	sim_params.n_local_refine;
+		n_local_refine			= sim_params.n_local_refine;
 		insulated				= sim_params.insulated;
 		schottky				= sim_params.schottky_status;
 		
@@ -45,9 +45,9 @@ namespace Grid_Maker
 	void 
 	Grid<dim>::
 	make_grids(Triangulation<dim> & semiconductor_triang,
-			   Triangulation<dim> & electrolyte_triang,
-			   Triangulation<dim> & Poisson_triang,
-			   const bool		  & full_system)
+               Triangulation<dim> & electrolyte_triang,
+               Triangulation<dim> & Poisson_triang,
+               const bool		  & full_system)
 	{
 		// make grids
 		make_semiconductor_grid(semiconductor_triang);
@@ -73,8 +73,8 @@ namespace Grid_Maker
 		{
 			// semiconductor
 			typename Triangulation<dim>::active_cell_iterator
-										cell = semiconductor_triang.begin_active(),
-										endc = semiconductor_triang.end();
+						cell = semiconductor_triang.begin_active(),
+						endc = semiconductor_triang.end();
 			// loop over all the cells and mark for refinement
 			for(; cell != endc; cell++)
 				if(cell->material_id() == semi_boundary_layer_id)
