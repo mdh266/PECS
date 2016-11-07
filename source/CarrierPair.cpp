@@ -24,7 +24,7 @@ namespace ChargeCarrierSpace
 	void
 	CarrierPair<dim>::
 	setup_dofs(const FESystem<dim>			& fe,
-			   DoFHandler<dim>				& dof_handler)
+			DoFHandler<dim>				& dof_handler)
 	{
 		// distribute the dofs for the electron hole pair
 		dof_handler.distribute_dofs(fe);
