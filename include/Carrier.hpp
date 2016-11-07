@@ -88,7 +88,6 @@ namespace ChargeCarrierSpace
 		SparseDirectUMFPACK			solver;
 	
 		/** The terms \f$\mu\f$ in the carriers transport equation. */
-
 		double 					scaled_mobility;
 
 		/** The terms \f$\alpha_{i}\f$ in the carriers transport equation. */

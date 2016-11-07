@@ -15,7 +15,7 @@ namespace ParameterSpace
 	/// \brief Reads in the input file, if one isn't provided a default is created.
 	/** This object is instantiated in the main method and used as follows,
 	*
-	*		ParameterHandler					prm;
+	*		ParameterHandler			prm;
 	*		ParameterSpace::ParameterReader		param(prm);
 	*		param.read_parameters("input_file.prm");
 	*

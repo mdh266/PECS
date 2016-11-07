@@ -31,11 +31,11 @@ namespace Poisson
 			
 			~PoissonData();
 			/** \brief Distributes the dofs for the Mixed finte element method. */
-			void setup_dofs(const FESystem<dim>		& fe,
-							DoFHandler<dim>			& dof_handler);
+			void setup_dofs(const FESystem<dim>	& fe,
+					DoFHandler<dim>		& dof_handler);
 
 			/// \brief Prints out the number of dofs for MFEM.*/
-			void	print_info(DoFHandler<dim>		& dof_handler);
+			void	print_info(DoFHandler<dim>	& dof_handler);
 			/// set the direct solver.
 			void set_solver();
 
@@ -43,7 +43,7 @@ namespace Poisson
 			void solve();
 	
 			/// This matrix holds the constraints for hanging nodes and Neumann BC.
-			ConstraintMatrix						constraints;
+			ConstraintMatrix			constraints;
 	
 			/// Sparsity pattern for the mixed method.
 			SparsityPattern				sparsity_pattern;
@@ -55,7 +55,7 @@ namespace Poisson
 			*			 \end{matrix} \right]  \f]
 			*  See MixedPoisson::MixedFEM for more information on the mixed method.
  			*/
-			SparseMatrix<double>		system_matrix;
+			SparseMatrix<double>			system_matrix;
 	
 			/** This will be used to store the right hand side of the mixed method,
  			* \f[

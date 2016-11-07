@@ -38,9 +38,9 @@ namespace Grid_Maker
  			*	boundary layer.
  			*/
 			void make_grids(Triangulation<dim> & semiconductor_triang,
-							Triangulation<dim> & electrolyte_triang,
-							Triangulation<dim> & Poisson_triang,
-							const bool				 & full_system);
+					Triangulation<dim> & electrolyte_triang,
+					Triangulation<dim> & Poisson_triang,
+					const bool	   & full_system);
 
 			/** Makes a grid which is of the form, \image html semiconductor-grid.png
 			*	The top radius is <code> radius one <code/> while the top radius is 
@@ -50,7 +50,7 @@ namespace Grid_Maker
 			* for doing this is so that I can merge this triangulation with another
 			* since in order to do that, they must be on the most refined level.
 			*/
-			void make_semiconductor_grid(Triangulation<dim> 	 & triangulation);
+			void make_semiconductor_grid(Triangulation<dim>  & triangulation);
 
 			/** Makes a grid which is of the form, \image html electrolyte-grid.png
 			*	The top radius is <code> radius one <code/> while the top radius is 
@@ -60,7 +60,7 @@ namespace Grid_Maker
 			* for doing this is so that I can merge this triangulation with another
 			* since in order to do that, they must be on the most refined level.
 			*/
-			void make_electrolyte_grid(Triangulation<dim> 		 & triangulation);
+			void make_electrolyte_grid(Triangulation<dim> 	 & triangulation);
 			/** Makes a grid which is of the form, \image html Poisson-grid.png 
 			*	The top radius is <code> radius one <code/> while the top radius is 
 			*	<code> radius two <code/>.   It does so by merging the two provided grids.*/
@@ -70,9 +70,9 @@ namespace Grid_Maker
 
 			/** @param electrolyte_triang which looks like
  				* \image html electrolyte-grid.png. */	
-			void make_merged_grid(const Triangulation<dim>	    & semiconductor_triang,
-								  const Triangulation<dim>		& electrolyte_triang,
-								  Triangulation<dim>			& merged_triangulation);			
+			void make_merged_grid(const Triangulation<dim>	& semiconductor_triang,
+					      const Triangulation<dim>	& electrolyte_triang,
+					      Triangulation<dim>	& merged_triangulation);			
 
 			///\brief Subroutine that tags boundaries to be Dirichlet portions.
 			/** This subroutine loops over all the cells in <code>triangulation<code/h>
@@ -106,12 +106,12 @@ namespace Grid_Maker
  			* See	SOLARCELL::SolarCellProblem<dim>::test_steady_state. 
 			*/
 			void make_test_grid(Triangulation<dim>  & triangulation,
-								const int			& n_global_refine);
+					    const int		& n_global_refine);
 
 			/** Locally refines the triangulation around the point
 			* x = 1/2, y = 1/2.*/
 			void refine_test_grid(Triangulation<dim> & triangulation,
-           					  	  const unsigned int & local_refine);
+           				      const unsigned int & local_refine);
 
 			/** \brief Grid for testing the transient LDG problems.*/
 			/** See 
@@ -120,22 +120,22 @@ namespace Grid_Maker
  			*/
 			void
 			make_test_tran_grid(Triangulation<dim> 	& triangulation,
-								const int			& n_global_refine);
+					    const int		& n_global_refine);
 		
 			/** Makes a cube and sets all the boundaries to be Dirichlet. */
 			void
 			make_DD_Poisson_grid(Triangulation<dim>	& triangulation,
-								 const	int		 	& n_global_refine);
+					     const	int	& n_global_refine);
 	
 			
 			/// \brief Subroutine that prints the grid into a .msh file
 			void output_mesh(Triangulation<dim> & triangulation,
-							 const std::string  & grid_name);
+					const std::string  & grid_name);
 
 
 			/// \brief Subroutine that prints the grid into a .eps file
 			void print_grid(Triangulation<dim> & triangulation,
-							const std::string  & grid_name);
+					const std::string  & grid_name);
 
 		private:
 			enum

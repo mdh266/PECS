@@ -84,17 +84,17 @@ namespace SOLARCELL
 	* @param hole_density \f$\rho_{p}^{k-1}\f$.
 	*/
 	inline	double SRH_Recombination(const double & electron_density,
-									 const double & hole_density,
-									 const ParameterSpace::Parameters & params)
+					 const double & hole_density,
+					 const ParameterSpace::Parameters & params)
 	{
 		return 0.0; /*((params.scaled_intrinsic_density * 
-						params.scaled_intrinsic_density - 
-						electron_density * hole_density) /
-						(params.scaled_electron_recombo_t * (electron_density -
-						 params.scaled_intrinsic_density) + 
-						(params.scaled_hole_recombo_t * (hole_density -
-						 params.scaled_intrinsic_density)) ) );	
-						*/
+				params.scaled_intrinsic_density - 
+				electron_density * hole_density) /
+				(params.scaled_electron_recombo_t * (electron_density -
+				 params.scaled_intrinsic_density) + 
+				(params.scaled_hole_recombo_t * (hole_density -
+				 params.scaled_intrinsic_density)) ) );	
+				*/
 	}
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -109,7 +109,7 @@ namespace SOLARCELL
 			/** The constructor for this problem.  The parameter values are set here
  			* and the generation function is also set here.*/
 			SolarCellProblem(const unsigned int degree,
-							 ParameterHandler	&param);
+					 ParameterHandler	&param);
 
 			/** Destructor just deletes the dof_handlers.*/
 			~SolarCellProblem();
@@ -144,9 +144,9 @@ namespace SOLARCELL
 			* \f] 
 			* \note This is used by the LDG and mixed method. */
 			void
-			test_steady_state(const unsigned int & n_refine,
-							  ConvergenceTable 	 & Mixed_table,
-							  ConvergenceTable 	 & LDG_table);
+			test_steady_state(const unsigned int 	& n_refine,
+					 ConvergenceTable 	& Mixed_table,
+					 ConvergenceTable 	& LDG_table);
 
 			/** \brief Tests the LDG method with IMEX time stepping on the drift-diffusion eq.*/
 			/** Solves the drift-diffusion equation using the LDG method with IMEX time
@@ -184,7 +184,7 @@ namespace SOLARCELL
 			* ruin the spatial discritization convergence rate.*/
 			void
 			test_transient(const unsigned int & n_refine,
-						   ConvergenceTable   & LDG_table);
+				       ConvergenceTable   & LDG_table);
 
 			/** \brief Test the coupling of the mixed FEM to the LDG method.*/
 			/** The coupling of the drift-diffusion-Poisson problem using a LDG-IMEX and 
@@ -238,8 +238,8 @@ namespace SOLARCELL
 			*/
 			void
 			test_DD_Poisson(const unsigned int & n_refine,
-							ConvergenceTable & Mixed_table,
-							ConvergenceTable & LDG_table);
+					ConvergenceTable & Mixed_table,
+					ConvergenceTable & LDG_table);
 
 												
 
@@ -301,7 +301,7 @@ namespace SOLARCELL
 			* since they are basically the same mesh. */
 			void
 			test_interface_coupling(const unsigned int  & n_refine,
-									ConvergenceTable	& Table);
+						ConvergenceTable    & Table);
 
 
 		private:
@@ -322,55 +322,63 @@ namespace SOLARCELL
 				Dirichlet,
 				/// Neumann boundary id set in Grid_Maker::Grid.
 				Neumann,
-				///	Shottky boundary id set in Grid_Maker::Grid.
+				/// Shottky boundary id set in Grid_Maker::Grid.
 				Schottky
 			};
 	
 			/** sim_parms holds all the parameter values.*/
-			ParameterSpace::Parameters					sim_params;
+			ParameterSpace::Parameters			sim_params;
 	
 			/** The parameter handlers reads in the paramter values from the input file
  			*		and assigns them to sim_params. */
-			ParameterSpace::ParameterHandler			&prm;
+			ParameterSpace::ParameterHandler		&prm;
 
 			/*--------------------------------------------------------------*/
-			/* 	Poisson Data Structures										*/
+			/* 	Poisson Data Structures					*/
 			/*--------------------------------------------------------------*/
 			/// The Poisson's equation mesh.
-			Triangulation<dim>							Poisson_triangulation;
+			Triangulation<dim>				Poisson_triangulation;
+
 			/// DofHandler for the Poisson equation.
-			DoFHandler<dim>								Poisson_dof_handler;			
+			DoFHandler<dim>					Poisson_dof_handler;	
+		
 			/// This will be there FE -> Raviart-Thomas + DG
-			FESystem<dim>								Poisson_fe;
+			FESystem<dim>					Poisson_fe;
+
 			/// Holds the matrices, vectors, etc for Mixed method of Poisson.
-			Poisson::PoissonData<dim>					Poisson_object;			
+			Poisson::PoissonData<dim>			Poisson_object;			
 			
 			/*--------------------------------------------------------------*/
-			/* 	Carrier Data Structures										*/
+			/* 	Carrier Data Structures					*/
 			/*--------------------------------------------------------------*/
 			/// Mesh for the semiconductor domain.
-			Triangulation<dim>							semiconductor_triangulation;
+			Triangulation<dim>				semiconductor_triangulation;
+
 			/// DoFHandler for electron and hole. They will have the same distribution of dofs.
-			DoFHandler<dim>								semiconductor_dof_handler;
+			DoFHandler<dim>					semiconductor_dof_handler;
+
 			/// Holds the matrices, vectors etc for the electron/hole pair.
 			ChargeCarrierSpace::CarrierPair<dim> 		electron_hole_pair;
 
 			/// Mesh for the electrolyte domain.
-			Triangulation<dim>							electrolyte_triangulation;
+			Triangulation<dim>				electrolyte_triangulation;
 			/// DoFHandler for the redox pair. They will have same distribution od dofs.
-			DoFHandler<dim>								electrolyte_dof_handler;
+
+			DoFHandler<dim>					electrolyte_dof_handler;
 			/// Holds the matrices, vectors etc for the reductant/oxidant pair.
+
 			ChargeCarrierSpace::CarrierPair<dim> 		redox_pair;
 
 			/// The finite element of the LDG Method DG^{2} and DG
-			FESystem<dim>								carrier_fe;
+			FESystem<dim>					carrier_fe;
 
 			/** Object holds the assembling and printing routines for the LDG/
 			* semiconductor/electrolyte carrier system. */
-			MixedPoisson::MixedFEM<dim>					Mixed_Assembler;
+			MixedPoisson::MixedFEM<dim>			Mixed_Assembler;
+
 			/** Object holds the assembling and printing routines for the Mixed FEM
 			* Poisson equation on the whole domain.*/
-			LDG_System::LDG<dim>						LDG_Assembler;	
+			LDG_System::LDG<dim>				LDG_Assembler;	
 
 
 
@@ -380,12 +388,12 @@ namespace SOLARCELL
 			/** \brief Vector of semiconductor cells on the interface: their level and index. */
 			std::vector<std::pair<unsigned int, unsigned int>>  semi_interface_cells;
 			/** \brief Vector of semiconductor cells' faces that are on the interface. */
-			std::vector<unsigned int>  							semi_interface_faces;
+			std::vector<unsigned int>  			semi_interface_faces;
 	
 			/** \brief Vector of semiconductor cells on the interface: their level and index. */
 			std::vector<std::pair<unsigned int, unsigned int>>  elec_interface_cells;
 			/** \brief Vector of semiconductor cells' faces that are on the interface. */
-			std::vector<unsigned int>  							elec_interface_faces;
+			std::vector<unsigned int>  			elec_interface_faces;
 
 			/** \brief Bijective mapping from semiconductor cell to  global interface face index.*/
 			std::map<std::pair<unsigned int, unsigned int>, unsigned int>	semi_interface_map;
@@ -413,23 +421,23 @@ namespace SOLARCELL
 			const Oxidants_Equilibrium<dim>				oxidants_e;
 
 			/*-------------------------------------------------------------*/
-			/* The potential functions										*/
+			/* The potential functions					*/
 			/*-------------------------------------------------------------*/
 			/// \f$ \Phi_{\text{bi}} \f$
-			Built_In_Bias<dim>							built_in_bias;
+			Built_In_Bias<dim>					built_in_bias;
 			/// \f$ \Phi_{\text{app.}} \f$
-			Applied_Bias<dim>							applied_bias;
+			Applied_Bias<dim>					applied_bias;
 			/// \f$ \Phi^{\infty} \f$
-			Bulk_Bias<dim>								bulk_bias;
+			Bulk_Bias<dim>						bulk_bias;
 			/// \f$ \Phi_{\text{Sch}} \f$ 	
-			Schottky_Bias<dim>							schottky_bias;
+			Schottky_Bias<dim>					schottky_bias;
 
 			/*-------------------------------------------------------------*/
-			/* Generation function											*/
+			/* Generation function						*/
  			/*-------------------------------------------------------------*/
 			/** Generation function \f$G(\textbf{x})\f$.  The incident location
  			*		is set here.*/
-			Generation<dim>						 		generation;
+			Generation<dim>						 generation;
 
 
 			Vector<double>	diff_electrons;
@@ -467,7 +475,7 @@ namespace SOLARCELL
 			*/
 			void 
 			copy_local_to_global_Poisson_matrix(
-										const Assembly::Poisson::CopyData<dim> 	& data);
+						const Assembly::Poisson::CopyData<dim> 	& data);
 
 			/** Copys the local right hand side vectors assembled my and this
 			*  object into the global right hand side vector in Poisson_object. 
@@ -475,7 +483,7 @@ namespace SOLARCELL
 			*/
 			void 
 			copy_local_to_global_Poisson_rhs(
-										const Assembly::Poisson::CopyData<dim> & data);
+						const Assembly::Poisson::CopyData<dim> & data);
 
 			/** \brief Assembles the global poisson rhs for the coupled problem.*/
  			/** It first uses the semiconductor_dof_handler to run over the 
@@ -545,8 +553,8 @@ namespace SOLARCELL
 			void
 			assemble_local_Poisson_rhs_for_semiconductor(
 				const typename DoFHandler<dim>::active_cell_iterator 	& cell,
-				Assembly::AssemblyScratch<dim>							& scratch,
-				Assembly::Poisson::CopyData<dim>						& data);
+				Assembly::AssemblyScratch<dim>				& scratch,
+				Assembly::Poisson::CopyData<dim>			& data);
 	
 			/** \brief Assembles the local poisson rhs for the coupled problem
  			*		in the electrolyte triangulation. */
@@ -566,8 +574,8 @@ namespace SOLARCELL
 			void 
 			assemble_local_Poisson_rhs_for_electrolyte(
 				const typename DoFHandler<dim>::active_cell_iterator 	& cell,
-				Assembly::AssemblyScratch<dim>							& scratch,
-				Assembly::Poisson::CopyData<dim>						& data);
+				Assembly::AssemblyScratch<dim>				& scratch,
+				Assembly::Poisson::CopyData<dim>			& data);
 
 
 			/** Assembles the LDG system that asembles the mass matrix and system matrix for the
@@ -580,38 +588,38 @@ namespace SOLARCELL
  			*		electron hole pair. */
 			void
 			copy_local_to_global_semiconductor_mass_matrix(						
-						const Assembly::DriftDiffusion::CopyData<dim>			& data);
+					const Assembly::DriftDiffusion::CopyData<dim>	& data);
 
 			/** Copies the local calculations into the global mass matrix for the
  			*		redox pair. */
 			void
 			copy_local_to_global_electrolyte_mass_matrix(						
-						const Assembly::DriftDiffusion::CopyData<dim>			& data);
+					const Assembly::DriftDiffusion::CopyData<dim>	& data);
 
 
 			/** Copies the local calculations into the global system matrix for the
  			*		electron hole pair. */
 			void
 			copy_local_to_global_semiconductor_system_matrix(						
-						const Assembly::DriftDiffusion::CopyData<dim>			& data);
+					const Assembly::DriftDiffusion::CopyData<dim>	& data);
 
 			/** Copies the local calculations into the global system matrix for the
  			*		redox pair. */
 			void
 			copy_local_to_global_electrolyte_system_matrix(						
-						const Assembly::DriftDiffusion::CopyData<dim>			& data);
+					const Assembly::DriftDiffusion::CopyData<dim>	& data);
 
 			/** Copies the local calculations into the global right hand side for the
  			*		electron hole pair. */
 			void
 			copy_local_to_global_semiconductor_system_rhs(						
-						const Assembly::DriftDiffusion::CopyData<dim>			& data);
+					const Assembly::DriftDiffusion::CopyData<dim>	& data);
 
 			/** Copies the local calculations into the global right hand side for the
  			*		redox pair. */
 			void
 			copy_local_to_global_electrolyte_system_rhs(						
-						const Assembly::DriftDiffusion::CopyData<dim>			& data);
+					const Assembly::DriftDiffusion::CopyData<dim>	& data);
 
 			/** Builds the RHSes for the electron and hole equations.*/
 			/**	This function loops through all the cells in the semiconductor
@@ -641,9 +649,9 @@ namespace SOLARCELL
 			void
 			assemble_local_semiconductor_rhs(
 						const typename DoFHandler<dim>::active_cell_iterator & cell,
-						Assembly::AssemblyScratch<dim>						 & scratch,
-						Assembly::DriftDiffusion::CopyData<dim>				 & data,
-						const double 										 & penalty);
+						Assembly::AssemblyScratch<dim>			 & scratch,
+						Assembly::DriftDiffusion::CopyData<dim>		 & data,
+						const double 					 & penalty);
 
 			/** Builds the RHSes for the reductant and oxidant equations.*/
 			/**	This function loops through all the cells in the electrolyte
@@ -670,10 +678,10 @@ namespace SOLARCELL
  			*/
 			void
 			assemble_local_electrolyte_rhs(
-						const typename DoFHandler<dim>::active_cell_iterator & cell,
-						Assembly::AssemblyScratch<dim>						 & scratch,
-						Assembly::DriftDiffusion::CopyData<dim>				 & data,
-						const double 										 & penalty);
+					const typename DoFHandler<dim>::active_cell_iterator & cell,
+					Assembly::AssemblyScratch<dim>			 & scratch,
+					Assembly::DriftDiffusion::CopyData<dim>		 & data,
+					const double 					 & penalty);
 
 
 			void
@@ -681,10 +689,10 @@ namespace SOLARCELL
 
 			void
 			assemble_local_Schottky_rhs(
-						const typename DoFHandler<dim>::active_cell_iterator & cell,
-						Assembly::AssemblyScratch<dim>						 & scratch,
-						Assembly::DriftDiffusion::CopyData<dim>				 & data,
-						const double 										 & penalty);
+					const typename DoFHandler<dim>::active_cell_iterator & cell,
+					Assembly::AssemblyScratch<dim>			 & scratch,
+					Assembly::DriftDiffusion::CopyData<dim>		 & data,
+					const double 					 & penalty);
 
 
 			/** Factorizes all the matrices (Poisson and carriers). */	
@@ -733,40 +741,40 @@ namespace SOLARCELL
  			*	SOLARCELL::SolarCellProblem::test_DD_Poisson.*/
 			void
 			assemble_local_coupled_DD_test_rhs(
-						const typename DoFHandler<dim>::active_cell_iterator & cell,
-						Assembly::AssemblyScratch<dim>						 & scratch,
-						Assembly::DriftDiffusion::CopyData<dim>			     & data,
-						const double										 & time,
-						const double 										 & penalty);								
+					const typename DoFHandler<dim>::active_cell_iterator & cell,
+					Assembly::AssemblyScratch<dim>			 & scratch,
+					Assembly::DriftDiffusion::CopyData<dim>		 & data,
+					const double					 & time,
+					const double 					 & penalty);								
 			/** Assembles the local cell rhs term for the mixed FEM applied to the 
 			* Poisson equation defined in
  			*	SOLARCELL::SolarCellProblem::test_DD_Poisson.*/
 			void
 			assemble_local_coupled_Poisson_test_rhs(
-						const typename DoFHandler<dim>::active_cell_iterator & cell,
-						Assembly::AssemblyScratch<dim>						 & scratch,
-						Assembly::Poisson::CopyData<dim>					 & data,
-						const double										 & time);
+					const typename DoFHandler<dim>::active_cell_iterator & cell,
+					Assembly::AssemblyScratch<dim>			& scratch,
+					Assembly::Poisson::CopyData<dim>	 	& data,
+					const double					& time);
 	
 			/** Assembles the local cell rhs term for the \$f u \f$ in problem defined in
  			*	SOLARCELL::SolarCellProblem::test_interface_coupling.*/
 			void
 			assemble_local_test_semiconductor_rhs(
 					const typename DoFHandler<dim>::active_cell_iterator & cell,
-					Assembly::AssemblyScratch<dim>						 & scratch,
-					Assembly::DriftDiffusion::CopyData<dim>				 & data,
-					const double										 & time,
-					const double 										 & penalty);								
+					Assembly::AssemblyScratch<dim>		 & scratch,
+					Assembly::DriftDiffusion::CopyData<dim>	 & data,
+					const double				 & time,
+					const double 				 & penalty);								
 
 			/** Assembles the local cell rhs term for the \f$ v \f$ in problem defined in
  			*	SOLARCELL::SolarCellProblem::test_interface_coupling.*/
 			void
 			assemble_local_test_electrolyte_rhs(
 					const typename DoFHandler<dim>::active_cell_iterator & cell,
-					Assembly::AssemblyScratch<dim>						 & scratch,
-					Assembly::DriftDiffusion::CopyData<dim>				 & data,
-					const double 										 & time,
-					const double 										 & penalty);									
+					Assembly::AssemblyScratch<dim>			 & scratch,
+					Assembly::DriftDiffusion::CopyData<dim>		 & data,
+					const double 					 & time,
+					const double 					 & penalty);									
 
 
 	}; // END CLASS

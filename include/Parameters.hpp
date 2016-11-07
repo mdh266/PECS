@@ -87,23 +87,23 @@ namespace ParameterSpace
 			/** This functions makes almost everythingn 1.0 that is relevant for testing.*/
 			void set_params_for_testing(const unsigned int & n_refine)
 			{
-				n_global_refine = n_refine;
-				t_end = 1.0;
+				n_global_refine 	 = n_refine;
+				t_end 			 = 1.0;
 				scaled_electron_mobility = 1.0;
-				scaled_hole_mobility = 1.0;
-				scaled_oxidant_mobility = 1.0;
+				scaled_hole_mobility	 = 1.0;
+				scaled_oxidant_mobility  = 1.0;
 				scaled_reductant_mobility = 1.0;
-				scaled_absorption_coeff = 0.0;
+				scaled_absorption_coeff  = 0.0;
 	
 				scaled_domain_height  = 1.0;	
 				scaled_domain_length  = 1.0;
-				scaled_radius_one 		= 0.5;
-				scaled_radius_two			= 0.5;
+				scaled_radius_one     = 0.5;
+				scaled_radius_two     = 0.5;
 
-				scaled_debeye_length = 1.0;
-				characteristic_length = 1.0;
+				scaled_debeye_length   = 1.0;
+				characteristic_length  = 1.0;
 				characteristic_denisty = 1.0;
-				characteristic_time 	= 1.0;
+				characteristic_time    = 1.0;
 			}
 
 			/** This function opens <code>input_file.prm<code/>, 
@@ -184,30 +184,30 @@ namespace ParameterSpace
 				this->scaled_hole_recombo_t /= this->characteristic_time;
 
 				this->scaled_electron_recombo_v *= (this->characteristic_time /
-													this->characteristic_length);
+								this->characteristic_length);
 
 				this->scaled_hole_recombo_v *= (this->characteristic_time /
-												this->characteristic_length);
+								this->characteristic_length);
 
 				this->scaled_photon_flux *= (this->characteristic_time /
-											this->characteristic_denisty);
+							     this->characteristic_denisty);
 
 				this->scaled_absorption_coeff *= this->characteristic_length;
 
 				// DONT INCLUDE THE MATERIAL DIELECTRIC IN THE DEBEYE LENGTH
 				this->scaled_debeye_length = 
-								 (PhysicalConstants::thermal_voltage * 
-									PhysicalConstants::vacuum_permittivity) / //* 
-//									this->material_permittivity) /
-								(PhysicalConstants::electron_charge * 
-								 this->characteristic_denisty * 
-								 this->characteristic_length *
-								 this->characteristic_length);
+						(PhysicalConstants::thermal_voltage * 
+						PhysicalConstants::vacuum_permittivity) / //* 
+//						this->material_permittivity) /
+						(PhysicalConstants::electron_charge * 
+						this->characteristic_denisty * 
+						this->characteristic_length *
+						this->characteristic_length);
 
 				double mobility_scale = (this->characteristic_time *
-										PhysicalConstants::thermal_voltage) /
-										(this->characteristic_length *
-										this->characteristic_length);
+						PhysicalConstants::thermal_voltage) /
+						(this->characteristic_length *
+						this->characteristic_length);
 
 				this->scaled_electron_mobility *= mobility_scale;
 				this->scaled_hole_mobility *= mobility_scale;
@@ -215,73 +215,73 @@ namespace ParameterSpace
 				this->scaled_oxidant_mobility *= mobility_scale;
 
 				this->rescaled_k_et  = PhysicalConstants::electron_charge *
-											this->scaled_k_et * 
-											this->characteristic_denisty *
-											this->characteristic_denisty;
+							this->scaled_k_et * 
+							this->characteristic_denisty *
+							this->characteristic_denisty;
 
 				this->rescaled_k_ht  = PhysicalConstants::electron_charge *
-											this->scaled_k_ht *
-											this->characteristic_denisty *
-											this->characteristic_denisty;
+							this->scaled_k_ht *
+							this->characteristic_denisty *
+							this->characteristic_denisty;
 	
 				this->scaled_k_et *= (this->characteristic_time *
-									  this->characteristic_denisty /
-									  this->characteristic_length);
+							this->characteristic_denisty /
+							this->characteristic_length);
 														
 				this->scaled_k_ht *= (this->characteristic_time *
-									  this->characteristic_denisty /
-									  this->characteristic_length);
+							this->characteristic_denisty /
+							this->characteristic_length);
 
 				this->scaled_applied_bias /= PhysicalConstants::thermal_voltage;
 				this->scaled_built_in_bias /= PhysicalConstants::thermal_voltage;
 				this->scaled_schottky_bias /= PhysicalConstants::thermal_voltage;
 
 				this->rescale_current = (PhysicalConstants::electron_charge 
-										* this->characteristic_denisty 
-										* this->characteristic_length)
-										/ this->characteristic_time;
+							* this->characteristic_denisty 
+							* this->characteristic_length)
+							/ this->characteristic_time;
 
 
 /*
 				std::cout << "debeye length = " 
-									<< this->scaled_debeye_length 
-									<< std::endl;
+					<< this->scaled_debeye_length 
+					<< std::endl;
 				std::cout << "semiconductor perm = "
-									<< this->semiconductor_permittivity
-									<< std::endl;
+					<< this->semiconductor_permittivity
+					<< std::endl;
 				std::cout << "electrolyte perm = "
-									<< this->electrolyte_permittivity
-									<< std::endl;
+					<< this->electrolyte_permittivity
+					<< std::endl;
 				std::cout << "scaled electron mobility = " 
-									<< this->scaled_electron_mobility 
-									<< std::endl;
+					<< this->scaled_electron_mobility 
+					<< std::endl;
 				std::cout << "scaled hole mobility = " 
-									<< this->scaled_hole_mobility 
-									<< std::endl;
+					<< this->scaled_hole_mobility 
+					<< std::endl;
 				std::cout << "scaled reductant mobility = " 
-									<< this->scaled_reductant_mobility 
-									<< std::endl;
+					<< this->scaled_reductant_mobility 
+					<< std::endl;
 				std::cout << "scaled oxidant mobility = " 
-									<< this->scaled_oxidant_mobility 
-									<< std::endl;
+					<< this->scaled_oxidant_mobility 
+					<< std::endl;
 				std::cout << "k_et = " 
-									<< this->scaled_k_et
-									<< std::endl;
-				std::cout	<< "k_ht = " 
-									<< this->scaled_k_ht
-									<< std::endl;
+					<< this->scaled_k_et
+					<< std::endl;
+				std::cout << "k_ht = " 
+					<< this->scaled_k_ht
+					<< std::endl;
 				std::cout << "built in bias = " 
-									<< this->scaled_built_in_bias 
-									<< std::endl;
+					<< this->scaled_built_in_bias 
+					<< std::endl;
 				std::cout << "rescale current = "
-									<< this->rescale_current
-									<< std::endl;
+					<< this->rescale_current
+					<< std::endl;
 				std::cout << "photon flux = " 
-									<< this->scaled_photon_flux
-									<< std::endl;
+					<< this->scaled_photon_flux
+					<< std::endl;
 				std::cout << "absorption coeff = "
-									<< this->scaled_absorption_coeff 
-									<< std::endl;
+					<< this->scaled_absorption_coeff 
+					<< std::endl;
 */
 
 		} // parse_and_scale_parameters(prm)
