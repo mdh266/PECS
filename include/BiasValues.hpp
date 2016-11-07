@@ -23,7 +23,7 @@ class Built_In_Bias : public dealii::Function<dim>
 
 		/** \brief Returns value of \$f\Phi_{\text{bi}}\f$ at point p.*/ 
 		virtual double value(const dealii::Point<dim> &p, 
-							 const unsigned int component = 0 ) const;
+				     const unsigned int component = 0 ) const;
 
 	private:
 		double built_in_bias;
@@ -44,7 +44,7 @@ class Schottky_Bias : public dealii::Function<dim>
 		
 		/** \brief Returns value of \$f\Phi_{\text{sch.}}\f$ at point p.*/ 
 		virtual double value(const dealii::Point<dim> &p, 
-							 const unsigned int component = 0 ) const;
+				     const unsigned int component = 0 ) const;
 
 	private:
 		double Schottky_bias;
@@ -67,7 +67,7 @@ class Applied_Bias : public dealii::Function<dim>
 		
 		/** \brief Returns value of \$f\Phi_{\text{app.}}\f$ at point p.*/ 
 		virtual double value(const dealii::Point<dim> &p, 
-							 const unsigned int component = 0 ) const;
+				     const unsigned int component = 0 ) const;
 
 	private:
 		double applied_bias;
@@ -86,7 +86,7 @@ class Bulk_Bias : public dealii::Function<dim>
 		
 		/** \brief Returns value of \$f\Phi^{\infty}}\f$ at point p.*/ 
 		virtual double value(const dealii::Point<dim> &p, 
-							 const unsigned int component = 0 ) const;
+				     const unsigned int component = 0 ) const;
 };
 
 

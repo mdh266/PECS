@@ -21,8 +21,7 @@ namespace Grid_Maker
 
 	/// \brief This object will be used to build meshes over triangulations provided.
 	/** This object will be used to build meshes over triangulations provided.  Will
-	* 	build meshes for the semiconductor-electrolyte interface problem as well as
-	*	meshes for testing.  Can also be used to print meshes to .eps form.
+	* 	build meshes for the semiconductor-electrolyte interface problem as well 	* as meshes for testing.  Can also be used to print meshes to .eps form.
 	*/
 	template<int dim>	
 	class Grid

@@ -50,14 +50,14 @@ using namespace dealii;
 			/** \brief Sets all the parameter values to zero.*/
 			/** This sets all the parameter values to zero so that when you call,
 			*		this objects value at a point it will always return 0.*/
-			void		set_dark_params();
+			void	set_dark_params();
 
 			/** \brief Sets the objects scaled values from the parameters.*/
-			void		set_illuminated_params(const ParameterSpace::Parameters & Params);
+			void	set_illuminated_params(const ParameterSpace::Parameters & Params);
 	
 			/** \brief Returns the value of the generation function at this points.*/		
 			virtual double value(const Point<dim> &p, 
-								 const unsigned int component = 0 ) const;
+					     const unsigned int component = 0 ) const;
 			
 		private:
 			/** \brief The scaled photon flux.*/
