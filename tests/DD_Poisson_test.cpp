@@ -13,7 +13,7 @@ int main()
 
 //			MultithreadInfo::set_thread_limit(1);
 
-			ParameterHandler					prm;
+			ParameterHandler			prm;
 			ParameterSpace::ParameterReader		param(prm);
 			param.read_test_parameters("test_file.prm");
 
@@ -34,16 +34,16 @@ int main()
 			{
 				SOLARCELL::SolarCellProblem<2> 	DeviceSimulation(degree,prm);
 				DeviceSimulation.test_DD_Poisson(n_refine,
-												Mixed_table,
-												LDG_table);
+								Mixed_table,
+								LDG_table);
 			}
 
 			// get the convergence rates for potential and electric field
 			Mixed_table.evaluate_convergence_rates("Phi", 
-												ConvergenceTable::reduction_rate_log2);
+						ConvergenceTable::reduction_rate_log2);
 	
 			Mixed_table.evaluate_convergence_rates("D", 
-												ConvergenceTable::reduction_rate_log2);
+						ConvergenceTable::reduction_rate_log2);
 	
 			// set to 3 significant digits as output
 			Mixed_table.set_precision("Phi", 3);
@@ -54,10 +54,10 @@ int main()
 			Mixed_table.set_scientific("D", true);
 			// get the convergence rates for carrier_1 and carrier_2
 			LDG_table.evaluate_convergence_rates("u", 
-												ConvergenceTable::reduction_rate_log2);
+						ConvergenceTable::reduction_rate_log2);
 	
 			LDG_table.evaluate_convergence_rates("J", 
-												ConvergenceTable::reduction_rate_log2);
+						ConvergenceTable::reduction_rate_log2);
 	
 			// set to 3 significant digits as output
 			LDG_table.set_precision("u", 3);
@@ -72,13 +72,13 @@ int main()
 
 			std::cout << std::endl;
 			std::cout << "Mixed Method L2 Errors For Coupled Drift-Diffusion-Poisson" 
-								<< std::endl;
+				  << std::endl;
 			std::cout << std::endl;
 			Mixed_table.write_text(std::cout);
 
 			std::cout << std::endl;
 			std::cout << "LDG L2 Errors For Coupled Drift-Diffusion-Poisson" 
-								<< std::endl;
+				  << std::endl;
 			std::cout << std::endl;
 			LDG_table.write_text(std::cout);
 

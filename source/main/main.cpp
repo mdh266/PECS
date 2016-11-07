@@ -10,7 +10,7 @@ int main()
 			deallog.depth_console(0);
 			int degree   		= 1;
 
-			ParameterHandler					prm;
+			ParameterHandler			prm;
 			ParameterSpace::ParameterReader		param(prm);
 			param.read_parameters("input_file.prm");
 

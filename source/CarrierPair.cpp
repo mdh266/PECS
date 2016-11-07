@@ -24,7 +24,7 @@ namespace ChargeCarrierSpace
 	void
 	CarrierPair<dim>::
 	setup_dofs(const FESystem<dim>		& fe,
-			DoFHandler<dim>				& dof_handler)
+		   DoFHandler<dim>		& dof_handler)
 	{
 		// distribute the dofs for the electron hole pair
 		dof_handler.distribute_dofs(fe);
@@ -66,7 +66,7 @@ namespace ChargeCarrierSpace
 	template<int dim>
 	void
 	CarrierPair<dim>::
-	print_info(DoFHandler<dim>		& dof_handler)
+	print_info(DoFHandler<dim>  & dof_handler)
 	{	
 		std::vector<types::global_dof_index> dofs_per_component(dim+1);
 		DoFTools::count_dofs_per_component(dof_handler, dofs_per_component);

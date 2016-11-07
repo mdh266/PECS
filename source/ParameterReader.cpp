@@ -32,32 +32,32 @@ namespace ParameterSpace
 	{
 		prm.enter_subsection("computational");
 		prm.declare_entry("global refinements", "4",
-						  Patterns::Integer(1,10),
-						  "number of global refinements");
+				 Patterns::Integer(1,10),
+				 "number of global refinements");
 
 		prm.declare_entry("local refinements", "0",
-						  Patterns::Integer(0,10),
-						 "number of local refinements in predefined critical areas");
+				 Patterns::Integer(0,10),
+				"number of local refinements in predefined critical areas");
 
 		prm.declare_entry("time step size", "0.05",
-						Patterns::Double(0,1),
-						"scaled time step size of both subdomains");
+				Patterns::Double(0,1),
+				"scaled time step size of both subdomains");
 
 		prm.declare_entry("end time", "10",
-						Patterns::Double(0),
-						"time to steady state (in terms of characteristic time)");
+				Patterns::Double(0),
+				"time to steady state (in terms of characteristic time)");
 
 		prm.declare_entry("end time 2", "20",
-						Patterns::Double(0),
-						"2nd end time for restarting at end time");
+				Patterns::Double(0),
+				"2nd end time for restarting at end time");
 
 		prm.declare_entry("time stamps", "50",
-						Patterns::Integer(0,1000),
-						"number of output files until end time");
+				Patterns::Integer(0,1000),
+				"number of output files until end time");
 
 		prm.declare_entry("restart status", "false",
-						Patterns::Bool(),
-						"whether to use end of last run as start for this one");
+				Patterns::Bool(),
+				"whether to use end of last run as start for this one");
 
 		prm.leave_subsection();				
 

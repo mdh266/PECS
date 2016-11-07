@@ -29,7 +29,7 @@
 	value(const Point<dim> &p,
 		  const unsigned int component) const
 	{
-			// dim+1 components
+		// dim+1 components
 		if(component < dim)
 		{	
 			// set the components of the current initially to zero

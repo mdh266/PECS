@@ -233,7 +233,7 @@ namespace Assembly
 			/// equation's right hand side: drift, generation recombination and
 			/// boundary terms
 			Vector<double>						local_carrier_1_rhs;
-f
+
 			/// Local vector for this cells contribution to carrier_2 transport
 			/// equation's right hand side: drift, generation recombination and
 			/// boundary terms

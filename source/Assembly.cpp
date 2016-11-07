@@ -9,40 +9,40 @@ namespace Assembly
 	template<int dim>	
 	AssemblyScratch<dim>::
 	AssemblyScratch(const FiniteElement<dim> & Poisson_fe,
-					const FiniteElement<dim> & carrier_fe,
-					const Quadrature<dim>		& quadrature,
-					const Quadrature<dim-1>	& face_quadrature)
+			const FiniteElement<dim> & carrier_fe,
+			const Quadrature<dim>	& quadrature,
+			const Quadrature<dim-1>	& face_quadrature)
 	:
 	Poisson_fe_values(Poisson_fe, quadrature,
-					update_values 					 | 
-					update_gradients 				 |
-					update_quadrature_points 		 |
-					update_JxW_values				 ),
+			update_values 		 | 
+			update_gradients 	 |
+			update_quadrature_points |
+			update_JxW_values	 ),
 	Poisson_fe_face_values(Poisson_fe, face_quadrature,
-						update_values 			 | 
-						update_normal_vectors	 |
-						update_quadrature_points |
-						update_JxW_values		 ),
+				update_values 		 | 
+				update_normal_vectors	 |
+				update_quadrature_points |
+				update_JxW_values	 ),
 	carrier_fe_values(carrier_fe, quadrature,
-					update_values 					 | 
-					update_gradients 				 |
-					update_quadrature_points 		 |
-					update_JxW_values				 ),
+			update_values 			 | 
+			update_gradients 		 |
+			update_quadrature_points 	 |
+			update_JxW_values		 ),
 	carrier_fe_face_values(carrier_fe, face_quadrature,
-						update_values 					 | 
-						update_normal_vectors			 |	
-						update_quadrature_points 		 |
-						update_JxW_values				 ),
+				update_values 		 | 
+				update_normal_vectors	 |	
+				update_quadrature_points |
+				update_JxW_values	 ),
 	carrier_fe_subface_values(carrier_fe, face_quadrature,
-							update_values 					 | 
-							update_normal_vectors		 	 |
-							update_quadrature_points 		 |
-							update_JxW_values				 ),
+				update_values 		 | 
+				update_normal_vectors 	 |
+				update_quadrature_points |
+				update_JxW_values	 ),
 	carrier_fe_neighbor_face_values(carrier_fe, face_quadrature,
-									update_values 					 | 
-									update_normal_vectors			 |
-									update_quadrature_points 		 |
-									update_JxW_values				 ),
+				update_values 		 | 
+				update_normal_vectors	 |
+				update_quadrature_points |
+				update_JxW_values	 ),
 	Poisson_rhs_values(quadrature.size()),
 	Poisson_bc_values(face_quadrature.size()),
 	Poisson_bi_values(face_quadrature.size()),
@@ -74,23 +74,23 @@ namespace Assembly
 	AssemblyScratch(const AssemblyScratch & scratch)
 	:
 	Poisson_fe_values(scratch.Poisson_fe_values.get_fe(),
-					  scratch.Poisson_fe_values.get_quadrature(),
-					  scratch.Poisson_fe_values.get_update_flags() ),
+			scratch.Poisson_fe_values.get_quadrature(),
+			scratch.Poisson_fe_values.get_update_flags() ),
 	Poisson_fe_face_values(scratch.Poisson_fe_face_values.get_fe(),
-						   scratch.Poisson_fe_face_values.get_quadrature(),
-						   scratch.Poisson_fe_face_values.get_update_flags() ),
+			   scratch.Poisson_fe_face_values.get_quadrature(),
+			   scratch.Poisson_fe_face_values.get_update_flags() ),
 	carrier_fe_values(scratch.carrier_fe_values.get_fe(),
-					  scratch.carrier_fe_values.get_quadrature(),
-					  scratch.carrier_fe_values.get_update_flags() ),
+			  scratch.carrier_fe_values.get_quadrature(),
+			  scratch.carrier_fe_values.get_update_flags() ),
 	carrier_fe_face_values(scratch.carrier_fe_face_values.get_fe(),
-						   scratch.carrier_fe_face_values.get_quadrature(),
-						   scratch.carrier_fe_face_values.get_update_flags() ),
+			   scratch.carrier_fe_face_values.get_quadrature(),
+			   scratch.carrier_fe_face_values.get_update_flags() ),
 	carrier_fe_subface_values(scratch.carrier_fe_subface_values.get_fe(),
-							  scratch.carrier_fe_subface_values.get_quadrature(),
-							  scratch.carrier_fe_subface_values.get_update_flags() ),
+			  scratch.carrier_fe_subface_values.get_quadrature(),
+			  scratch.carrier_fe_subface_values.get_update_flags() ),
 	carrier_fe_neighbor_face_values(scratch.carrier_fe_face_values.get_fe(),
-									scratch.carrier_fe_face_values.get_quadrature(),
-									scratch.carrier_fe_face_values.get_update_flags() ),
+				scratch.carrier_fe_face_values.get_quadrature(),
+				scratch.carrier_fe_face_values.get_update_flags() ),
 	Poisson_rhs_values(scratch.Poisson_rhs_values),
 	Poisson_bc_values(scratch.Poisson_bc_values),
 	Poisson_bi_values(scratch.Poisson_bi_values),
@@ -132,8 +132,8 @@ namespace Assembly
 		CopyData(const FiniteElement<dim> & Poisson_fe)
 		:
 		local_rhs(Poisson_fe.dofs_per_cell),
-		local_matrix(Poisson_fe.dofs_per_cell,
-								 Poisson_fe.dofs_per_cell),
+		local_matrix(Poisson_fe.dofs_per_cell,	
+			     Poisson_fe.dofs_per_cell),
 		local_dof_indices(Poisson_fe.dofs_per_cell)
 		{ }
 
@@ -163,19 +163,19 @@ namespace Assembly
 		local_carrier_1_rhs(carrier_fe.dofs_per_cell),
 		local_carrier_2_rhs(carrier_fe.dofs_per_cell),
 		local_matrix_1(carrier_fe.dofs_per_cell,
-					   carrier_fe.dofs_per_cell),
+				carrier_fe.dofs_per_cell),
 		local_matrix_2(carrier_fe.dofs_per_cell,
-					   carrier_fe.dofs_per_cell),
+				carrier_fe.dofs_per_cell),
 		local_mass_matrix(carrier_fe.dofs_per_cell,
-						  carrier_fe.dofs_per_cell),
+				  carrier_fe.dofs_per_cell),
 		vi_ui_matrix(carrier_fe.dofs_per_cell,
-					 carrier_fe.dofs_per_cell),
+			     carrier_fe.dofs_per_cell),
 		vi_ue_matrix(carrier_fe.dofs_per_cell,
-					 carrier_fe.dofs_per_cell),
+			     carrier_fe.dofs_per_cell),
 		ve_ui_matrix(carrier_fe.dofs_per_cell,
-					 carrier_fe.dofs_per_cell),
+			     carrier_fe.dofs_per_cell),
 		ve_ue_matrix(carrier_fe.dofs_per_cell,
-					 carrier_fe.dofs_per_cell),	
+			     carrier_fe.dofs_per_cell),	
 		local_dof_indices(carrier_fe.dofs_per_cell),
 		local_neighbor_dof_indices(carrier_fe.dofs_per_cell)
 		{ }

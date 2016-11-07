@@ -8,7 +8,7 @@
 
 
 /*---------------------------------------------------------------------*/
-/*									POISSON TEST																			 */
+/* POISSON TEST							 */
 /*---------------------------------------------------------------------*/
 namespace test_Poisson
 {
@@ -22,7 +22,7 @@ namespace test_Poisson
 			{}
 			
 			virtual double value(const Point<dim> &p, 
-								 const unsigned int component = 0 ) const;
+					    const unsigned int component = 0 ) const;
 	};
 
 	template <int dim>
@@ -33,7 +33,7 @@ namespace test_Poisson
 			{}
 			
 			virtual double value(const Point<dim> &p, 
-								 const unsigned int component = 0 ) const;
+					     const unsigned int component = 0 ) const;
 	};
 
 	template <int dim>
@@ -67,7 +67,7 @@ namespace test_Poisson
 			{}
 
 			virtual void vector_value(const Point<dim> & p,
-									  Vector<double> &valuess) const;
+						  Vector<double> &valuess) const;
 	};
 
 	template <int dim>
@@ -93,7 +93,7 @@ namespace test_Poisson
 } // end test_Poisson namespace
 
 /*---------------------------------------------------------------------*/
-/*									LDG-IMEX TEST																			 */
+/*		LDG-IMEX TEST		  			       */
 /*---------------------------------------------------------------------*/
 
 namespace test_LDG_IMEX
@@ -108,7 +108,7 @@ namespace test_LDG_IMEX
 		{}
 
 		virtual double value(const Point<dim>	& p,
-							 const unsigned int component=0) const;
+				     const unsigned int component=0) const;
 	};
 
 	template<int dim>
@@ -119,7 +119,7 @@ namespace test_LDG_IMEX
 		{}
 
 		virtual double value(const Point<dim>	& p,
-							 const unsigned int component=0) const;
+				     const unsigned int component=0) const;
 	};
 
 
@@ -131,7 +131,7 @@ namespace test_LDG_IMEX
 		{}
 
 		virtual double value(const Point<dim>	& p,
-							 const unsigned int component=0) const;
+				     const unsigned int component=0) const;
 	};
 
 	template<int dim>
@@ -142,7 +142,7 @@ namespace test_LDG_IMEX
 			{}
 
 			virtual void vector_value(const Point<dim> & p,
-									  Vector<double> &valuess) const;
+						  Vector<double> &valuess) const;
 	};
 
 	template <int dim>
@@ -158,9 +158,9 @@ namespace test_LDG_IMEX
 		const double two_pi = 2*M_PI;
 
 		return -exp(-time)
-					 + two_pi * two_pi * cos(two_pi * x) 
-					 + two_pi * two_pi * cos(two_pi * y)
-					 + two_pi * sin(two_pi * x);
+			+ two_pi * two_pi * cos(two_pi * x) 
+			+ two_pi * two_pi * cos(two_pi * y)
+			+ two_pi * sin(two_pi * x);
 	}
 
 	template <int dim>
@@ -176,8 +176,8 @@ namespace test_LDG_IMEX
 		const double two_pi = 2*M_PI;
 
 		return exp(-time) 			
-						 + cos(two_pi * x) 
-						 + cos(two_pi * y);
+			+ cos(two_pi * x) 
+			+ cos(two_pi * y);
 	}
 
 	template <int dim>
@@ -198,10 +198,10 @@ namespace test_LDG_IMEX
 	void 
 	TrueSolution<dim>::
 	vector_value(const Point<dim> &p,
-							 Vector<double> &values) const
+		     Vector<double> &values) const
 	{
 		Assert(values.size() == dim+1,	
-					 ExcDimensionMismatch(values.size(), dim+1) );
+			ExcDimensionMismatch(values.size(), dim+1) );
 
 		double x = p[0];
 		double y = p[1];
@@ -221,7 +221,7 @@ namespace test_LDG_IMEX
 
 
 /*---------------------------------------------------------------------*/
-/*									DD-Poisson TEST																			 */
+/*		DD-Poisson TEST					       */
 /*---------------------------------------------------------------------*/
 
 namespace test_DD_Poisson
@@ -236,7 +236,7 @@ namespace test_DD_Poisson
 		{}
 
 		virtual double value(const Point<dim>	& p,
-							 const unsigned int component=0) const;
+				     const unsigned int component=0) const;
 	};
 
 	template<int dim>
@@ -247,7 +247,7 @@ namespace test_DD_Poisson
 		{}
 
 		virtual double value(const Point<dim>	& p,
-							 const unsigned int component=0) const;
+				     const unsigned int component=0) const;
 	};
 
 	template<int dim>
@@ -258,7 +258,7 @@ namespace test_DD_Poisson
 		{}
 
 		virtual double value(const Point<dim>	& p,
-							 const unsigned int component=0) const;
+				     const unsigned int component=0) const;
 	};
 
 	template<int dim>
@@ -269,7 +269,7 @@ namespace test_DD_Poisson
 			{}
 
 			virtual void vector_value(const Point<dim> & p,
-									  Vector<double> &valuess) const;
+						  Vector<double> &valuess) const;
 	};
 
 	template <int dim>
@@ -287,14 +287,14 @@ namespace test_DD_Poisson
 		const double u_at_time =  exp(-time) + cos(two_pi*x) + cos(two_pi*y);
 
 		const double div_E_u = two_pi * two_pi *
-					( cos(two_pi*y) - sin(two_pi*x) ) * u_at_time  
-					- two_pi * (two_pi * cos(two_pi*x) + 1) * sin(two_pi*x)
-					- two_pi * two_pi * sin(two_pi*y) * sin(two_pi*y);
+				( cos(two_pi*y) - sin(two_pi*x) ) * u_at_time  
+				- two_pi * (two_pi * cos(two_pi*x) + 1) * sin(two_pi*x)
+				- two_pi * two_pi * sin(two_pi*y) * sin(two_pi*y);
 
 		return -exp(-time)
-					 + two_pi * two_pi * cos(two_pi * x) 
-					 + two_pi * two_pi * cos(two_pi * y)
-					 - div_E_u;
+			 + two_pi * two_pi * cos(two_pi * x) 
+			 + two_pi * two_pi * cos(two_pi * y)
+			 - div_E_u;
 	}
 
 	template <int dim>
@@ -310,7 +310,7 @@ namespace test_DD_Poisson
 		const double two_pi = 2*M_PI;
 
 		return (4*M_PI*M_PI*(cos(2*M_PI*y) - sin(2*M_PI*x)) 
-					 			+ exp(-time) + cos(two_pi*x) + cos(two_pi*y));
+			+ exp(-time) + cos(two_pi*x) + cos(two_pi*y));
 	}
 
 	template <int dim>
@@ -326,8 +326,8 @@ namespace test_DD_Poisson
 		const double two_pi = 2*M_PI;
 
 		return exp(-time) 			
-						 + cos(two_pi * x) 
-						 + cos(two_pi * y);
+			+ cos(two_pi * x) 
+			+ cos(two_pi * y);
 	}
 
 	template <int dim>
@@ -337,7 +337,7 @@ namespace test_DD_Poisson
 				 Vector<double> &values) const
 	{
 		Assert(values.size() == dim+1,	
-					 ExcDimensionMismatch(values.size(), dim+1) );
+			 ExcDimensionMismatch(values.size(), dim+1) );
 
 		double x = p[0];
 		double y = p[1];
@@ -352,17 +352,17 @@ namespace test_DD_Poisson
 		// q = -nabla u - Eu
 		//current values
 		values(0) =	two_pi * sin(two_pi*x) - 
-								(two_pi * cos(two_pi*x) + 1) * (values(2));
+				(two_pi * cos(two_pi*x) + 1) * (values(2));
 	
 		values(1) = two_pi * sin(two_pi*y) -
-								two_pi * sin(two_pi*y) * values(2);
+				two_pi * sin(two_pi*y) * values(2);
 	}
 
 } // test_DD_Poisson
 
 
 /*---------------------------------------------------------------------*/
-/*								INTERFACE PROBLEM  TEST															 */
+/*	INTERFACE PROBLEM  TEST					       */
 /*---------------------------------------------------------------------*/
 
 
@@ -378,7 +378,7 @@ namespace test_interface_problem
 			{}
 
 			virtual double value(const Point<dim> & p,
-								 const unsigned int component=0) const;
+					     const unsigned int component=0) const;
 	};
 	
 	template<int dim>
@@ -389,7 +389,7 @@ namespace test_interface_problem
 		{}
 
 		virtual double value(const Point<dim>	& p,
-							 const unsigned int component=0) const;
+				     const unsigned int component=0) const;
 	};
 
 	template<int dim>
@@ -400,7 +400,7 @@ namespace test_interface_problem
 		{}
 
 		virtual double value(const Point<dim>	& p,
-							 const unsigned int component=0) const;
+				     const unsigned int component=0) const;
 	};
 
 
@@ -412,7 +412,7 @@ namespace test_interface_problem
 		{}
 
 		virtual double value(const Point<dim>	& p,
-							 const unsigned int component=0) const;
+				    const unsigned int component=0) const;
 	};
 
 	template<int dim>
@@ -423,7 +423,7 @@ namespace test_interface_problem
 			{}
 
 			virtual void vector_value(const Point<dim> & p,
-									  Vector<double> &valuess) const;
+						  Vector<double> &valuess) const;
 	};
 
 	template <int dim>
@@ -460,8 +460,8 @@ namespace test_interface_problem
 		const double two_pi = 2*M_PI;
 		
 		return -exp(-time)
-					 + two_pi * two_pi * cos(two_pi * x) 
-					 + two_pi * two_pi * cos(two_pi * y);
+			 + two_pi * two_pi * cos(two_pi * x) 
+			 + two_pi * two_pi * cos(two_pi * y);
 	}
 
 	template <int dim>
@@ -477,8 +477,8 @@ namespace test_interface_problem
 		const double two_pi = 2*M_PI;
 
 		return exp(-time) 			
-						 + cos(two_pi * x) 
-						 + cos(two_pi * y);
+			 + cos(two_pi * x) 
+			 + cos(two_pi * y);
 	}
 
 	template <int dim>
@@ -494,7 +494,9 @@ namespace test_interface_problem
 		const double two_pi = 2*M_PI;
 //		const double elec_field_term =  (exp(-time) + cos(two_pi*x) + sin(two_pi*y)); 
 	
-		double value = exp(-time) + cos(two_pi *y) + cos(two_pi*x);// + elec_field_term;
+		double value = 
+			exp(-time) + cos(two_pi *y) + cos(two_pi*x);
+			// + elec_field_term;
 
 		return value * value;
 	}
@@ -508,7 +510,7 @@ namespace test_interface_problem
 				 Vector<double> &values) const
 	{
 		Assert(values.size() == dim+1,	
-					 ExcDimensionMismatch(values.size(), dim+1) );
+			 ExcDimensionMismatch(values.size(), dim+1) );
 
 		double x = p[0];
 		double y = p[1];

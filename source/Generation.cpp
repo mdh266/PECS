@@ -36,7 +36,7 @@ value(const Point<dim> &p, const unsigned int ) const
 
 	return scaled_absorption_coeff *
 				 scaled_photon_flux  *
-					exp(scaled_absorption_coeff * 
+				exp(scaled_absorption_coeff * 
 				 (p[1] - scaled_incident_location));
 
 //	std::cout << "g = " << value << std::endl;
