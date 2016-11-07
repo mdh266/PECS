@@ -26,10 +26,10 @@ INCLUDE_DIRECTORIES("include")
 
 # Declare all source files the target consists of:
 SET(TARGET_SRC
-#	./source/main/main.cpp 				# main version
+	./source/main/main.cpp 				# main version
 #	./tests/Poisson_test.cpp			# Mixed FEM and LDG-IMEX test
 #	./tests/IMEX_LDG_test.cpp			# Mixed FEM and LDG-IMEX test
-	./tests/DD_Poisson_test.cpp		# Coupled Mixed FEM-LDG test
+#	./tests/DD_Poisson_test.cpp		# Coupled Mixed FEM-LDG test
 #	./tests/interface_test.cpp		# Coupled interface test
 	${TARGET_SRC}
 	${TEST_SRC}

@@ -19,7 +19,7 @@ namespace Poisson
 	void
 	PoissonData<dim>::
 	setup_dofs(const FESystem<dim>	& fe,
-			   DoFHandler<dim>		& dof_handler)
+		   DoFHandler<dim>	& dof_handler)
 	{
 		// distribute dofs
 		dof_handler.distribute_dofs(fe);
@@ -31,8 +31,7 @@ namespace Poisson
 
 		// make hanging node constraints
 		constraints.clear();
-		DoFTools::make_hanging_node_constraints(dof_handler,
-												constraints);	
+		DoFTools::make_hanging_node_constraints(dof_handler,											constraints);	
 	
 		// add constaints to Poisson_Neumann_constraints to constrain dofs
 		// of electric field to be 0 along the Neumann boundary. 
@@ -43,9 +42,9 @@ namespace Poisson
 		ComponentMask	electric_field_mask	= fe.component_mask(ElectricField);
 		
 		DoFTools::make_zero_boundary_constraints(dof_handler,
-												Neumann, // NEUMANN BOUNDARY INDICATOR
-												constraints,
-												electric_field_mask);
+							Neumann, // NEUMANN BOUNDARY INDICATOR
+							constraints,
+							electric_field_mask);
 	
 		constraints.close();
 
@@ -53,7 +52,7 @@ namespace Poisson
 		DynamicSparsityPattern Poisson_dsp(n_dofs,n_dofs);
 
 		DoFTools::make_sparsity_pattern(dof_handler,
-										Poisson_dsp);
+						Poisson_dsp);
 
 		constraints.condense(Poisson_dsp);
 		
@@ -79,7 +78,7 @@ namespace Poisson
 		DoFTools::count_dofs_per_component(dof_handler, dofs_per_component);
 		
 		const unsigned int n_electric_field 	= dofs_per_component[0];
-		const unsigned int n_potential			= dofs_per_component[dim];
+		const unsigned int n_potential		= dofs_per_component[dim];
 
 		std::cout << "Number of DOFS Poisson: "
 				  << dof_handler.n_dofs()
