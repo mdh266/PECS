@@ -2,7 +2,7 @@
 # ---------------------
 subsection computational
   # time to steady state (in terms of characteristic time)
-  set end time           = 5e4
+  set end time           = 5e1
 
   # 2nd end time for restarting at end time
   set end time 2         = 1e5

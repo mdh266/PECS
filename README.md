@@ -16,7 +16,11 @@ Once this complete you can type:
 
 *make release*
 
-to compile the code.
+to compile the code. Note: if just use:
+
+*make* 
+
+then there will be issues with the printing, if you want to use that version, you need to uncomment the commented part of the printing call.
 
 
 **Running The Code**
