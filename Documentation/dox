@@ -777,7 +777,8 @@ WARN_LOGFILE           =
 
 INPUT                  = ./ \
                          ../ \
-                         ../include
+                         ../include \
+												 /include
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -912,7 +913,8 @@ EXAMPLE_RECURSIVE      = NO
 # \image command).
 
 IMAGE_PATH             = ./images/ \
-                         /images/
+                         /images/ \
+												./Documentation/images/
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program
@@ -2107,7 +2109,7 @@ SKIP_FUNCTION_MACROS   = YES
 # the path). If a tag file is not located in the directory in which doxygen is
 # run, you must also specify the path to the tagfile here.
 
-TAGFILES               = deal.tag=http://www.dealii.org/8.4.1/doxygen/deal.II
+TAGFILES               = deal.tag=http://www.dealii.org/8.4.1/doxygen/deal.II 
 
 # When a file name is specified after GENERATE_TAGFILE, doxygen will create a
 # tag file that is based on the input files it reads. See section "Linking to
