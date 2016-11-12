@@ -74,7 +74,7 @@ We present the mathematical model below, however a more through introduction can
 found <a href="http://www.ma.utexas.edu/users/gamba/papers/Semi-Elec-Interf.pdf"> here 
 </a>.
 
-
+*\hbar*
 \subsection Model
 We focus on the reactive dynamics of the semiconductor-electrolyte interface.
 Therfore our domain is the half cell, whose abstract representation is, 
