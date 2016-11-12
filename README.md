@@ -1,3 +1,5 @@
+*VIEW ON https://mdh266.github.io/PECS/*
+
 \mainpage  
 
 \author Michael Harmon
@@ -33,6 +35,10 @@ cd into the pecs directory.
 To generate a make file run to compile the code run: 
 
 <code> cmake . -DDEAL_II_DIR="path to deal.II library" </code>
+
+On a mac, if you downloaded the binaries of deal.ii library instead run:
+
+<code> cmake . </code>
 
 Once this complete you can type:
 
