@@ -5,15 +5,11 @@
 \section Overview
 
 \subsection Introduction
-This software is designed to numerically simulate a coupled system of
-reaction diffusion equations that describe the macroscopic dynamics of 
-charge transport in photoelectrochemical (PEC) solar cell.
-The main objective is to accurately capture the reactive dynamics of the 
-semiconductor-electrolyte interface. The underlying spatial descritizations
-are based on the local discontinuous Galerkin (LDG_System::LDG) 
-and mixed finite element method (MixedPoisson::MixedFEM).  The use of specific tailored
-implicit-explicit (IMEX) methods to capture transient solutions of the
-time dependent nonlinear systems of PDES. The main class in which everything is put together is in SOLARCELL::SolarCellProblem. 
+This software is designed the dynamics of the reactive interface between a
+semiconductor and electrolyte. The interface of the two makes up a half cell of a 
+<a href="https://en.wikipedia.org/wiki/Photoelectrochemical_cell">photoelectrochemical cell</a> 
+which can use solar energy to convert water into hydrogen fuel.  Material choices and 
+designs can be chosen by the user through the input file <code>input_file.prm</code>.  
 
 
 \subsection Requirements 
@@ -28,8 +24,50 @@ deal.ii's explanation on parallel computing with shared memory</a> to see why th
 necessary and how it works. 
 
 
-\subsection Installation
-First obtain and install a copy of the dealii <a href="https://www.dealii.org">deal.ii library</a> version 8.3.0 or higher. Once this has been done.
+\subsection Usage
+First obtain and install a copy of the dealii 
+<a href="https://www.dealii.org">deal.ii library</a> 
+version 8.3.0 or higher. After downloading and installing the deal.II library.  
+cd into the pecs directory.  
+
+To generate a make file run to compile the code run: 
+
+<code> cmake . -DDEAL_II_DIR="path to deal.II library" </code>
+
+Once this complete you can type:
+
+<code> make release </code>
+
+to compile the code. Note: if just use:
+
+To run the code type:
+
+<code>./main </code>
+
+The resulting outputs are in <a href="http://www.vtk.org/"> VTK </a> format and can 
+viewed using <a href="http://www.paraview.org/"> Paraview </a>.
+
+\section Background
+
+The software provides simulations of the workings of a photoelectrocrhemical solar cell
+by solving the reaction diffusion equations that describe the macroscopic dynamics of 
+charge transport in photoelectrochemical (PEC) solar cell.  
+The main objective is to accurately capture the reactive dynamics of the 
+semiconductor-electrolyte interface. The underlying spatial descritizations
+are based on the local discontinuous Galerkin (LDG_System::LDG) 
+and mixed finite element method (MixedPoisson::MixedFEM).  The use of specific tailored
+implicit-explicit (IMEX) methods to capture transient solutions of the
+time dependent nonlinear systems of PDES. The main class in which everything is put 
+together is in SOLARCELL::SolarCellProblem. Information on the numerical methods are
+provided in the links above as well as in the 
+<a href="http://www.ma.utexas.edu/users/gamba/papers/Harmon-IMG-Ren.pdf"> paper </a>
+based of this software.  
+
+
+We present the mathematical model below, however a more through introduction can be 
+found <a href="http://www.ma.utexas.edu/users/gamba/papers/Semi-Elec-Interf.pdf"> here 
+</a>.
+
 
 \subsection Model
 We focus on the reactive dynamics of the semiconductor-electrolyte interface.
@@ -43,7 +81,7 @@ the drift-diffusion-Poisson system of equations for electrons
 \f[ \begin{align} 
 \frac{\partial \rho_{n}}{\partial t}
 \, + \, 
-\boldsymbol \nabla  \cdot  \,\left( - \alpha_{n} \, \mu_{n}  \boldsymbol \nabla \Phi \, \rho_{n} 
+\boldsymbol \nabla  \cdot  \,\left( - \alpha_{n} \, \mu_{n} \boldsymbol \nabla \Phi \, \rho_{n} 
 \, - \,
 D_{n} \  \boldsymbol \nabla \, \rho_{n}  \, \right) 
 \; &= \; 
@@ -69,7 +107,8 @@ G
  \end{align} \f]
 
 
-Where \f$\alpha_{i} \f$, \f$\mu_{i}\f$ and \f$D_{i}\f$ are the charge numbers mobility and diffusivity of carrier \f$i = n,p\f$
+Where \f$\alpha_{i} \f$, \f$\mu_{i}\f$ and \f$D_{i}\f$ are the charge numbers mobility and 
+diffusivity of carrier \f$i = n,p\f$
 respectively.  The functions \f$\rho_{n}^{e}\f$
 and \f$\rho_{p}^{e}\f$ are the equilibrium electron and hole densities respectively.  
 The constants
@@ -180,11 +219,12 @@ similar drift-diffusion-Poisson system,
 \; &= \; 0, && \text{in} \ (0,T] \ \times \ \Omega_{E}  \\
 -\boldsymbol \nabla \cdot \left( \, \epsilon^{E}_{r} \, \boldsymbol \nabla \Phi \right)
 \; &= \;
-- \, \frac{q}{\epsilon_{0}} \, ( \rho_{r} - \rho_{o}). && \text{in} \ (0,T] \ \times \ \Omega_{E}   \nonumber
+- \, \frac{q}{\epsilon_{0}} \, ( \rho_{r} - \rho_{o}). && \text{in} \ (0,T] \ \times \ \Omega_{E} \nonumber
 \end{align}
 \f]
 
-Where \f$\alpha_{i} \f$, \f$\mu_{i}\f$ and \f$D_{i}\f$ are the charge numbers mobility and diffusivity of carrier \f$i = r,o\f$ respectively. The electrolyte permittivity is
+Where \f$\alpha_{i} \f$, \f$\mu_{i}\f$ and \f$D_{i}\f$ are the charge numbers mobility
+ and diffusivity of carrier \f$i = r,o\f$ respectively. The electrolyte permittivity is
 \f$\epsilon_{r}^{E}\f$.  The lack of doping profile in our electrolyte reflects the fact 
 that it is charge neutral.  Our model does not include any generation or recombination 
 mechanisms in the electrolyte domain since we are only considering so-called 
@@ -206,9 +246,11 @@ on boundary \f$\Gamma_{E,D}\f$,
 \end{align}
 \f]
 
-The location of \f$\Gamma_{E,D}\f$ is again set in Grid_Maker::Grid::make_Dirichlet_boundaries.
+The location of \f$\Gamma_{E,D}\f$ is again set in 
+Grid_Maker::Grid::make_Dirichlet_boundaries.
 The insulating portion of the electrolyte \f$\Gamma_{E,N} \f$ is set in 
-Grid_Maker::Grid::make_Neumann_boundaries.  On the insulting portion of the electrolyte we have,
+Grid_Maker::Grid::make_Neumann_boundaries.  On the insulting portion of the 
+electrolyte we have,
 
 \f[ \begin{align}
 \left(  - \alpha_{r} \, \mu_{r}  \,  \,\boldsymbol \nabla \Phi \, \rho_{r} 
@@ -224,7 +266,10 @@ Grid_Maker::Grid::make_Neumann_boundaries.  On the insulting portion of the elec
 \end{align}
 \f]
 
-The default values of the boundaries of the semiconductor and electrolyte domain are set to be the interface \f$\Sigma\f$, so any portion of the boundaries which are not set by the object Grid_Maker::Grid are defined as the interface. The potential and displacement electric field are continuous across \f$\Sigma\f$,
+The default values of the boundaries of the semiconductor and electrolyte domain are
+ set to be the interface \f$\Sigma\f$, so any portion of the boundaries which are not set
+ by the object Grid_Maker::Grid are defined as the interface. The potential and
+ displacement electric field are continuous across \f$\Sigma\f$,
 
 \f[
 \begin{align}
@@ -290,17 +335,23 @@ The initial conditions are taken to be,
 \end{align} 
 \f]
 
-These functions are assigned as objects of the classes, Electrons_Equilibrium, Holes_Equilibrium, Reductants_Equilibrium, Oxidants_Equilibrium.
+These functions are assigned as objects of the classes, 
+Electrons_Equilibrium, Holes_Equilibrium, Reductants_Equilibrium, Oxidants_Equilibrium.
 
 
-\note In scaling our equations we use Einstein's relations \f$ D \ = \ U_{T} \ \mu \f$ and singular perturbation scaling, for more information see the
+\note In scaling our equations we use Einstein's relations \f$ D \ = \ U_{T} \ \mu \f$ 
+and singular perturbation scaling, for more information see the
 <a href="http://www.ma.utexas.edu/users/gamba/papers/Semi-Elec-Interf.pdf">
 paper</a> on this model.  This eliminates the need for inputing diffusion constants.
 
-\note We take \f$ \alpha_{n} = -1\f$, \f$\alpha_{p} = 1\f$ and have the constraint, \f$ \alpha_{o} \, - \, \alpha_{r} = 1\f$.  These can be set in the constructor, SOLARCELL::SolarCellProblem().
+\note We take \f$ \alpha_{n} = -1\f$, \f$\alpha_{p} = 1\f$ and have the constraint, 
+\f$ \alpha_{o} \, - \, \alpha_{r} = 1\f$.  
+These can be set in the constructor, SOLARCELL::SolarCellProblem().
 
-The output of these simulations will be the calculations of potential, electric field, charge
-densities and the current.  The although in our model we have eliminated the charge of an electron, \f$q\f$, the output current through the device will involve the charge of the electron and is defined to be:
+The output of these simulations will be the calculations of potential, electric field, 
+charge densities and the current.  The although in our model we have eliminated the 
+charge of an electron, \f$q\f$, the output current through the device will involve the
+ charge of the electron and is defined to be:
 
 \f[
 \textbf{J}(\textbf{x}) \; = \;
@@ -314,9 +365,10 @@ densities and the current.  The although in our model we have eliminated the cha
 \right.
 \f]
 
-\note This definition of the current is continuous across the interface so long as \f$ \alpha_{o} \, - \, \alpha_{r} = 1\f$.
+\note This definition of the current is continuous across the interface so long as 
+\f$ \alpha_{o} \, - \, \alpha_{r} = 1\f$.
 
-\subsection Numerics
+\subsection Numerical methods.
 
 The overall stragy is to create a domain decomposition where in each subdomain we have
 a reaction-drift-diffusion system of equations for a pair of charge carriers.  The
@@ -336,7 +388,7 @@ Time stepping is handeled in a specific way such that nonlinear terms are
 linearized by time lagging.  Poisson is updated using implicit density values, 
 while the charge carriers use an IMEX strategy. The overall time stepping strategy
 is termed a ``parallel Gummel-Schwarz method."  The steps in this algorithm are
-presented in the flow chart, \image html parallel_gummel_schwarz.png
+presented in the flow chart, \image html parallel_gummel_schwarz.jpg
 For more deail see LDG_System::LDG. 
 
 
