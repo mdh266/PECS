@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['blockmatrixiterators',['BlockMatrixIterators',['http://www.dealii.org/8.4.1/doxygen/deal.II/namespaceBlockMatrixIterators.html',1,'']]]
+  ['blockmatrixiterators',['BlockMatrixIterators',['http://www.dealii.org/8.3.0/doxygen/deal.II/namespaceBlockMatrixIterators.html',1,'']]]
 ];

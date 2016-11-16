@@ -92,26 +92,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Overview</h1>
 <h2><a class="anchor" id="Introduction"></a>
 Introduction</h2>
-<p>This software is designed the dynamics of the reactive interface between a semiconductor and electrolyte. The interface of the two makes up a half cell of a <a href="https://en.wikipedia.org/wiki/Photoelectrochemical_cell">photoelectrochemical cell</a> which can use solar energy to convert water into hydrogen fuel. Material choices and designs can be chosen by the user through the input file <code>input_file.prm</code>.</p>
+<p>This software is designed to simulate the dynamics of the reactive interface between a semiconductor and electrolyte. The interface of between the semiconductor and electrolyte make up a "half cell" of a <a href="https://en.wikipedia.org/wiki/Photoelectrochemical_cell">photoelectrochemical cell</a> which can use solar energy to convert water into hydrogen fuel.</p>
 <h2><a class="anchor" id="Requirements"></a>
 Requirements</h2>
-<p>The source code can be downloaded from <a href="https://github.com/mdh266/PECS">here</a>. The requirements for this software are <a href="https://www.dealii.org">deal.ii library</a> version 8.3.0 or higher, and <a href="https://www.cmake.org">CMake</a> version 2.8 or higher. The code will automatically run in parallel using the <a href="https://www.threadingbuildingblocks.org/">Thread Building Blocks</a>. See <a href="https://www.dealii.org/developer/doxygen/deal.II/group__threads.html">deal.ii's explanation on parallel computing with shared memory</a> to see why this necessary and how it works.</p>
+<p>The requirements for this software are <a href="https://www.dealii.org">deal.ii library</a> version 8.3.0 or higher, and <a href="https://www.cmake.org">CMake</a> version 2.8 or higher. The code will automatically run in parallel using the <a href="https://www.threadingbuildingblocks.org/">Thread Building Blocks</a>. See <a href="https://www.dealii.org/developer/doxygen/deal.II/group__threads.html">deal.ii's explanation on parallel computing with shared memory</a> to see why this necessary and how it works. To make this documentation on your local machine you need <a href="http://www.stack.nl/~dimitri/doxygen/">doxygen</a>.</p>
 <h2><a class="anchor" id="Usage"></a>
 Usage</h2>
-<p>First obtain and install a copy of the dealii <a href="https://www.dealii.org">deal.ii library</a> version 8.3.0 or higher. After downloading and installing the deal.II library. cd into the pecs directory.</p>
-<p>To generate a make file run to compile the code run:</p>
+<p>The source code can be downloaded from <a href="https://github.com/mdh266/PECS">here</a>. You also need to obtain and install a copy of the dealii <a href="https://www.dealii.org">deal.ii library</a> version 8.3.0 or higher. After downloading and installing the deal.II library. cd into the PECS directory.</p>
+<p>To generate a make file run to compile the source code type:</p>
 <p><code> cmake . -DDEAL_II_DIR="path to deal.II library" </code></p>
 <p>On a mac, if you downloaded the binaries of deal.ii library instead run:</p>
 <p><code> cmake . </code></p>
 <p>Once this complete you can type:</p>
 <p><code> make release </code></p>
-<p>to compile the code. Note: if just use:</p>
+<p>to compile the code.</p>
 <p>To run the code type:</p>
 <p><code>./main </code></p>
-<p>The resulting outputs are in <a href="http://www.vtk.org/">VTK </a> format and can viewed using <a href="http://www.paraview.org/">Paraview </a>.</p>
+<p>Material and design choices can be chosen by the user through the input file <code>input_file.prm</code>.</p>
+<p>The resulting outputs are in <a href="http://www.vtk.org/">VTK </a> format and can viewed using <a href="http://www.paraview.org/">Paraview</a>.</p>
+<p>To make this documentation on your local machine, cd into the PECS directory and type:</p>
+<p><code> doxygen Documentation/dox </code></p>
+<p>The created documentation will be produced in a new directory called "html".</p>
 <h1><a class="anchor" id="Background"></a>
 Background</h1>
-<p>The software provides simulations of the workings of a photoelectrocrhemical solar cell by solving the reaction diffusion equations that describe the macroscopic dynamics of charge transport in photoelectrochemical (PEC) solar cell. The main objective is to accurately capture the reactive dynamics of the semiconductor-electrolyte interface. The underlying spatial descritizations are based on the local discontinuous Galerkin (<a class="el" href="class_l_d_g___system_1_1_l_d_g.html" title="This class builds two system matrices using the LDG method for the two ChargeCarrierSpace::Carrier ob...">LDG_System::LDG</a>) and mixed finite element method (<a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html">MixedPoisson::MixedFEM</a>). The use of specific tailored implicit-explicit (IMEX) methods to capture transient solutions of the time dependent nonlinear systems of PDES. The main class in which everything is put together is in <a class="el" href="class_s_o_l_a_r_c_e_l_l_1_1_solar_cell_problem.html">SOLARCELL::SolarCellProblem</a>. Information on the numerical methods are provided in the links above as well as in the <a href="http://www.ma.utexas.edu/users/gamba/papers/Harmon-IMG-Ren.pdf">paper </a> based of this software.</p>
+<p>The software provides simulations of a photoelectrocrhemical solar cell by solving the reaction diffusion equations that describe the macroscopic dynamics of charge transport in photoelectrochemical (PEC) solar cell. The main objective is to accurately capture the reactive dynamics of the semiconductor-electrolyte interface. The underlying spatial descritizations are based on the local discontinuous Galerkin (<a class="el" href="class_l_d_g___system_1_1_l_d_g.html" title="This class builds two system matrices using the LDG method for the two ChargeCarrierSpace::Carrier ob...">LDG_System::LDG</a>) and mixed finite element method (<a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html">MixedPoisson::MixedFEM</a>). The use of specific tailored implicit-explicit (IMEX) methods to capture transient solutions of the time dependent nonlinear systems of PDES. The main class in which everything is put together is in <a class="el" href="class_s_o_l_a_r_c_e_l_l_1_1_solar_cell_problem.html">SOLARCELL::SolarCellProblem</a>. Information on the numerical methods are provided in the links above as well as in the <a href="http://www.ma.utexas.edu/users/gamba/papers/Harmon-IMG-Ren.pdf">paper </a> based of this software.</p>
 <p>We present the mathematical model below, however a more through introduction can be found <a href="http://www.ma.utexas.edu/users/gamba/papers/Semi-Elec-Interf.pdf">here </a>.</p>
 <h2><a class="anchor" id="Model"></a>
 Model</h2>
@@ -125,7 +129,7 @@ Model</h2>
 <p>We use Shockley-Reed-Hall recombination <a class="el" href="namespace_s_o_l_a_r_c_e_l_l.html#a8aaa79c354d036a507e965151ce17e82" title="The recombination model. ">SOLARCELL::SRH_Recombination</a> as our sink functional, </p><p class="formulaDsp">
 \[ \begin{equation} R(\rho_{n}, \rho_{p}) \; = \; \frac{\rho_{i}^{2} \, -\, \rho_{n} \, \rho_{p}} {\tau_{n} \, (\rho_{n} \, + \, \rho_{i}) \, + \, \tau_{p} \, ( \rho_{p} \, + \, \rho_{i})}. \end{equation} \]
 </p>
-<p>The term \(\rho_{i}\) is the intrinsic electron density and can be spatially varying. \(\tau_{n}, \ \tau_{p} \) are constants called the electron and hole lifetimes. The generation of electrons and holes is modeled using a macroscopic source function , <a class="el" href="class_generation.html" title="Function for macroscopic generation of electrons and holes. ">Generation</a>,</p>
+<p>The term \(\rho_{i}\) is the intrinsic electron density and can be spatially varying. \(\tau_{n}, \ \tau_{p} \) are constants called the electron and hole lifetimes. The generation of electrons and holes is modeled using a macroscopic source function, <a class="el" href="class_generation.html" title="Function for macroscopic generation of electrons and holes. ">Generation</a>,</p>
 <p class="formulaDsp">
 \[ \begin{equation} G(\textbf{x}) \; = \; \left\{ \begin{array}{lr} \alpha (\textbf{x}) \, G_{0} \, e^{- \, \int_{0}^{s} \, \alpha (\, \textbf{x}_{0} \, + \, s&#39; \, \boldsymbol \theta_{0} \, ) \, ds&#39;} \qquad &amp; \qquad \text{if} \quad \textbf{x} \; = \; \textbf{x}_{0} \, + \, s \, \boldsymbol \theta_{0} \\ 0 \qquad &amp; \qquad \text{otherwise} \end{array} \right. \end{equation} \]
 </p>
@@ -175,15 +179,17 @@ We take \( \alpha_{n} = -1\), \(\alpha_{p} = 1\) and have the constraint, \( \al
 \[ \textbf{J}(\textbf{x}) \; = \; \left\{ \begin{array}{cc} -q \, \alpha_{n} \, \textbf{J}_{n} \, - \, q \, \alpha_{p} \, \textbf{J}_{p}, &amp; \textbf{x} \in \Omega_{S} \\ -q \, \alpha_{r} \, \textbf{J}_{r} \, - \, q \, \alpha_{o} \, \textbf{J}_{o}, &amp; \textbf{x} \in \Omega_{E} \\ \end{array} \right. \]
 </p>
 <dl class="section note"><dt>Note</dt><dd>This definition of the current is continuous across the interface so long as \( \alpha_{o} \, - \, \alpha_{r} = 1\).</dd></dl>
-<h2><a class="anchor" id="Numerical"></a>
-methods.</h2>
-<p>The overall stragy is to create a domain decomposition where in each subdomain we have a reaction-drift-diffusion system of equations for a pair of charge carriers. The potential and electric field lives in a superset of these two domains and information is passed between the two subdomains as well as superset domain.</p>
+<h2><a class="anchor" id="Methods"></a>
+Methods</h2>
+<p>The overall stragy is to create a domain decomposition where in each subdomain we have a reaction-drift-diffusion system of equations for a pair of charge carriers. The potential and electric field live in a superset of these two domains and information is passed between the two subdomains as well as the superset domain.</p>
 <p>The drift-diffusion transport equations are numerically approximated by the a local discontinuous Galerkin method in space, see <a class="el" href="namespace_l_d_g___system.html" title="Basically just the namespace for LDG_System::LDG. ">LDG_System</a> and the classes within this namesapace for more details. <a class="el" href="namespace_poisson.html" title="Contains all of the local CopyData for Poisson&#39;s equation. ">Poisson</a>'s equation for the potential and electric field is approximated using a mixed finite element method see <a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html">MixedPoisson::MixedFEM()</a> for more details.</p>
-<p>Time stepping is handeled in a specific way such that nonlinear terms are linearized by time lagging. <a class="el" href="namespace_poisson.html" title="Contains all of the local CopyData for Poisson&#39;s equation. ">Poisson</a> is updated using implicit density values, while the charge carriers use an IMEX strategy. The overall time stepping strategy is termed a ``parallel Gummel-Schwarz method." The steps in this algorithm are presented in the flow chart, </p><div class="image">
+<p>Time stepping is handeled in a specific way such that nonlinear terms are linearized by time lagging. Solutions to <a class="el" href="namespace_poisson.html" title="Contains all of the local CopyData for Poisson&#39;s equation. ">Poisson</a> equations are updated using implicit density values, while the charge carriers use an IMEX strategy. The overall time stepping strategy is termed a "parallel Gummel-Schwarz method." The steps in this algorithm are presented in the flow chart, </p><div class="image">
 <img src="parallel_gummel_schwarz.jpg" alt="parallel_gummel_schwarz.jpg"/>
 </div>
 <p> For more deail see <a class="el" href="class_l_d_g___system_1_1_l_d_g.html" title="This class builds two system matrices using the LDG method for the two ChargeCarrierSpace::Carrier ob...">LDG_System::LDG</a>.</p>
-<p>Meshes are created, globally/locally refined, and boundary conditions are set in <a class="el" href="class_grid___maker_1_1_grid.html" title="This object will be used to build meshes over triangulations provided. ">Grid_Maker::Grid</a>. All other device details are set in the input file: input_file.prm. If no such file is present then it will be created the first time the program is run. </p>
+<p>Meshes are created, globally/locally refined, and boundary conditions are set in <a class="el" href="class_grid___maker_1_1_grid.html" title="This object will be used to build meshes over triangulations provided. ">Grid_Maker::Grid</a>. All other device details are set in the input file:</p>
+<p><code> input_file.prm </code></p>
+<p>If no such file is present then it will be created the first time the program is run. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
