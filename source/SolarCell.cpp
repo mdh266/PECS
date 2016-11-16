@@ -2523,8 +2523,14 @@ namespace SOLARCELL
 					Poisson_triangulation,
 					full_system);
 
-//		grid_maker.print_grid(Poisson_triangulation,
-//					"Grid.eps");
+		grid_maker.print_grid(Poisson_triangulation,
+					"Grid.eps");
+
+		grid_maker.print_grid(semiconductor_triangulation,
+													"Semi.eps");
+
+		grid_maker.print_grid(electrolyte_triangulation,
+													"Elec.eps");
 
 		timer.leave_subsection("Make Grids");
 
@@ -2727,7 +2733,6 @@ namespace SOLARCELL
 				electrolyte_triangulation,
 				Poisson_triangulation,
 				full_system);
-
 		timer.leave_subsection("Make Grids");
 
 		// allocate the memory

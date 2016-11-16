@@ -7,15 +7,14 @@
 \section Overview
 
 \subsection Introduction
-This software is designed the dynamics of the reactive interface between a
-semiconductor and electrolyte. The interface of the two makes up a half cell of a 
+This software is designed to simulate the dynamics of the reactive interface between a
+semiconductor and electrolyte. The interface of between the semiconductor and electrolyte
+make up a "half cell" of a 
 <a href="https://en.wikipedia.org/wiki/Photoelectrochemical_cell">photoelectrochemical cell</a> 
-which can use solar energy to convert water into hydrogen fuel.  Material choices and 
-designs can be chosen by the user through the input file <code>input_file.prm</code>.  
-
+which can use solar energy to convert water into hydrogen fuel.    
 
 \subsection Requirements 
-The requirements for this software is 
+The requirements for this software are 
 <a href="https://www.dealii.org">deal.ii library</a> version 8.3.0 or higher,
 and <a href="https://www.cmake.org">CMake</a> version 2.8 or higher.  The code will
 automatically run in parallel using the <a href="https://www.threadingbuildingblocks.org/">
@@ -27,12 +26,13 @@ necessary and how it works.
 
 
 \subsection Usage
-First obtain and install a copy of the dealii 
+The source code can be downloaded from <a href="https://github.com/mdh266/PECS">here</a>.
+You also need to obtain and install a copy of the dealii 
 <a href="https://www.dealii.org">deal.ii library</a> 
 version 8.3.0 or higher. After downloading and installing the deal.II library.  
-cd into the pecs directory.  
+cd into the PECS directory.  
 
-To generate a make file run to compile the code run: 
+To generate a make file run to compile the source code type: 
 
 <code> cmake . -DDEAL_II_DIR="path to deal.II library" </code>
 
@@ -44,18 +44,23 @@ Once this complete you can type:
 
 <code> make release </code>
 
-to compile the code. Note: if just use:
+to compile the code.
 
 To run the code type:
 
 <code>./main </code>
 
+
+
+Material choices and 
+designs can be chosen by the user through the input file <code>input_file.prm</code>.
+
 The resulting outputs are in <a href="http://www.vtk.org/"> VTK </a> format and can 
-viewed using <a href="http://www.paraview.org/"> Paraview </a>.
+viewed using <a href="http://www.paraview.org/"> Paraview</a>.
 
 \section Background
 
-The software provides simulations of the workings of a photoelectrocrhemical solar cell
+The software provides simulations of a photoelectrocrhemical solar cell
 by solving the reaction diffusion equations that describe the macroscopic dynamics of 
 charge transport in photoelectrochemical (PEC) solar cell.  
 The main objective is to accurately capture the reactive dynamics of the 
@@ -74,7 +79,7 @@ We present the mathematical model below, however a more through introduction can
 found <a href="http://www.ma.utexas.edu/users/gamba/papers/Semi-Elec-Interf.pdf"> here 
 </a>.
 
-*\hbar*
+
 \subsection Model
 We focus on the reactive dynamics of the semiconductor-electrolyte interface.
 Therfore our domain is the half cell, whose abstract representation is, 
@@ -134,8 +139,8 @@ R(\rho_{n}, \rho_{p})
 
 The term \f$\rho_{i}\f$ is the intrinsic electron density and can be spatially varying. 
 \f$\tau_{n}, \ \tau_{p} \f$ are constants called the electron and hole lifetimes.  
-The generation of electrons and holes is modeled using a macroscopic source function
-, Generation,
+The generation of electrons and holes is modeled using a macroscopic source function, 
+Generation,
 
 
 \f[

@@ -65,10 +65,10 @@ subsection mesh
   set mesh length    = 1.0
 
   # top radius of wire
-  set radius one     = 0.5
+  set radius one     = 0.3
 
   # bottom radius of wire
-  set radius two     = 0.5
+  set radius two     = 0.6
 end
 
 
