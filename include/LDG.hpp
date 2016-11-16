@@ -246,7 +246,7 @@ namespace LDG_System
 				const double 					     & transient_or_steady,
 				const double					     & penalty);
 
-			/** 	\brief Assemble the local LDG flux matrices for interior faces. */
+			/** 	\brief Assembles the local LDG flux matrices for interior faces. */
 			/** 	These are the matrices which correspond to
 			*
 			*	 \f[ F_{1}(v,\textbf{q} ) \; = \; 

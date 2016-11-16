@@ -61,11 +61,12 @@ namespace MixedPoisson
 {
 	using namespace dealii;
 
-	/** Assembles each cells local left hand side matrix for a constant
-	*		Debeye length. Also has can compute the error of the approximation
-	* 	for testing. The data is then stored in Poisson::PoissonData.  
+	/** This class provides a mixed finite element method solver for Poisson's equation
+	*   in the drit-diffusion-Poisson system with constant
+	*		Debeye length. The class also can compute the error of the approximation
+	* 	for testing. The data is stored in Poisson::PoissonData.  
 	* 
-	*   The general problem is, 
+	*   The general Poisson equation problem we are solving is, 
 	* 	\f[ \begin{align}
 	*  \epsilon_{r}^{-1} \ \textbf{D} \ + \ \nabla \Phi \ &= \ 0  && \text{in} \; \Omega \\
 	*  \ \nabla \ \cdot \ \textbf{D} \  &= \frac{1}{\lambda^{2}}
@@ -110,7 +111,6 @@ namespace MixedPoisson
 	*	\f]
 	* 
 	*  
-	*  This method only assembles the left hand side of the weak formulation.
 	*/	
 
 	template<int dim>
@@ -123,7 +123,9 @@ namespace MixedPoisson
 			/** \brief Simple desctructor which clears the dof_handler. */
 			~MixedFEM();
 
-			/** \brief Assembles a local cells matrix for Poissons equation. */
+			/** \brief Assembles the matrix for local cell in the mixed 
+			* finite element metho in the mixed 
+			* finite element method  for Poissons equation. */
 			/** This function can either be called when looping throug the cells by 
 			* 	hand and assemblying the global matrix sequentially or by using
 			* 	the WorkStream to assemble it in parallel.  If you use it in squential

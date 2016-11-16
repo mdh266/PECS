@@ -22,7 +22,8 @@ Thread Building Blocks</a>.
 See
 <a href="https://www.dealii.org/developer/doxygen/deal.II/group__threads.html">
 deal.ii's explanation on parallel computing with shared memory</a> to see why this 
-necessary and how it works. 
+necessary and how it works.   To make this documentation on your local machine you need 
+<a href="http://www.stack.nl/~dimitri/doxygen/">doxygen</a>.
 
 
 \subsection Usage
@@ -52,11 +53,18 @@ To run the code type:
 
 
 
-Material choices and 
-designs can be chosen by the user through the input file <code>input_file.prm</code>.
+Material and design choices can be chosen by the user through the input file
+<code>input_file.prm</code>.
 
 The resulting outputs are in <a href="http://www.vtk.org/"> VTK </a> format and can 
 viewed using <a href="http://www.paraview.org/"> Paraview</a>.
+
+
+To make this documentation on your local machine, cd into the PECS directory and type:
+
+<code> doxygen Documentation/dox </code>
+
+The created documentation will be produced in a new directory called "html".
 
 \section Background
 
@@ -379,12 +387,12 @@ charge of an electron, \f$q\f$, the output current through the device will invol
 \note This definition of the current is continuous across the interface so long as 
 \f$ \alpha_{o} \, - \, \alpha_{r} = 1\f$.
 
-\subsection Numerical methods.
+\subsection Methods
 
 The overall stragy is to create a domain decomposition where in each subdomain we have
 a reaction-drift-diffusion system of equations for a pair of charge carriers.  The
-potential and electric field lives in a superset of these two domains and information is
-passed between the two subdomains as well as superset domain.
+potential and electric field live in a superset of these two domains and information is
+passed between the two subdomains as well as the superset domain.
 
 
 The drift-diffusion transport equations are numerically approximated by 
@@ -396,14 +404,19 @@ mixed finite element method see MixedPoisson::MixedFEM() for more details.
 
 
 Time stepping is handeled in a specific way such that nonlinear terms are
-linearized by time lagging.  Poisson is updated using implicit density values, 
-while the charge carriers use an IMEX strategy. The overall time stepping strategy
-is termed a ``parallel Gummel-Schwarz method."  The steps in this algorithm are
+linearized by time lagging.  Solutions to Poisson equations are updated using
+implicit density values, while the charge carriers use an IMEX strategy. 
+The overall time stepping strategy
+is termed a "parallel Gummel-Schwarz method."  The steps in this algorithm are
 presented in the flow chart, \image html parallel_gummel_schwarz.jpg
 For more deail see LDG_System::LDG. 
 
 
 Meshes are created, globally/locally refined, and boundary conditions are set in
-Grid_Maker::Grid. All other device details are set in the input file: input_file.prm.  
+Grid_Maker::Grid. All other device details are set in the input file:
+
+<code> input_file.prm </code>
+
+
 If no such file is present then it will be created the first time the program is run.
 
