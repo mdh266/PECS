@@ -11,10 +11,8 @@ This software is designed to simulate the dynamics of the reactive interface bet
 semiconductor and electrolyte. The interface of between the semiconductor and electrolyte
 make up a "half cell" of a 
 <a href="https://en.wikipedia.org/wiki/Photoelectrochemical_cell">photoelectrochemical cell</a> 
-which can use solar energy to convert water into hydrogen fuel. Example of results showing the 
-densities of charge carries in both the semiconductor and electrolyte are seen below:
+which can use solar energy to convert water into hydrogen fuel. 
 
-\image \html densities.png
 
 \subsection Requirements 
 The requirements for this software are 
