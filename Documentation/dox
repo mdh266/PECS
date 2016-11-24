@@ -211,7 +211,7 @@ MULTILINE_CPP_IS_BRIEF = NO
 
 # If the INHERIT_DOCS tag is set to YES then an undocumented member inherits the
 # documentation from any documented member that it re-implements.
- default value is: YES.
+# The default value is: YES.
 
 INHERIT_DOCS           = YES
 
@@ -2115,7 +2115,7 @@ TAGFILES               = deal.tag=http://www.dealii.org/8.3.0/doxygen/deal.II
 # tag file that is based on the input files it reads. See section "Linking to
 # external documentation" for more information about the usage of tag files.
 
-GENERATE_TAGFILE       =  YES
+GENERATE_TAGFILE       = YES
 
 # If the ALLEXTERNALS tag is set to YES, all external class will be listed in
 # the class index. If set to NO, only the inherited external classes will be
