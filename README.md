@@ -1,13 +1,14 @@
 **Introduction**
 
-This software is designed to simulate the dynamics of the reactive interface between a semiconductor and electrolyte. The interface of between the semiconductor and electrolyte make up a "half cell" of a photoelectrochemical cell which can use solar energy to convert water into hydrogen fuel.
+This software is designed to simulate the dynamics of the reactive interface between a semiconductor and electrolyte. The interface of between the semiconductor and electrolyte make up a "half cell" of a <a href="https://en.wikipedia.org/wiki/Photoelectrochemical_cell">photoelectrochemical cell</a> which can use solar energy to convert water into hydrogen fuel.
 
 **Background and Documentation**
-For more information on this project please see the documenation page: <a href="http://mdh266.github.io/PECS/">http://michael-harmon.com/PECS/</a>
+
+For more backgroud in the model and algorithms used ion this project please see the documenation page: <a href="http://mdh266.github.io/PECS/">http://michael-harmon.com/PECS/</a>
 
 **Requirements**
 
-The requirements for this software are <a href="dealii.org">deal.ii</a> library version 8.3.0 or higher, and <a href="https://cmake.org/">CMake</a> version 2.8 or higher. The code will automatically run in parallel using the Thread Building Blocks. See deal.ii's explanation on parallel computing with shared memory to see why this necessary and how it works. To make this documentation on your local machine you need doxygen.
+The requirements for this software are <a href="dealii.org">deal.ii</a> library version 8.3.0 or higher, and <a href="https://cmake.org/">CMake</a> version 2.8 or higher. The code will automatically run in parallel using the <a href="https://www.threadingbuildingblocks.org/">Thread Building Blocks</a>. 
 
 **Usage**
 
@@ -33,6 +34,6 @@ To run the code type:
 
 Material and design choices can be chosen by the user through the input file input_file.prm.
 
-The resulting outputs are in VTK format and can viewed using Paraview.
+The resulting outputs are in <a href="http://www.vtk.org/">VTK</a> format and can viewed using Paraview<a href="http://www.paraview.org/">Paraview</a>.
 
 
