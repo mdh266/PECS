@@ -4,7 +4,7 @@ This software is designed to simulate the dynamics of the reactive interface bet
 
 **Background and Documentation**
 
-For more backgroud in the model and algorithms used ion this project please see the documenation page: <a href="http://mdh266.github.io/PECS/">http://michael-harmon.com/PECS/</a>
+For more backgroud on the model and algorithms used in this project please see the documenation page <a href="http://mdh266.github.io/PECS/">here</a>.
 
 **Requirements**
 
@@ -12,7 +12,7 @@ The requirements for this software are <a href="dealii.org">deal.ii</a> library 
 
 **Usage**
 
-You need to obtain and install a copy of the dealii deal.ii library version 8.3.0 or higher. After downloading and installing the deal.II library. cd into the PECS directory.
+You need to obtain and install a copy of the deal.ii library version 8.3.0 or higher. After downloading and installing the deal.II library. cd into the PECS directory.
 
 To generate a make file run to compile the source code type:
 
