@@ -29,7 +29,7 @@ necessary and how it works.   To make this documentation on your local machine y
 
 \subsection Usage
 The source code can be downloaded from <a href="https://github.com/mdh266/PECS">here</a>.
-You also need to obtain and install a copy of the dealii 
+You also need to obtain and install a copy of the 
 <a href="https://www.dealii.org">deal.ii library</a> 
 version 8.3.0 or higher. After downloading and installing the deal.II library.  
 cd into the PECS directory.  
