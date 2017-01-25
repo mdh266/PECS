@@ -34,6 +34,6 @@ To run the code type:
 
 Material and design choices can be chosen by the user through the input file input_file.prm.
 
-The resulting outputs are in <a href="http://www.vtk.org/">VTK</a> format and can viewed using Paraview<a href="http://www.paraview.org/">Paraview</a>.
+The resulting outputs are in <a href="http://www.vtk.org/">VTK</a> format and can viewed using <a href="http://www.paraview.org/">Paraview</a>.
 
 
