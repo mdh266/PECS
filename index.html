@@ -47,7 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -92,13 +92,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Overview</h1>
 <h2><a class="anchor" id="Introduction"></a>
 Introduction</h2>
-<p>This software is designed to simulate the dynamics of the reactive interface between a semiconductor and electrolyte. The interface of between the semiconductor and electrolyte make up a "half cell" of a <a href="https://en.wikipedia.org/wiki/Photoelectrochemical_cell">photoelectrochemical cell</a> which can use solar energy to convert water into hydrogen fuel.</p>
+<p>Large-scale utilization of photovoltaic (PV) devices, or solar cells, has been hampered for years due to high costs and lack of energy storage mechanisms. <a href="https://en.wikipedia.org/wiki/Photoelectrochemical_cell">Photoelectrochemical solar cells</a> (PECs), are an attractive alternative to conventional solid state PV devices. PECs such as those depicted below are able to directly convert solar energy into hydrogen fuel. The hydrogen fuel can then be used at a later time to generate electricity. In the typical setup of a PEC is shown below</p>
+<div class="image">
+<img src="PEC.png" alt="PEC.png"/>
+</div>
+<p>A PEC consists of four main components: the solid semiconductor electrode, the liquid electrolyte component, the semiconductor-electrolyte interface and the counter (metal or semiconductor) electrode. When sunlight shines on the semiconductor component, photons are absorbed and generate electron-hole pairs. These electrons and holes are separated by a built-in electric field within the semiconductor. The separation of the electrons and holes leads to an electrical current in the cell and the accumulation of charges at the semiconductor-electrolyte interface. At the interface, the photo-generated electrons or holes induce a chemical reaction at the semiconductor electrode. A similar chemical reaction also occurs at the counter electrode. These chemical reactions create or eliminate reductant-oxidant (redox) species in the electrolyte leading to the generation of hydrogen fuel.</p>
+<p>Research on PECs has traditionally focused on planar cell designs, but recently there has been interest in cell designs that use thin nanostructured wires such as those depicted below.</p>
+<div class="image">
+<img src="planar_vs_wire-eps-converted-to.png" alt="planar_vs_wire-eps-converted-to.png"/>
+</div>
+<p>In a planar device such, photo-generated electrons and holes are collected in directions parallel to photon absorption. In order for PECs' to achieve sufficient energy conversion efficiencies to be commercially viable the electron/hole diffusion length ( \(L_{D}\)) (the average distance an electron/hole can be travel without being eliminated) must be larger than the absorption length ( \(1/\alpha\)) (the average distance a photon will penetrate the semiconductor crystal before generating an electron-hole pair). This constraint necessitates the use of expensive, high quality crystals that either have large diffusion lengths or small absorption lengths. In PECs that use a nanowire design the electron/hole collection and photon absorption directions are decoupled, thereby alleviating the need for high quality crystals to attain sufficient energy conversion efficiencies. Scientists believe that the shape of these nanowires can effect the energy conversion efficiencies (see <a href="http://pubs.rsc.org/en/content/articlelanding/2012/ee/c1ee02518j#!divAbstract">here</a> for more information). This software therefore allows nanowires which are more cylindrical or conic like those seen below:</p>
+<div class="image">
+<img src="Cylinder.png" alt="Cylinder.png"/>
+</div>
+<p>This software is designed to simulate the dynamics of the reactive interface between a semiconductor and electrolyte in a 2D. The nanowire is then considered to be axially symmetric in order to reduce the 3D nanowire to a 2D domain. The interface of between the semiconductor and electrolyte make up a "half cell" of a <a href="https://en.wikipedia.org/wiki/Photoelectrochemical_cell">photoelectrochemical cell</a>. The main challenges in constructing a numerical algorithms that produces reliable simulations of PECs are due to the highly nonlinear nature of the semiconductor and electrolyte systems as well as the nonlinear coupling between the two systems at the interface. In addition, the evolution problem under consideration is effectively multi-scale in the sense that the evolution of the system in the semiconductor and the corresponding one in the electrolyte evolve at different time scales due to the quantitative scaling differences in their relevant physical parameters. Furthermore, regions of stiffness caused by boundary layer formation where sharp transitions in densities and electric potential occur near the interface and pose severe constraints on the choice of discretization strategy in order to maintain numerical stability.</p>
 <h2><a class="anchor" id="Requirements"></a>
 Requirements</h2>
 <p>The requirements for this software are <a href="https://www.dealii.org">deal.ii library</a> version 8.3.0 or higher, and <a href="https://www.cmake.org">CMake</a> version 2.8 or higher. The code will automatically run in parallel using the <a href="https://www.threadingbuildingblocks.org/">Thread Building Blocks</a>. See <a href="https://www.dealii.org/developer/doxygen/deal.II/group__threads.html">deal.ii's explanation on parallel computing with shared memory</a> to see why this necessary and how it works. To make this documentation on your local machine you need <a href="http://www.stack.nl/~dimitri/doxygen/">doxygen</a>.</p>
 <h2><a class="anchor" id="Usage"></a>
 Usage</h2>
-<p>The source code can be downloaded from <a href="https://github.com/mdh266/PECS">here</a>. You also need to obtain and install a copy of the dealii <a href="https://www.dealii.org">deal.ii library</a> version 8.3.0 or higher. After downloading and installing the deal.II library. cd into the PECS directory.</p>
+<p>The source code can be downloaded from <a href="https://github.com/mdh266/PECS">here</a>. You also need to obtain and install a copy of the <a href="https://www.dealii.org">deal.ii library</a> version 8.3.0 or higher. After downloading and installing the deal.II library. cd into the PECS directory.</p>
 <p>To generate a make file run to compile the source code type:</p>
 <p><code> cmake . -DDEAL_II_DIR="path to deal.II library" </code></p>
 <p>On a mac, if you downloaded the binaries of deal.ii library instead run:</p>
@@ -108,11 +121,44 @@ Usage</h2>
 <p>to compile the code.</p>
 <p>To run the code type:</p>
 <p><code>./main </code></p>
-<p>Material and design choices can be chosen by the user through the input file <code>input_file.prm</code>.</p>
 <p>The resulting outputs are in <a href="http://www.vtk.org/">VTK </a> format and can viewed using <a href="http://www.paraview.org/">Paraview</a>.</p>
-<p>To make this documentation on your local machine, cd into the PECS directory and type:</p>
-<p><code> doxygen Documentation/dox </code></p>
-<p>The created documentation will be produced in a new directory called "html".</p>
+<h2><a class="anchor" id="Parameters"></a>
+Parameters</h2>
+<p>Material and design choices can be chosen by the user through the input file <code>input_file.prm</code>.</p>
+<p>Most of the parameters in <code>input_file.prm</code> will be self explanatory after reading the Model section and from the comments in the file. However, we explain some here for clarity. There are two end times in <code>input_file.prm</code> in case in the initial simulation has not fully converged to steady state. Instead of restarting the simulation from the initial conditions and rerunning the simulation we can restart the simulation and use the end conditions as our new starting conditions; this is achieved by setting:</p>
+<p><code> set restart status = true</code></p>
+<p>A typical mesh for the semiconductor is seen below,</p>
+<div class="image">
+<img src="semiconductor-grid.png" alt="semiconductor-grid.png"/>
+</div>
+<p>The height of the mesh is the length of the nanowire and is set in,</p>
+<p><code> set mesh height = ... </code></p>
+<p>The top length is set by setting the top radius of the nano wire,</p>
+<p><code> set radius one = ... </code></p>
+<p>the bottom length is set by setting the bottom radius of the nano wire,</p>
+<p><code> set radius two = ... </code></p>
+<p>Refining the mesh globally is achieved through,</p>
+<p><code> set global refinements = ... </code></p>
+<p>Refining the mesh locally is achieved through,</p>
+<p><code> set local refinements = ... </code></p>
+<p>Local refinement only occurs within a distance of the interface (on the right) and is controlled by,</p>
+<p><code> set boundary layer = ... </code></p>
+<p>The whole simulation mesh is seen below,</p>
+<div class="image">
+<img src="Poisson-grid.png" alt="Poisson-grid.png"/>
+</div>
+<p>The details of this mesh (refinements, height, radii, boundary layer) are controlled as described above. The length of the domain is set by,</p>
+<p><code> set mesh length = ... </code></p>
+<p>Both radii <b>MUST</b> be smaller than the mesh length. See <a class="el" href="class_grid___maker_1_1_grid.html" title="This object will be used to build meshes over triangulations provided. ">Grid_Maker::Grid</a> for more information. Finally, the left and the right boundaries of the the entire domain will have Dirchlet boundary conditions (explained in Model section), while the top and bottom of the domain will have Neumann conditions (explained in Model section) by,</p>
+<p><code> set insulated = true </code></p>
+<p>otherwise the top and bottom of the domain will have Dirichlet conditions. Finally, the initial conditions are set in the source code file:</p>
+<p><code> InitialConditions.cpp </code></p>
+<p>and must be set before compilation.</p>
+<p><b>Note</b></p>
+<p>If your simulation seems to be losing stability, there are two options:</p>
+<p>1.) Choose a smaller time step, in</p>
+<p><code> set time step size = ... </code></p>
+<p>2.) Refining the mesh.</p>
 <h1><a class="anchor" id="Background"></a>
 Background</h1>
 <p>The software provides simulations of a photoelectrocrhemical solar cell by solving the reaction diffusion equations that describe the macroscopic dynamics of charge transport in photoelectrochemical (PEC) solar cell. The main objective is to accurately capture the reactive dynamics of the semiconductor-electrolyte interface. The underlying spatial descritizations are based on the local discontinuous Galerkin (<a class="el" href="class_l_d_g___system_1_1_l_d_g.html" title="This class builds two system matrices using the LDG method for the two ChargeCarrierSpace::Carrier ob...">LDG_System::LDG</a>) and mixed finite element method (<a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html">MixedPoisson::MixedFEM</a>). The use of specific tailored implicit-explicit (IMEX) methods to capture transient solutions of the time dependent nonlinear systems of PDES. The main class in which everything is put together is in <a class="el" href="class_s_o_l_a_r_c_e_l_l_1_1_solar_cell_problem.html">SOLARCELL::SolarCellProblem</a>. Information on the numerical methods are provided in the links above as well as in the <a href="http://www.ma.utexas.edu/users/gamba/papers/Harmon-IMG-Ren.pdf">paper </a> based of this software.</p>
@@ -186,10 +232,7 @@ Methods</h2>
 <p>Time stepping is handeled in a specific way such that nonlinear terms are linearized by time lagging. Solutions to <a class="el" href="namespace_poisson.html" title="Contains all of the local CopyData for Poisson&#39;s equation. ">Poisson</a> equations are updated using implicit density values, while the charge carriers use an IMEX strategy. The overall time stepping strategy is termed a "parallel Gummel-Schwarz method." The steps in this algorithm are presented in the flow chart, </p><div class="image">
 <img src="parallel_gummel_schwarz.jpg" alt="parallel_gummel_schwarz.jpg"/>
 </div>
-<p> For more deail see <a class="el" href="class_l_d_g___system_1_1_l_d_g.html" title="This class builds two system matrices using the LDG method for the two ChargeCarrierSpace::Carrier ob...">LDG_System::LDG</a>.</p>
-<p>Meshes are created, globally/locally refined, and boundary conditions are set in <a class="el" href="class_grid___maker_1_1_grid.html" title="This object will be used to build meshes over triangulations provided. ">Grid_Maker::Grid</a>. All other device details are set in the input file:</p>
-<p><code> input_file.prm </code></p>
-<p>If no such file is present then it will be created the first time the program is run. </p>
+<p> For more deail see <a class="el" href="class_l_d_g___system_1_1_l_d_g.html" title="This class builds two system matrices using the LDG method for the two ChargeCarrierSpace::Carrier ob...">LDG_System::LDG</a>. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

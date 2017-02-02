@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['readme',['README',['../md___users__mike__documents_cpp_codes__p_e_c_s_2_d__r_e_a_d_m_e.html',1,'']]],
   ['readme',['README',['../md__r_e_a_d_m_e.html',1,'']]],
   ['r',['R',['http://www.dealii.org/8.3.0/doxygen/deal.II/classMeshWorker_1_1LocalResults.html#a4ab1e82260fd08fb60a8683fa3a62497',1,'MeshWorker::LocalResults::R()'],['http://www.dealii.org/8.3.0/doxygen/deal.II/classTorusBoundary.html#a6aa872da71808f5c5d794b9f23f45e8c',1,'TorusBoundary::R()']]],
   ['radius',['radius',['http://www.dealii.org/8.3.0/doxygen/deal.II/classFunctions_1_1CutOffFunctionBase.html#a926df8cbbbaff21b46bb1d61d43237fe',1,'Functions::CutOffFunctionBase::radius()'],['http://www.dealii.org/8.3.0/doxygen/deal.II/classCylinderBoundary.html#a9caab713c9895e8af8f33a383516794a',1,'CylinderBoundary::radius()'],['http://www.dealii.org/8.3.0/doxygen/deal.II/classHyperBallBoundary.html#a3c613d586ed8f10ba981aa02ab16e286',1,'HyperBallBoundary::radius()'],['http://www.dealii.org/8.3.0/doxygen/deal.II/classHyperBallBoundary.html#a3c613d586ed8f10ba981aa02ab16e286',1,'HyperBallBoundary&lt; dim &gt;::radius()']]],

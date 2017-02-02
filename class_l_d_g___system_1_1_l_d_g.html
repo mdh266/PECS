@@ -47,7 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -69,10 +69,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="classes.html"><span>Data&#160;Structure&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="functions.html"><span>Data&#160;Fields</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -97,10 +97,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-attribs">Data Fields</a> &#124;
 <a href="#pri-types">Private Types</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="class_l_d_g___system_1_1_l_d_g-members.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">LDG_System::LDG&lt; dim &gt; Class Template Reference</div>  </div>
 </div><!--header-->
@@ -121,7 +120,7 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a3b50c9490160feae93eaa636a0198590">~LDG</a> ()</td></tr>
 <tr class="memdesc:a3b50c9490160feae93eaa636a0198590"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple destructor which clears carrier_dof_handler. <br /></td></tr>
 <tr class="separator:a3b50c9490160feae93eaa636a0198590"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a47b978dea11e7c460aa0f0e8725358"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a7a47b978dea11e7c460aa0f0e8725358">assemble_flux_terms</a> (<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;carrier_dof_handler, <a class="el" href="class_charge_carrier_space_1_1_carrier_pair.html">ChargeCarrierSpace::CarrierPair</a>&lt; dim &gt; &amp;carrier_pair, <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classFESystem.html">FESystem</a>&lt; dim &gt; &amp;Poisson_fe, <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classFESystem.html">FESystem</a>&lt; dim &gt; &amp;carrier_fe)</td></tr>
+<tr class="memitem:a7a47b978dea11e7c460aa0f0e8725358"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a7a47b978dea11e7c460aa0f0e8725358">assemble_flux_terms</a> (<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;carrier_dof_handler, <a class="el" href="class_charge_carrier_space_1_1_carrier_pair.html">ChargeCarrierSpace::CarrierPair</a>&lt; dim &gt; &amp;carrier_pair, <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classFESystem.html">FESystem</a>&lt; dim &gt; &amp;Poisson_fe, <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classFESystem.html">FESystem</a>&lt; dim &gt; &amp;carrier_fe)</td></tr>
 <tr class="memdesc:a7a47b978dea11e7c460aa0f0e8725358"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assembles the local <a class="el" href="class_l_d_g___system_1_1_l_d_g.html" title="This class builds two system matrices using the LDG method for the two ChargeCarrierSpace::Carrier ob...">LDG</a> flux matrices for interior faces.  <a href="#a7a47b978dea11e7c460aa0f0e8725358">More...</a><br /></td></tr>
 <tr class="separator:a7a47b978dea11e7c460aa0f0e8725358"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2973095b1aaff0e49044df300a07f9f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2973095b1aaff0e49044df300a07f9f"></a>
@@ -132,38 +131,38 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a3d4e663191d3650323230864404531ec">assemble_local_flux_terms</a> (<a class="el" href="struct_assembly_1_1_assembly_scratch.html">Assembly::AssemblyScratch</a>&lt; dim &gt; &amp;scratch, <a class="el" href="struct_assembly_1_1_drift_diffusion_1_1_copy_data.html">Assembly::DriftDiffusion::CopyData</a>&lt; dim &gt; &amp;data, const double &amp;penalty)</td></tr>
 <tr class="memdesc:a3d4e663191d3650323230864404531ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assemble the local <a class="el" href="class_l_d_g___system_1_1_l_d_g.html" title="This class builds two system matrices using the LDG method for the two ChargeCarrierSpace::Carrier ob...">LDG</a> flux matrices with no local refinement This corresponds to the case for two cells where they are on the same refinement level. <br /></td></tr>
 <tr class="separator:a3d4e663191d3650323230864404531ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1a553187eeaea3ff9e78643ef214d11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#ae1a553187eeaea3ff9e78643ef214d11">assemble_local_LDG_cell_and_bc_terms</a> (const typename <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;cell, <a class="el" href="struct_assembly_1_1_assembly_scratch.html">Assembly::AssemblyScratch</a>&lt; dim &gt; &amp;scratch, <a class="el" href="struct_assembly_1_1_drift_diffusion_1_1_copy_data.html">Assembly::DriftDiffusion::CopyData</a>&lt; dim &gt; &amp;data, const double &amp;scaled_mobility_1, const double &amp;scaled_mobility_2, const double &amp;delta_t, const double &amp;transient_or_steady, const double &amp;penalty)</td></tr>
+<tr class="memitem:ae1a553187eeaea3ff9e78643ef214d11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#ae1a553187eeaea3ff9e78643ef214d11">assemble_local_LDG_cell_and_bc_terms</a> (const typename <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;cell, <a class="el" href="struct_assembly_1_1_assembly_scratch.html">Assembly::AssemblyScratch</a>&lt; dim &gt; &amp;scratch, <a class="el" href="struct_assembly_1_1_drift_diffusion_1_1_copy_data.html">Assembly::DriftDiffusion::CopyData</a>&lt; dim &gt; &amp;data, const double &amp;scaled_mobility_1, const double &amp;scaled_mobility_2, const double &amp;delta_t, const double &amp;transient_or_steady, const double &amp;penalty)</td></tr>
 <tr class="memdesc:ae1a553187eeaea3ff9e78643ef214d11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assembles the local sytem matrix for this cell.  <a href="#ae1a553187eeaea3ff9e78643ef214d11">More...</a><br /></td></tr>
 <tr class="separator:ae1a553187eeaea3ff9e78643ef214d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebbd90ccbd02420ea9ee61b951b69c43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#aebbd90ccbd02420ea9ee61b951b69c43">assemble_local_LDG_mass_matrix</a> (const typename <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;cell, <a class="el" href="struct_assembly_1_1_assembly_scratch.html">Assembly::AssemblyScratch</a>&lt; dim &gt; &amp;scratch, <a class="el" href="struct_assembly_1_1_drift_diffusion_1_1_copy_data.html">Assembly::DriftDiffusion::CopyData</a>&lt; dim &gt; &amp;data, const double &amp;delta_t)</td></tr>
+<tr class="memitem:aebbd90ccbd02420ea9ee61b951b69c43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#aebbd90ccbd02420ea9ee61b951b69c43">assemble_local_LDG_mass_matrix</a> (const typename <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;cell, <a class="el" href="struct_assembly_1_1_assembly_scratch.html">Assembly::AssemblyScratch</a>&lt; dim &gt; &amp;scratch, <a class="el" href="struct_assembly_1_1_drift_diffusion_1_1_copy_data.html">Assembly::DriftDiffusion::CopyData</a>&lt; dim &gt; &amp;data, const double &amp;delta_t)</td></tr>
 <tr class="separator:aebbd90ccbd02420ea9ee61b951b69c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a0efb6a9cf996694b1bd93642740ef1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a2a0efb6a9cf996694b1bd93642740ef1">assemble_local_test_rhs</a> (const typename <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;cell, <a class="el" href="struct_assembly_1_1_assembly_scratch.html">Assembly::AssemblyScratch</a>&lt; dim &gt; &amp;scratch, <a class="el" href="struct_assembly_1_1_drift_diffusion_1_1_copy_data.html">Assembly::DriftDiffusion::CopyData</a>&lt; dim &gt; &amp;data, const double &amp;penalty)</td></tr>
+<tr class="memitem:a2a0efb6a9cf996694b1bd93642740ef1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a2a0efb6a9cf996694b1bd93642740ef1">assemble_local_test_rhs</a> (const typename <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;cell, <a class="el" href="struct_assembly_1_1_assembly_scratch.html">Assembly::AssemblyScratch</a>&lt; dim &gt; &amp;scratch, <a class="el" href="struct_assembly_1_1_drift_diffusion_1_1_copy_data.html">Assembly::DriftDiffusion::CopyData</a>&lt; dim &gt; &amp;data, const double &amp;penalty)</td></tr>
 <tr class="separator:a2a0efb6a9cf996694b1bd93642740ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a028f9ff9c8f11fb963d7560da75d018e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a028f9ff9c8f11fb963d7560da75d018e">assemble_local_test_transient_rhs</a> (const typename <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;cell, <a class="el" href="struct_assembly_1_1_assembly_scratch.html">Assembly::AssemblyScratch</a>&lt; dim &gt; &amp;scratch, <a class="el" href="struct_assembly_1_1_drift_diffusion_1_1_copy_data.html">Assembly::DriftDiffusion::CopyData</a>&lt; dim &gt; &amp;data, const <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;old_solution, const double &amp;time, const double &amp;penalty)</td></tr>
+<tr class="memitem:a028f9ff9c8f11fb963d7560da75d018e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a028f9ff9c8f11fb963d7560da75d018e">assemble_local_test_transient_rhs</a> (const typename <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;cell, <a class="el" href="struct_assembly_1_1_assembly_scratch.html">Assembly::AssemblyScratch</a>&lt; dim &gt; &amp;scratch, <a class="el" href="struct_assembly_1_1_drift_diffusion_1_1_copy_data.html">Assembly::DriftDiffusion::CopyData</a>&lt; dim &gt; &amp;data, const <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;old_solution, const double &amp;time, const double &amp;penalty)</td></tr>
 <tr class="separator:a028f9ff9c8f11fb963d7560da75d018e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ffa75296ab7388b1c039bdd62db136b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a0ffa75296ab7388b1c039bdd62db136b">compute_coupled_errors</a> (const <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;triangulation, <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;carrier_dof_handler, <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;solution, double &amp;potential_error, double &amp;field_error, const double &amp;time)</td></tr>
+<tr class="memitem:a0ffa75296ab7388b1c039bdd62db136b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a0ffa75296ab7388b1c039bdd62db136b">compute_coupled_errors</a> (const <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;triangulation, <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;carrier_dof_handler, <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;solution, double &amp;potential_error, double &amp;field_error, const double &amp;time)</td></tr>
 <tr class="memdesc:a0ffa75296ab7388b1c039bdd62db136b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the local error of your approximation for the <a class="el" href="class_l_d_g___system_1_1_l_d_g.html" title="This class builds two system matrices using the LDG method for the two ChargeCarrierSpace::Carrier ob...">LDG</a> method on the cell and stores the errors in <code>potential_error<code> and <code>field_error<code>. </code></code></code></code> <a href="#a0ffa75296ab7388b1c039bdd62db136b">More...</a><br /></td></tr>
 <tr class="separator:a0ffa75296ab7388b1c039bdd62db136b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21cca4b679b56c30e949b74d50181082"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a21cca4b679b56c30e949b74d50181082">compute_errors</a> (const <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;triangulation, <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;carrier_dof_handler, <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;solution, double &amp;potential_error, double &amp;field_error, const bool &amp;steady_state, const double &amp;time)</td></tr>
+<tr class="memitem:a21cca4b679b56c30e949b74d50181082"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a21cca4b679b56c30e949b74d50181082">compute_errors</a> (const <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;triangulation, <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;carrier_dof_handler, <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;solution, double &amp;potential_error, double &amp;field_error, const bool &amp;steady_state, const double &amp;time)</td></tr>
 <tr class="memdesc:a21cca4b679b56c30e949b74d50181082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the local error of your approximation for the <a class="el" href="class_l_d_g___system_1_1_l_d_g.html" title="This class builds two system matrices using the LDG method for the two ChargeCarrierSpace::Carrier ob...">LDG</a> method on the cell and stores the errors in <code>potential_error<code> and <code>field_error<code>. </code></code></code></code> <a href="#a21cca4b679b56c30e949b74d50181082">More...</a><br /></td></tr>
 <tr class="separator:a21cca4b679b56c30e949b74d50181082"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a926f2813281c3b1da7a4634487e2f8d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a926f2813281c3b1da7a4634487e2f8d5">compute_interface_errors</a> (const <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;triangulation, <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;carrier_dof_handler, <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;solution, double &amp;potential_error, double &amp;field_error, const double &amp;time)</td></tr>
+<tr class="memitem:a926f2813281c3b1da7a4634487e2f8d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a926f2813281c3b1da7a4634487e2f8d5">compute_interface_errors</a> (const <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;triangulation, <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;carrier_dof_handler, <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;solution, double &amp;potential_error, double &amp;field_error, const double &amp;time)</td></tr>
 <tr class="memdesc:a926f2813281c3b1da7a4634487e2f8d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the local error of your approximation for the <a class="el" href="class_l_d_g___system_1_1_l_d_g.html" title="This class builds two system matrices using the LDG method for the two ChargeCarrierSpace::Carrier ob...">LDG</a> method on the cell and stores the errors in <code>potential_error<code> and <code>field_error<code>. </code></code></code></code> <a href="#a926f2813281c3b1da7a4634487e2f8d5">More...</a><br /></td></tr>
 <tr class="separator:a926f2813281c3b1da7a4634487e2f8d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a805b3a79b953e51e73aed550669712a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a805b3a79b953e51e73aed550669712a1">output_rescaled_results</a> (<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;carrier_dof_handler, <a class="el" href="class_charge_carrier_space_1_1_carrier_pair.html">ChargeCarrierSpace::CarrierPair</a>&lt; dim &gt; &amp;carrier_pair, const <a class="el" href="struct_parameter_space_1_1_parameters.html">ParameterSpace::Parameters</a> &amp;sim_params, const unsigned int time_step_number) const </td></tr>
+<tr class="memitem:a805b3a79b953e51e73aed550669712a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a805b3a79b953e51e73aed550669712a1">output_rescaled_results</a> (<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;carrier_dof_handler, <a class="el" href="class_charge_carrier_space_1_1_carrier_pair.html">ChargeCarrierSpace::CarrierPair</a>&lt; dim &gt; &amp;carrier_pair, const <a class="el" href="struct_parameter_space_1_1_parameters.html">ParameterSpace::Parameters</a> &amp;sim_params, const unsigned int time_step_number) const </td></tr>
 <tr class="memdesc:a805b3a79b953e51e73aed550669712a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current and density of each carrier in carrier pair with units.  <a href="#a805b3a79b953e51e73aed550669712a1">More...</a><br /></td></tr>
 <tr class="separator:a805b3a79b953e51e73aed550669712a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addd404135a94e0b5f6f5e37a0c5eb183"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="addd404135a94e0b5f6f5e37a0c5eb183"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#addd404135a94e0b5f6f5e37a0c5eb183">output_unscaled_results</a> (<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;carrier_dof_handler, <a class="el" href="class_charge_carrier_space_1_1_carrier_pair.html">ChargeCarrierSpace::CarrierPair</a>&lt; dim &gt; &amp;carrier_pair, const unsigned int time_step_number) const </td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#addd404135a94e0b5f6f5e37a0c5eb183">output_unscaled_results</a> (<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;carrier_dof_handler, <a class="el" href="class_charge_carrier_space_1_1_carrier_pair.html">ChargeCarrierSpace::CarrierPair</a>&lt; dim &gt; &amp;carrier_pair, const unsigned int time_step_number) const </td></tr>
 <tr class="memdesc:addd404135a94e0b5f6f5e37a0c5eb183"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current and density of each carrier in carrier pair without units. <br /></td></tr>
 <tr class="separator:addd404135a94e0b5f6f5e37a0c5eb183"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a575905dbeb769d01e39fe17904bc2443"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a575905dbeb769d01e39fe17904bc2443"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a575905dbeb769d01e39fe17904bc2443">output_unscaled_results_on_boundary</a> (<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;carrier_dof_handler, <a class="el" href="class_charge_carrier_space_1_1_carrier_pair.html">ChargeCarrierSpace::CarrierPair</a>&lt; dim &gt; &amp;carrier_pair, const unsigned int time_step_number) const </td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_d_g___system_1_1_l_d_g.html#a575905dbeb769d01e39fe17904bc2443">output_unscaled_results_on_boundary</a> (<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;carrier_dof_handler, <a class="el" href="class_charge_carrier_space_1_1_carrier_pair.html">ChargeCarrierSpace::CarrierPair</a>&lt; dim &gt; &amp;carrier_pair, const unsigned int time_step_number) const </td></tr>
 <tr class="memdesc:a575905dbeb769d01e39fe17904bc2443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does the same as <a class="el" href="class_l_d_g___system_1_1_l_d_g.html#addd404135a94e0b5f6f5e37a0c5eb183" title="Prints the current and density of each carrier in carrier pair without units. ">LDG_System::LDG::output_unscaled_results</a> but only on the boundary. <br /></td></tr>
 <tr class="separator:a575905dbeb769d01e39fe17904bc2443"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
+Data Fields</h2></td></tr>
 <tr class="memitem:ae292628fc00dd6625a5f7a966b095c84"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae292628fc00dd6625a5f7a966b095c84"></a>
 test_DD_Poisson::DD_DirichletBC&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>test_DD_bc</b></td></tr>
 <tr class="separator:ae292628fc00dd6625a5f7a966b095c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -258,7 +257,7 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_l_d_g___system_1_1_l_d_g.html">LDG_System::LDG</a>&lt; dim &gt;::assemble_flux_terms </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>carrier_dof_handler</em>, </td>
         </tr>
         <tr>
@@ -270,13 +269,13 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classFESystem.html">FESystem</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classFESystem.html">FESystem</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>Poisson_fe</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classFESystem.html">FESystem</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classFESystem.html">FESystem</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>carrier_fe</em>&#160;</td>
         </tr>
         <tr>
@@ -308,7 +307,7 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_l_d_g___system_1_1_l_d_g.html">LDG_System::LDG</a>&lt; dim &gt;::assemble_local_LDG_cell_and_bc_terms </td>
           <td>(</td>
-          <td class="paramtype">const typename <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;&#160;</td>
+          <td class="paramtype">const typename <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;&#160;</td>
           <td class="paramname"><em>cell</em>, </td>
         </tr>
         <tr>
@@ -362,7 +361,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 
 <p>Assembles the local sytem matrix for this cell. </p>
-<p>This function can either be called when looping throug the cells by hand and assemblying the global matrix sequentially or by using the <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/namespaceWorkStream.html">WorkStream</a> to assemble it in parallel. If you use it in squential mode, than you must have the AssemblyScratch and DriftDiffusion::CopyData instantiated before calling this function.</p>
+<p>This function can either be called when looping throug the cells by hand and assemblying the global matrix sequentially or by using the <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/namespaceWorkStream.html">WorkStream</a> to assemble it in parallel. If you use it in squential mode, than you must have the AssemblyScratch and DriftDiffusion::CopyData instantiated before calling this function.</p>
 <p>This function loops through the quadrature points of this cell and assembles a local mass matrix for the <a class="el" href="class_l_d_g___system_1_1_l_d_g.html" title="This class builds two system matrices using the LDG method for the two ChargeCarrierSpace::Carrier ob...">LDG</a> method applied to the drift-diffusion equation and stores it in DriftDiffusionCopyData.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -399,7 +398,7 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_l_d_g___system_1_1_l_d_g.html">LDG_System::LDG</a>&lt; dim &gt;::assemble_local_LDG_mass_matrix </td>
           <td>(</td>
-          <td class="paramtype">const typename <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;&#160;</td>
+          <td class="paramtype">const typename <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;&#160;</td>
           <td class="paramname"><em>cell</em>, </td>
         </tr>
         <tr>
@@ -427,7 +426,7 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function can either be called when looping throug the cells by hand and assemblying the global matrix sequentially or by using the <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/namespaceWorkStream.html">WorkStream</a> to assemble it in parallel. If you use it in squential mode, than you must have the <a class="el" href="struct_assembly_1_1_assembly_scratch.html" title="Temporary assembly object that holds FE&#39;s and functions. ">Assembly::AssemblyScratch</a> and <a class="el" href="struct_assembly_1_1_drift_diffusion_1_1_copy_data.html" title="Local data for drift-diffusion equation. ">Assembly::DriftDiffusion::CopyData</a> instantiated before calling this function.</p>
+<p>This function can either be called when looping throug the cells by hand and assemblying the global matrix sequentially or by using the <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/namespaceWorkStream.html">WorkStream</a> to assemble it in parallel. If you use it in squential mode, than you must have the <a class="el" href="struct_assembly_1_1_assembly_scratch.html" title="Temporary assembly object that holds FE&#39;s and functions. ">Assembly::AssemblyScratch</a> and <a class="el" href="struct_assembly_1_1_drift_diffusion_1_1_copy_data.html" title="Local data for drift-diffusion equation. ">Assembly::DriftDiffusion::CopyData</a> instantiated before calling this function.</p>
 <p>This function loops through the quadrature points of this cell and assembles a local mass matrix for the <a class="el" href="class_l_d_g___system_1_1_l_d_g.html" title="This class builds two system matrices using the LDG method for the two ChargeCarrierSpace::Carrier ob...">LDG</a> method applied to the drift-diffusion equation and stores it in <a class="el" href="struct_assembly_1_1_drift_diffusion_1_1_copy_data.html" title="Local data for drift-diffusion equation. ">Assembly::DriftDiffusion::CopyData</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -455,7 +454,7 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_l_d_g___system_1_1_l_d_g.html">LDG_System::LDG</a>&lt; dim &gt;::assemble_local_test_rhs </td>
           <td>(</td>
-          <td class="paramtype">const typename <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;&#160;</td>
+          <td class="paramtype">const typename <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;&#160;</td>
           <td class="paramname"><em>cell</em>, </td>
         </tr>
         <tr>
@@ -496,7 +495,7 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_l_d_g___system_1_1_l_d_g.html">LDG_System::LDG</a>&lt; dim &gt;::assemble_local_test_transient_rhs </td>
           <td>(</td>
-          <td class="paramtype">const typename <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;&#160;</td>
+          <td class="paramtype">const typename <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;&#160;</td>
           <td class="paramname"><em>cell</em>, </td>
         </tr>
         <tr>
@@ -514,7 +513,7 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>old_solution</em>, </td>
         </tr>
         <tr>
@@ -549,19 +548,19 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_l_d_g___system_1_1_l_d_g.html">LDG_System::LDG</a>&lt; dim &gt;::compute_coupled_errors </td>
           <td>(</td>
-          <td class="paramtype">const <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>triangulation</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>carrier_dof_handler</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>solution</em>, </td>
         </tr>
         <tr>
@@ -612,19 +611,19 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_l_d_g___system_1_1_l_d_g.html">LDG_System::LDG</a>&lt; dim &gt;::compute_errors </td>
           <td>(</td>
-          <td class="paramtype">const <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>triangulation</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>carrier_dof_handler</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>solution</em>, </td>
         </tr>
         <tr>
@@ -680,19 +679,19 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_l_d_g___system_1_1_l_d_g.html">LDG_System::LDG</a>&lt; dim &gt;::compute_interface_errors </td>
           <td>(</td>
-          <td class="paramtype">const <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>triangulation</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>carrier_dof_handler</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>solution</em>, </td>
         </tr>
         <tr>
@@ -743,7 +742,7 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_l_d_g___system_1_1_l_d_g.html">LDG_System::LDG</a>&lt; dim &gt;::output_rescaled_results </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>carrier_dof_handler</em>, </td>
         </tr>
         <tr>
@@ -780,7 +779,7 @@ I think this will only work when code is compiled in release mode. </dd></dl>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="_l_d_g_8hpp_source.html">LDG.hpp</a></li>
+<li>/Users/Mike/Documents/cpp_codes/PECS_2D/include/<a class="el" href="_l_d_g_8hpp_source.html">LDG.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

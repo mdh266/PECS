@@ -47,7 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -69,10 +69,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="classes.html"><span>Data&#160;Structure&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="functions.html"><span>Data&#160;Fields</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -97,9 +97,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pri-types">Private Types</a> &#124;
-<a href="class_mixed_poisson_1_1_mixed_f_e_m-members.html">List of all members</a>  </div>
+<a href="#pub-attribs">Data Fields</a> &#124;
+<a href="#pri-types">Private Types</a>  </div>
   <div class="headertitle">
 <div class="title">MixedPoisson::MixedFEM&lt; dim &gt; Class Template Reference</div>  </div>
 </div><!--header-->
@@ -117,21 +116,21 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html#a4ca7d3c6bc1bf19bd8dbbb266157327f">~MixedFEM</a> ()</td></tr>
 <tr class="memdesc:a4ca7d3c6bc1bf19bd8dbbb266157327f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple desctructor which clears the dof_handler. <br /></td></tr>
 <tr class="separator:a4ca7d3c6bc1bf19bd8dbbb266157327f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74ca668561a4029aff14b468d56f2c82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html#a74ca668561a4029aff14b468d56f2c82">assemble_local_Poisson_matrix</a> (const typename <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;cell, <a class="el" href="struct_assembly_1_1_assembly_scratch.html">Assembly::AssemblyScratch</a>&lt; dim &gt; &amp;scratch, <a class="el" href="struct_assembly_1_1_poisson_1_1_copy_data.html">Assembly::Poisson::CopyData</a>&lt; dim &gt; &amp;data, const double &amp;semi_permittivity, const double &amp;elec_permittivity, const double &amp;scaled_debye_length)</td></tr>
+<tr class="memitem:a74ca668561a4029aff14b468d56f2c82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html#a74ca668561a4029aff14b468d56f2c82">assemble_local_Poisson_matrix</a> (const typename <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;cell, <a class="el" href="struct_assembly_1_1_assembly_scratch.html">Assembly::AssemblyScratch</a>&lt; dim &gt; &amp;scratch, <a class="el" href="struct_assembly_1_1_poisson_1_1_copy_data.html">Assembly::Poisson::CopyData</a>&lt; dim &gt; &amp;data, const double &amp;semi_permittivity, const double &amp;elec_permittivity, const double &amp;scaled_debye_length)</td></tr>
 <tr class="memdesc:a74ca668561a4029aff14b468d56f2c82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assembles the matrix for local cell in the mixed finite element metho in the mixed finite element method for Poissons equation.  <a href="#a74ca668561a4029aff14b468d56f2c82">More...</a><br /></td></tr>
 <tr class="separator:a74ca668561a4029aff14b468d56f2c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac181e3cc675ca86c9718851f94c85d64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html#ac181e3cc675ca86c9718851f94c85d64">assemble_local_test_rhs</a> (const typename <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;cell, <a class="el" href="struct_assembly_1_1_assembly_scratch.html">Assembly::AssemblyScratch</a>&lt; dim &gt; &amp;scratch, <a class="el" href="struct_assembly_1_1_poisson_1_1_copy_data.html">Assembly::Poisson::CopyData</a>&lt; dim &gt; &amp;data)</td></tr>
+<tr class="memitem:ac181e3cc675ca86c9718851f94c85d64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html#ac181e3cc675ca86c9718851f94c85d64">assemble_local_test_rhs</a> (const typename <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;cell, <a class="el" href="struct_assembly_1_1_assembly_scratch.html">Assembly::AssemblyScratch</a>&lt; dim &gt; &amp;scratch, <a class="el" href="struct_assembly_1_1_poisson_1_1_copy_data.html">Assembly::Poisson::CopyData</a>&lt; dim &gt; &amp;data)</td></tr>
 <tr class="separator:ac181e3cc675ca86c9718851f94c85d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae677529426263dd8da5c47304581a5ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html#ae677529426263dd8da5c47304581a5ca">compute_errors</a> (const <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;triangulation, <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;Poisson_dof_handler, <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;solution, double &amp;potential_error, double &amp;field_error) const </td></tr>
+<tr class="memitem:ae677529426263dd8da5c47304581a5ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html#ae677529426263dd8da5c47304581a5ca">compute_errors</a> (const <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;triangulation, <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;Poisson_dof_handler, <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;solution, double &amp;potential_error, double &amp;field_error) const </td></tr>
 <tr class="memdesc:ae677529426263dd8da5c47304581a5ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the local error of your approximation for the mixed method on the cell and stores the errors in <code>potential_error<code> and <code>field_error<code>. </code></code></code></code> <a href="#ae677529426263dd8da5c47304581a5ca">More...</a><br /></td></tr>
 <tr class="separator:ae677529426263dd8da5c47304581a5ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c8ccce4e5192e29292bdf998dce6089"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html#a0c8ccce4e5192e29292bdf998dce6089">output_rescaled_results</a> (<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;dof_handler, const <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;solution, const <a class="el" href="struct_parameter_space_1_1_parameters.html">ParameterSpace::Parameters</a> &amp;sim_params, const unsigned int time_step_number) const </td></tr>
+<tr class="memitem:a0c8ccce4e5192e29292bdf998dce6089"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html#a0c8ccce4e5192e29292bdf998dce6089">output_rescaled_results</a> (<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;dof_handler, const <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;solution, const <a class="el" href="struct_parameter_space_1_1_parameters.html">ParameterSpace::Parameters</a> &amp;sim_params, const unsigned int time_step_number) const </td></tr>
 <tr class="separator:a0c8ccce4e5192e29292bdf998dce6089"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a686ecba8aefb216625547c7b86afb7be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html#a686ecba8aefb216625547c7b86afb7be">output_unscaled_results</a> (<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;dof_handler, const <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;solution, const unsigned int time_step_number) const </td></tr>
+<tr class="memitem:a686ecba8aefb216625547c7b86afb7be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html#a686ecba8aefb216625547c7b86afb7be">output_unscaled_results</a> (<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;dof_handler, const <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;solution, const unsigned int time_step_number) const </td></tr>
 <tr class="separator:a686ecba8aefb216625547c7b86afb7be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
+Data Fields</h2></td></tr>
 <tr class="memitem:a4428ad88a8737b700e6838d7b4c4f19d"><td class="memItemLeft" align="right" valign="top">test_DD_Poisson::Poisson_RightHandSide&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html#a4428ad88a8737b700e6838d7b4c4f19d">test_coupling_Poisson_rhs</a></td></tr>
 <tr class="separator:a4428ad88a8737b700e6838d7b4c4f19d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac891ab16ec9d6d572535ef39666009b6"><td class="memItemLeft" align="right" valign="top">const test_Poisson::DirichletBoundaryValues&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html#ac891ab16ec9d6d572535ef39666009b6">test_Poisson_bc</a></td></tr>
@@ -222,7 +221,7 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html">MixedPoisson::MixedFEM</a>&lt; dim &gt;::assemble_local_Poisson_matrix </td>
           <td>(</td>
-          <td class="paramtype">const typename <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;&#160;</td>
+          <td class="paramtype">const typename <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;&#160;</td>
           <td class="paramname"><em>cell</em>, </td>
         </tr>
         <tr>
@@ -264,7 +263,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 
 <p>Assembles the matrix for local cell in the mixed finite element metho in the mixed finite element method for Poissons equation. </p>
-<p>This function can either be called when looping throug the cells by hand and assemblying the global matrix sequentially or by using the <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/namespaceWorkStream.html">WorkStream</a> to assemble it in parallel. If you use it in squential mode, than you must have the AssemblyScratch and Poisson::CopyData instantiated before calling this function.</p>
+<p>This function can either be called when looping throug the cells by hand and assemblying the global matrix sequentially or by using the <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/namespaceWorkStream.html">WorkStream</a> to assemble it in parallel. If you use it in squential mode, than you must have the AssemblyScratch and Poisson::CopyData instantiated before calling this function.</p>
 <p>This function loops through the quadrature points of this cell and assembles a local matrix corresponding to the Mixed Method applied <a class="el" href="namespace_poisson.html" title="Contains all of the local CopyData for Poisson&#39;s equation. ">Poisson</a> equation and stores it in Poisson::CopyData.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -299,7 +298,7 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html">MixedPoisson::MixedFEM</a>&lt; dim &gt;::assemble_local_test_rhs </td>
           <td>(</td>
-          <td class="paramtype">const typename <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;&#160;</td>
+          <td class="paramtype">const typename <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt;::<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;&#160;</td>
           <td class="paramname"><em>cell</em>, </td>
         </tr>
         <tr>
@@ -334,19 +333,19 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html">MixedPoisson::MixedFEM</a>&lt; dim &gt;::compute_errors </td>
           <td>(</td>
-          <td class="paramtype">const <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>triangulation</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>Poisson_dof_handler</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>solution</em>, </td>
         </tr>
         <tr>
@@ -390,13 +389,13 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html">MixedPoisson::MixedFEM</a>&lt; dim &gt;::output_rescaled_results </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>dof_handler</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>solution</em>, </td>
         </tr>
         <tr>
@@ -431,13 +430,13 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html">MixedPoisson::MixedFEM</a>&lt; dim &gt;::output_unscaled_results </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>dof_handler</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>solution</em>, </td>
         </tr>
         <tr>
@@ -457,7 +456,7 @@ template&lt;int dim&gt; </div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
+<h2 class="groupheader">Field Documentation</h2>
 <a class="anchor" id="a4428ad88a8737b700e6838d7b4c4f19d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -519,7 +518,7 @@ template&lt;int dim&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="_mixed_f_e_m_8hpp_source.html">MixedFEM.hpp</a></li>
+<li>/Users/Mike/Documents/cpp_codes/PECS_2D/include/<a class="el" href="_mixed_f_e_m_8hpp_source.html">MixedFEM.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

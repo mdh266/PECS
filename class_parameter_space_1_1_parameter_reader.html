@@ -47,7 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -69,10 +69,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="classes.html"><span>Data&#160;Structure&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="functions.html"><span>Data&#160;Fields</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -98,8 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="class_parameter_space_1_1_parameter_reader-members.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">ParameterSpace::ParameterReader Class Reference</div>  </div>
 </div><!--header-->
@@ -113,12 +112,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a18432d4f20e86b342311bff2f90394b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18432d4f20e86b342311bff2f90394b1"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parameter_space_1_1_parameter_reader.html#a18432d4f20e86b342311bff2f90394b1">ParameterReader</a> (<a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classParameterHandler.html">ParameterHandler</a> &amp;param_handler)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parameter_space_1_1_parameter_reader.html#a18432d4f20e86b342311bff2f90394b1">ParameterReader</a> (<a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classParameterHandler.html">ParameterHandler</a> &amp;param_handler)</td></tr>
 <tr class="memdesc:a18432d4f20e86b342311bff2f90394b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor The class will need a ParameterHander object to be instantiated before it is instantiated. <br /></td></tr>
 <tr class="separator:a18432d4f20e86b342311bff2f90394b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab34e8a1aa4e04724c7e6ef5d00599d2e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab34e8a1aa4e04724c7e6ef5d00599d2e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parameter_space_1_1_parameter_reader.html#ab34e8a1aa4e04724c7e6ef5d00599d2e">read_parameters</a> (const std::string)</td></tr>
-<tr class="memdesc:ab34e8a1aa4e04724c7e6ef5d00599d2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads input file, if the file doesn't exist a default one is created. The information is then stored in the <a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classParameterHandler.html">ParameterHandler</a> before being called stored in parse_and_scaled_parameters() when called from the SolarCell constructor. <br /></td></tr>
+<tr class="memdesc:ab34e8a1aa4e04724c7e6ef5d00599d2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads input file, if the file doesn't exist a default one is created. The information is then stored in the <a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classParameterHandler.html">ParameterHandler</a> before being called stored in parse_and_scaled_parameters() when called from the SolarCell constructor. <br /></td></tr>
 <tr class="separator:ab34e8a1aa4e04724c7e6ef5d00599d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70d439bcc276cff9a1d28b7d61314495"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a70d439bcc276cff9a1d28b7d61314495"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>read_test_parameters</b> (const std::string parameter_file)</td></tr>
@@ -137,7 +136,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a542bf2ac193dcd0ce667a5494efed286"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classParameterHandler.html">ParameterHandler</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parameter_space_1_1_parameter_reader.html#a542bf2ac193dcd0ce667a5494efed286">prm</a></td></tr>
+<tr class="memitem:a542bf2ac193dcd0ce667a5494efed286"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classParameterHandler.html">ParameterHandler</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parameter_space_1_1_parameter_reader.html#a542bf2ac193dcd0ce667a5494efed286">prm</a></td></tr>
 <tr class="separator:a542bf2ac193dcd0ce667a5494efed286"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -146,7 +145,7 @@ Private Attributes</h2></td></tr>
 ParameterSpace::ParameterReader     param(prm);
 param.read_parameters("input_file.prm");
 
-SOLARCELL::SolarCellProblem&lt;2&gt;  DeviceSimulation(degree,prm);</pre> </div><h2 class="groupheader">Member Data Documentation</h2>
+SOLARCELL::SolarCellProblem&lt;2&gt;  DeviceSimulation(degree,prm);</pre> </div><h2 class="groupheader">Field Documentation</h2>
 <a class="anchor" id="a542bf2ac193dcd0ce667a5494efed286"></a>
 <div class="memitem">
 <div class="memproto">
@@ -155,7 +154,7 @@ SOLARCELL::SolarCellProblem&lt;2&gt;  DeviceSimulation(degree,prm);</pre> </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="elRef" doxygen="/Users/Mike/Documents/PECS/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classParameterHandler.html">ParameterHandler</a>&amp; ParameterSpace::ParameterReader::prm</td>
+          <td class="memname"><a class="elRef" doxygen="/Users/Mike/Documents/cpp_codes/PECS_2D/Documentation/deal.tag:http://www.dealii.org/8.3.0/doxygen/deal.II/" href="http://www.dealii.org/8.3.0/doxygen/deal.II/classParameterHandler.html">ParameterHandler</a>&amp; ParameterSpace::ParameterReader::prm</td>
         </tr>
       </table>
   </td>
@@ -169,7 +168,7 @@ SOLARCELL::SolarCellProblem&lt;2&gt;  DeviceSimulation(degree,prm);</pre> </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="_parameter_reader_8hpp_source.html">ParameterReader.hpp</a></li>
+<li>/Users/Mike/Documents/cpp_codes/PECS_2D/include/<a class="el" href="_parameter_reader_8hpp_source.html">ParameterReader.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
