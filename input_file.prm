@@ -4,7 +4,7 @@ subsection computational
   # time to steady state (in terms of characteristic time)
   set end time           = 5e1
 
-  # 2nd end time for restarting at end time
+  # 2nd end time for restarting if the simiulation hasnt converged by end of previous time
   set end time 2         = 1e5
 
   # number of global refinements
@@ -13,10 +13,10 @@ subsection computational
   # number of local refinements in predefined critical areas
   set local refinements  = 1
 
-  # whether to use end of last run as start for this one
+  # if restarting, the end of last run is used as start for this one
   set restart status     = false
 
-  # number of output files until end time
+  # number of output files from simulations
   set time stamps        = 100
 
   # scaled time step size of both subdomains
