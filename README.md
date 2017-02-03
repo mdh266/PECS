@@ -1,4 +1,4 @@
-# PhotElectrochemical Cell Simulator
+# PhotoElectrochemical Cell Simulator
 ## Introduction
 
 ### Photoelectrochemical Solar Cells
