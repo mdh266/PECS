@@ -110,7 +110,6 @@ To run the code type:
 The resulting outputs are in <a href="http://www.vtk.org/"> VTK </a> format and can 
 viewed using <a href="http://www.paraview.org/"> Paraview</a>.
 
-
 \subsection Parameters
 
 Material and design choices can be chosen by the user through the input file
