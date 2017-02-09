@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>My Project: PhotoElectrochemical Cell Simulator</title>
+<title>PhotoElectrochemical Cell Simulator: README</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -14,6 +14,12 @@
 <script type="text/javascript">
   $(document).ready(function() { init_search(); });
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -23,8 +29,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">PhotoElectrochemical Cell Simulator
    </div>
+   <div id="projectbrief">A Finite Element Based Simulator For Water Splitting Solar Cells</div>
   </td>
  </tr>
  </tbody>
@@ -39,6 +46,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -74,86 +84,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">PhotoElectrochemical Cell Simulator </div>  </div>
+<div class="title">README </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2>Introduction</h2>
-<h3>Photoelectrochemical Solar Cells</h3>
-<p>Large-scale utilization of photovoltaic (PV) devices, or solar cells, has been hampered for years due to high costs and lack of energy storage mechanisms. <a href="https://en.wikipedia.org/wiki/Photoelectrochemical_cell">Photoelectrochemical solar cells</a> (PECs), are an attractive alternative to conventional solid state PV devices. PECs such as those depicted below are able to directly convert solar energy into hydrogen fuel. The hydrogen fuel can then be used at a later time to generate electricity. The typical setup of a PEC is shown below</p>
-<div class="image">
-<img src="./Documentation/images/PEC.png"  alt="Photoelectrochemical Solar Cell"/>
-</div>
-<p>A PEC consists of four main components: the solid semiconductor electrode, the liquid electrolyte component, the semiconductor-electrolyte interface and the counter (metal or semiconductor) electrode. When sunlight shines on the semiconductor component, photons are absorbed and generate electron-hole pairs. These electrons and holes are separated by a built-in electric field within the semiconductor. The separation of the electrons and holes leads to an electrical current in the cell and the accumulation of charges at the semiconductor-electrolyte interface. At the interface, the photo-generated electrons or holes induce a chemical reaction at the semiconductor electrode. A similar chemical reaction also occurs at the counter electrode. These chemical reactions create or eliminate reductant-oxidant (redox) species in the electrolyte leading to the generation of hydrogen fuel.</p>
-<p>Research on PECs has traditionally focused on planar cell designs, but recently there has been interest in cell designs that use thin nanostructured wires such as those depicted below.</p>
-<div class="image">
-<img src="./Documentation/images/planar_vs_wire-eps-converted-to.png"  alt="PEC"/>
-</div>
-<p>In a planar device such, photo-generated electrons and holes are collected in directions parallel to photon absorption. In order for PECs' to achieve sufficient energy conversion efficiencies to be commercially viable the electron/hole diffusion length (the average distance an electron/hole can be travel without being eliminated) must be larger than the absorption length (the average distance a photon will penetrate the semiconductor crystal before generating an electron-hole pair). This constraint necessitates the use of expensive, high quality crystals that either have large diffusion lengths or small absorption lengths. In PECs that use a nanowire design the electron/hole collection and photon absorption directions are decoupled, thereby alleviating the need for high quality crystals to attain sufficient energy conversion efficiencies. Scientists believe that the shape of these nanowires can effect the energy conversion efficiencies (see <a href="http://pubs.rsc.org/en/content/articlelanding/2012/ee/c1ee02518j#!divAbstract">here</a> for more information). This software therefore allows nanowires which are cylindrical or conic, like those seen below:</p>
-<div class="image">
-<img src="./Documentation/images/Cylinder.png"  alt="Cylinder"/>
-</div>
-<h3>Software Overview</h3>
-<p>This software is designed to simulate the dynamics of the reactive interface between a semiconductor and electrolyte in a 2D. The nanowire solar cells is then considered to be axially symmetric in order to reduce the 3D nanowire to a 2D domain. The interface between the semiconductor and electrolyte make up a "half cell" of a <a href="https://en.wikipedia.org/wiki/Photoelectrochemical_cell">photoelectrochemical cell</a>. The main challenges in constructing numerical algorithms that produces reliable simulations of PECs are due to the highly nonlinear nature of the system and the different time scales of the semicondcutor and electrolye charge carrier. Furthermore, regions of stiffness caused by boundary layer formation where sharp transitions in densities and electric potential occur near the interface (as shown below) and pose severe constraints on the choice of discretization strategy in order to maintain numerical stability.</p>
-<p>This code will automatically run in parallel using the <a href="https://www.threadingbuildingblocks.org/">Thread Building Blocks</a> for multithreading.</p>
-<p>The resulting output files from simulations are in <a href="http://www.vtk.org/">VTK</a> format and can viewed using <a href="http://www.paraview.org/">Paraview</a>. An example of such results are shown below,</p>
-<div class="image">
-<img src="./Documentation/images/densities_bias_0.png"  alt="Densities"/>
-</div>
-<p>For <b>much more</b> background on the model and algorithms used in this project please see the <a href="http://mdh266.github.io/PECS/">documentation page</a>.</p>
-<h2>Requirements</h2>
-<ol type="1">
-<li><a href="dealii.org">deal.ii</a> library version 8.3.0 or higher.</li>
-<li><a href="https://cmake.org/">CMake</a> version 2.8 or higher.</li>
-</ol>
-<ol type="1">
-<li><a href="http://www.paraview.org/">Paraview</a> for visualization.</li>
-</ol>
-<h2>Using Software</h2>
-<p>First obtain and install a copy of the deal.ii library version 8.3.0 or higher. After downloading and installing the deal.II library. cd into the <code>PECS</code> directory.</p>
-<p>To generate a make file to compile the source code type the following command into the terminal: </p><pre class="fragment">cmake . -DDEAL_II_DIR="path to deal.II library" 
-</pre><p>On a mac, if you downloaded the binaries of deal.ii library instead run the command: </p><pre class="fragment">cmake .
-</pre><p>Once the CMake build is completed you can run the command: </p><pre class="fragment">make release    
-</pre><p>to compile the code.</p>
-<p>To run the code use the command: </p><pre class="fragment">./main  
-</pre><p>Material and design choices can be chosen by the user through the input file, </p><pre class="fragment">input_file.prm  
-</pre><p><b>NOTE: Upon changing parameter values in the input file the code does not need to be recompiled.</b></p>
-<h2>Input Parameter File</h2>
-<p>Material and design choices can be chosen by the user through the input file: <code>input_file.prm</code>.</p>
-<p>Most of the parameters in <code>input_file.prm</code> will be self explanatory after reading the documentation and from the comments in the file. However, for clarity we will explain some here. There are two end times in <code>input_file.prm</code> in case in the initial simulation has not fully converged to steady state. Instead of restarting the simulation from the initial conditions and rerunning the simulation we can restart the simulation and use the end conditions as our new starting conditions; this is achieved by setting:</p>
-<p><code> set restart status = true</code></p>
-<p>And setting the <code>end time 2</code> to the desired new end time.</p>
-<p>A typical mesh for the semiconductor is seen below,</p>
-<div class="image">
-<img src="./Documentation/images/semiconductor-grid.png"  alt="SeminconductoGrod"/>
-</div>
-<p>The height of the mesh is the height of the nanowire and is set by,</p>
-<p><code> set mesh height = ... </code></p>
-<p>The top width is fixed by setting the top radius of the nano wire,</p>
-<p><code> set radius one = ... </code></p>
-<p>the bottom width is fixed by setting the bottom radius of the nano wire,</p>
-<p><code> set radius two = ... </code></p>
-<p>Refining the mesh globally is achieved by,</p>
-<p><code> set global refinements = ... </code></p>
-<p>Refining the mesh locally is achieved by,</p>
-<p><code> set local refinements = ... </code></p>
-<p>Local refinement only occurs within a specified distance of the interface (on the right) and is that distance is set by,</p>
-<p><code> set boundary layer = ... </code></p>
-<p>The whole simulation mesh is seen below,</p>
-<div class="image">
-<img src="./Documentation/images/Poisson-grid.png"  alt="Poisson Grid"/>
-</div>
-<p>The details of this mesh (refinements, height, radii, boundary layer) are controlled as described above. The width of the entire domain is set by,</p>
-<p><code> set mesh length = ... </code></p>
-<p>Both radii <b>MUST</b> be smaller than the mesh width. See Grid_Maker::Grid for more information. Finally, the left and the right boundaries of the the entire domain will have Dirchlet boundary conditions (explained in documentation), while the top and bottom of the domain will have Neumann conditions (explained in documentation) by,</p>
-<p><code> set insulated = true </code></p>
-<p>otherwise the top and bottom of the domain will have Dirichlet conditions. Finally, the initial conditions are set in the source code file:</p>
-<p><code> InitialConditions.cpp </code></p>
-<p>and must be set before compilation.</p>
-<h2>Trouble Shooting</h2>
-<p>If your simulation seems to be losing stability, there are two options:</p>
-<p>1.) Choose a smaller time step, in</p>
-<p><code> set time step size = ... </code></p>
-<p>2.) Refining the mesh especially near the interface. </p>
+<div class="textblock"><p><em>VIEW ON <a href="https://mdh266.github.io/PECS/">https://mdh266.github.io/PECS/</a></em> </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
