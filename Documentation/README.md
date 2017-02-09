@@ -107,7 +107,9 @@ To run the code use the command:
 <code>./main</code>
 
 The resulting output files of the simulation are in <a href="http://www.vtk.org/"> VTK </a> format and can 
-viewed using <a href="http://www.paraview.org/"> Paraview</a>.
+viewed using <a href="http://www.paraview.org/"> Paraview</a>. An example of such results are shown below,
+
+\image html densities_bias_0.png
 
 \subsection Parameters
 

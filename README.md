@@ -6,18 +6,18 @@
 Large-scale utilization of photovoltaic (PV) devices, or solar cells, has been hampered 
 for years due to high costs and lack of energy storage mechanisms.  <a href="https://en.wikipedia.org/wiki/Photoelectrochemical_cell">Photoelectrochemical solar cells</a>  (PECs), are an attractive alternative to conventional solid state PV devices.  PECs such as those depicted below are able to directly convert solar energy into hydrogen fuel.  The hydrogen fuel can then be used at a later time to generate electricity. The typical setup of a PEC is shown below
 
-![Photoelectrochemical Solar Cell](./Documentation/images/PEC.png)
+![Photoelectrochemical Solar Cell](./documentation/images/PEC.png)
 
 A PEC consists of four main components: the solid semiconductor electrode, the liquid electrolyte component, the semiconductor-electrolyte interface and the counter (metal or semiconductor) electrode.  When sunlight shines on the semiconductor component, photons are absorbed and generate electron-hole pairs. These electrons and holes are separated by a built-in electric field within the semiconductor. The separation of the electrons and holes leads to an electrical current in the cell and the accumulation of charges at the semiconductor-electrolyte interface.  At the interface, the photo-generated electrons or holes induce a chemical reaction at the semiconductor electrode. A similar chemical reaction also occurs at the counter electrode. These chemical reactions create or eliminate reductant-oxidant (redox) species in the electrolyte leading to the generation of hydrogen fuel.  
 
 Research on PECs has traditionally focused on planar cell designs, but recently there has been interest in cell designs that use thin nanostructured wires such as those depicted below.
 
-![PEC](./Documentation/images/planar_vs_wire-eps-converted-to.png)
+![PEC](./documentation/images/planar_vs_wire-eps-converted-to.png)
 
 In a planar device such, photo-generated electrons and holes are collected in directions parallel to photon absorption. In order for PECs' to achieve sufficient energy conversion efficiencies to be commercially viable the electron/hole diffusion length (the average distance an electron/hole can be travel without being eliminated) must be larger than the absorption length (the average distance a photon will penetrate the semiconductor crystal before generating an electron-hole pair). This constraint necessitates the use of expensive, high quality crystals that either have large diffusion lengths or small absorption lengths. In PECs that use a nanowire design the electron/hole collection and photon absorption directions are  decoupled, thereby alleviating the need for high quality crystals to attain sufficient energy  conversion efficiencies.  Scientists believe that the shape of these nanowires can effect  the energy conversion efficiencies (see <a href="http://pubs.rsc.org/en/content/articlelanding/2012/ee/c1ee02518j#!divAbstract">here</a> for more information). This software therefore allows nanowires which are cylindrical or conic, like those seen below:
 
 
-![Cylinder](./Documentation/images/Cylinder.png)
+![Cylinder](./documentation/images/Cylinder.png)
 
 ### Software Overview
 
@@ -27,7 +27,7 @@ This code will automatically run in parallel using the  <a href="https://www.thr
 
 The resulting output files from simulations are in <a href="http://www.vtk.org/">VTK</a> format and can viewed using <a href="http://www.paraview.org/">Paraview</a>.  An example of such results are shown below,
 
-![Densities](./Documentation/images/densities_bias_0.png)
+![Densities](./documentation/images/densities_bias_0.png)
 
 
 
@@ -86,7 +86,7 @@ And setting the <code>end time 2</code> to the desired new end time.
 
 A typical mesh for the semiconductor is seen below,
 
-![SeminconductoGrod](./Documentation/images/semiconductor-grid.png)
+![SeminconductoGrod](./documentation/images/semiconductor-grid.png)
 
 The height of the mesh is the height of the nanowire and is set by,
 
@@ -114,7 +114,7 @@ Local refinement only occurs within a specified distance of the interface (on th
 
 The whole simulation mesh is seen below, 
 
-![Poisson Grid](./Documentation/images/Poisson-grid.png)
+![Poisson Grid](./documentation/images/Poisson-grid.png)
 
 The details of this mesh (refinements, height, radii, boundary layer) are controlled as described above. 
 The width of the entire domain is set by,
