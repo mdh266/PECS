@@ -14,7 +14,7 @@ for years due to high costs and lack of energy storage mechanisms.
 (PECs), are an attractive alternative to conventional solid state PV devices.  
 PECs such as those depicted below 
 are able to directly convert solar energy into hydrogen fuel.  The hydrogen fuel can then 
-be used at a later time to generate electricity. In the typical setup of a PEC is shown below
+be used at a later time to generate electricity. The typical setup of a PEC is shown below
 
 \image html PEC.png
 
@@ -54,11 +54,11 @@ This software therefore allows nanowires which are more cylindrical or conic lik
 
 
 This software is designed to simulate the dynamics of the reactive interface between a
-semiconductor and electrolyte in a 2D. The nanowire is then considered to be axially symmetric in order
+semiconductor and electrolyte in a 2D. The nanowire solar cell is then considered to be axially symmetric in order
 to reduce the 3D nanowire to a 2D domain. The interface of between the semiconductor and electrolyte
 make up a "half cell" of a 
 <a href="https://en.wikipedia.org/wiki/Photoelectrochemical_cell">photoelectrochemical cell</a>.
-The main challenges in constructing a numerical algorithms that produces reliable simulations of PECs
+The main challenges in constructing numerical algorithms that produces reliable simulations of PECs
 are due to the highly nonlinear nature of the semiconductor and electrolyte systems as well 
 as the nonlinear coupling between the two systems at the interface. In addition, the 
 evolution problem under consideration is effectively multi-scale in the sense that the evolution 
@@ -78,18 +78,17 @@ Thread Building Blocks</a>.
 See
 <a href="https://www.dealii.org/developer/doxygen/deal.II/group__threads.html">
 deal.ii's explanation on parallel computing with shared memory</a> to see why this 
-necessary and how it works.   To make this documentation on your local machine you need 
-<a href="http://www.stack.nl/~dimitri/doxygen/">doxygen</a>.
+necessary and how it works. 
 
 
-\subsection Usage
+\subsection Using the code
 The source code can be downloaded from <a href="https://github.com/mdh266/PECS">here</a>.
-You also need to obtain and install a copy of the 
+You first need to obtain and install a copy of the 
 <a href="https://www.dealii.org">deal.ii library</a> 
 version 8.3.0 or higher. After downloading and installing the deal.II library.  
 cd into the PECS directory.  
 
-To generate a make file run to compile the source code type: 
+To generate a make file to compile the source code run the following command in the <code>PECS/</code> directory,
 
 <code> cmake . -DDEAL_II_DIR="path to deal.II library" </code>
 
@@ -97,17 +96,17 @@ On a mac, if you downloaded the binaries of deal.ii library instead run:
 
 <code> cmake . </code>
 
-Once this complete you can type:
+Once the CMake build is complete you can run the command:
 
-<code> make release </code>
+<code>make release</code>
 
 to compile the code.
 
-To run the code type:
+To run the code use the command:
 
-<code>./main </code>
+<code>./main</code>
 
-The resulting outputs are in <a href="http://www.vtk.org/"> VTK </a> format and can 
+The resulting output files of the simulation are in <a href="http://www.vtk.org/"> VTK </a> format and can 
 viewed using <a href="http://www.paraview.org/"> Paraview</a>.
 
 \subsection Parameters
@@ -116,7 +115,7 @@ Material and design choices can be chosen by the user through the input file
 <code>input_file.prm</code>.
 
 Most of the parameters in <code>input_file.prm</code> will be self explanatory after
-reading the Model section and from the comments in the file. However, we explain some
+reading the Model section and from the comments in the file. However, we explain some of them
 here for clarity.  There are two end times in <code>input_file.prm</code> in case in the initial
 simulation has not fully converged to steady state. Instead of restarting the simulation from the 
 initial conditions and rerunning the simulation we can restart the simulation and use the 
@@ -124,31 +123,33 @@ end conditions as our new starting conditions; this is achieved by setting:
 
 <code> set restart status     = true</code>
 
+And setting the <code>end time 2</code> to the desired new end time.
+
 A typical mesh for the semiconductor is seen below,
 
 \image html semiconductor-grid.png
 
-The height of the mesh is the length of the nanowire and is set in,
+The height of the mesh is the height of the nanowire and is set in,
 
 <code>  set mesh height    = ... </code>
 
-The top length is set by setting the top radius of the nano wire,
+The top width is set by setting the top radius of the nano wire,
 
 <code>  set radius one     =  ... </code>
 
-the bottom length is set by setting the bottom radius of the nano wire,
+the bottom width is set by setting the bottom radius of the nano wire,
 
 <code>  set radius two     =  ... </code>
 
-Refining the mesh globally is achieved through,
+Refining the mesh globally is achieved by,
 
 <code> set global refinements = ... </code>
 
-Refining the mesh locally is achieved through,
+Refining the mesh locally is achieved by,
 
 <code> set local refinements  = ... </code>
 
-Local refinement only occurs within a distance of the interface (on the right) and is controlled by,
+Local refinement only occurs within a distance of the interface (on the right) and this distance is set by,
 
 <code> set boundary layer = ... </code>
 
@@ -157,11 +158,11 @@ The whole simulation mesh is seen below,
 \image html Poisson-grid.png
 
 The details of this mesh (refinements, height, radii, boundary layer) are controlled as described above. 
-The length of the domain is set by,
+The entire width of the domain is set by,
 
 <code>  set mesh length    = ... </code>
 
-Both radii **MUST** be smaller than the mesh length. See Grid_Maker::Grid for more information.  
+Both radii **MUST** be smaller than the mesh width. See Grid_Maker::Grid for more information.  
 Finally, the left and the right boundaries of the the entire domain will have Dirchlet
 boundary conditions (explained in Model section), while the top and bottom of the domain
 will have Neumann conditions (explained in Model section) by,
