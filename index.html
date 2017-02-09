@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>PhotoElectrochemical Cell Simulator: Main Page</title>
+<title>My Project: Main Page</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -14,12 +14,6 @@
 <script type="text/javascript">
   $(document).ready(function() { init_search(); });
 </script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    extensions: ["tex2jax.js"],
-    jax: ["input/TeX","output/HTML-CSS"],
-});
-</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -29,9 +23,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">PhotoElectrochemical Cell Simulator
+   <div id="projectname">My Project
    </div>
-   <div id="projectbrief">A Finite Element Based Simulator For Water Splitting Solar Cells</div>
   </td>
  </tr>
  </tbody>
@@ -46,9 +39,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -84,156 +74,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">PhotoElectrochemical Cell Simulator Documentation</div>  </div>
+<div class="title">My Project Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Michael Harmon</dd></dl>
-<h1><a class="anchor" id="Overview"></a>
-Overview</h1>
-<h2><a class="anchor" id="Introduction"></a>
-Introduction</h2>
-<p>Large-scale utilization of photovoltaic (PV) devices, or solar cells, has been hampered for years due to high costs and lack of energy storage mechanisms. <a href="https://en.wikipedia.org/wiki/Photoelectrochemical_cell">Photoelectrochemical solar cells</a> (PECs), are an attractive alternative to conventional solid state PV devices. PECs such as those depicted below are able to directly convert solar energy into hydrogen fuel. The hydrogen fuel can then be used at a later time to generate electricity. In the typical setup of a PEC is shown below</p>
-<div class="image">
-<img src="PEC.png" alt="PEC.png"/>
-</div>
-<p>A PEC consists of four main components: the solid semiconductor electrode, the liquid electrolyte component, the semiconductor-electrolyte interface and the counter (metal or semiconductor) electrode. When sunlight shines on the semiconductor component, photons are absorbed and generate electron-hole pairs. These electrons and holes are separated by a built-in electric field within the semiconductor. The separation of the electrons and holes leads to an electrical current in the cell and the accumulation of charges at the semiconductor-electrolyte interface. At the interface, the photo-generated electrons or holes induce a chemical reaction at the semiconductor electrode. A similar chemical reaction also occurs at the counter electrode. These chemical reactions create or eliminate reductant-oxidant (redox) species in the electrolyte leading to the generation of hydrogen fuel.</p>
-<p>Research on PECs has traditionally focused on planar cell designs, but recently there has been interest in cell designs that use thin nanostructured wires such as those depicted below.</p>
-<div class="image">
-<img src="planar_vs_wire-eps-converted-to.png" alt="planar_vs_wire-eps-converted-to.png"/>
-</div>
-<p>In a planar device such, photo-generated electrons and holes are collected in directions parallel to photon absorption. In order for PECs' to achieve sufficient energy conversion efficiencies to be commercially viable the electron/hole diffusion length ( \(L_{D}\)) (the average distance an electron/hole can be travel without being eliminated) must be larger than the absorption length ( \(1/\alpha\)) (the average distance a photon will penetrate the semiconductor crystal before generating an electron-hole pair). This constraint necessitates the use of expensive, high quality crystals that either have large diffusion lengths or small absorption lengths. In PECs that use a nanowire design the electron/hole collection and photon absorption directions are decoupled, thereby alleviating the need for high quality crystals to attain sufficient energy conversion efficiencies. Scientists believe that the shape of these nanowires can effect the energy conversion efficiencies (see <a href="http://pubs.rsc.org/en/content/articlelanding/2012/ee/c1ee02518j#!divAbstract">here</a> for more information). This software therefore allows nanowires which are more cylindrical or conic like those seen below:</p>
-<div class="image">
-<img src="Cylinder.png" alt="Cylinder.png"/>
-</div>
-<p>This software is designed to simulate the dynamics of the reactive interface between a semiconductor and electrolyte in a 2D. The nanowire is then considered to be axially symmetric in order to reduce the 3D nanowire to a 2D domain. The interface of between the semiconductor and electrolyte make up a "half cell" of a <a href="https://en.wikipedia.org/wiki/Photoelectrochemical_cell">photoelectrochemical cell</a>. The main challenges in constructing a numerical algorithms that produces reliable simulations of PECs are due to the highly nonlinear nature of the semiconductor and electrolyte systems as well as the nonlinear coupling between the two systems at the interface. In addition, the evolution problem under consideration is effectively multi-scale in the sense that the evolution of the system in the semiconductor and the corresponding one in the electrolyte evolve at different time scales due to the quantitative scaling differences in their relevant physical parameters. Furthermore, regions of stiffness caused by boundary layer formation where sharp transitions in densities and electric potential occur near the interface and pose severe constraints on the choice of discretization strategy in order to maintain numerical stability.</p>
-<h2><a class="anchor" id="Requirements"></a>
-Requirements</h2>
-<p>The requirements for this software are <a href="https://www.dealii.org">deal.ii library</a> version 8.3.0 or higher, and <a href="https://www.cmake.org">CMake</a> version 2.8 or higher. The code will automatically run in parallel using the <a href="https://www.threadingbuildingblocks.org/">Thread Building Blocks</a>. See <a href="https://www.dealii.org/developer/doxygen/deal.II/group__threads.html">deal.ii's explanation on parallel computing with shared memory</a> to see why this necessary and how it works. To make this documentation on your local machine you need <a href="http://www.stack.nl/~dimitri/doxygen/">doxygen</a>.</p>
-<h2><a class="anchor" id="Usage"></a>
-Usage</h2>
-<p>The source code can be downloaded from <a href="https://github.com/mdh266/PECS">here</a>. You also need to obtain and install a copy of the <a href="https://www.dealii.org">deal.ii library</a> version 8.3.0 or higher. After downloading and installing the deal.II library. cd into the PECS directory.</p>
-<p>To generate a make file run to compile the source code type:</p>
-<p><code> cmake . -DDEAL_II_DIR="path to deal.II library" </code></p>
-<p>On a mac, if you downloaded the binaries of deal.ii library instead run:</p>
-<p><code> cmake . </code></p>
-<p>Once this complete you can type:</p>
-<p><code> make release </code></p>
-<p>to compile the code.</p>
-<p>To run the code type:</p>
-<p><code>./main </code></p>
-<p>The resulting outputs are in <a href="http://www.vtk.org/">VTK </a> format and can viewed using <a href="http://www.paraview.org/">Paraview</a>.</p>
-<h2><a class="anchor" id="Parameters"></a>
-Parameters</h2>
-<p>Material and design choices can be chosen by the user through the input file <code>input_file.prm</code>.</p>
-<p>Most of the parameters in <code>input_file.prm</code> will be self explanatory after reading the Model section and from the comments in the file. However, we explain some here for clarity. There are two end times in <code>input_file.prm</code> in case in the initial simulation has not fully converged to steady state. Instead of restarting the simulation from the initial conditions and rerunning the simulation we can restart the simulation and use the end conditions as our new starting conditions; this is achieved by setting:</p>
-<p><code> set restart status = true</code></p>
-<p>A typical mesh for the semiconductor is seen below,</p>
-<div class="image">
-<img src="semiconductor-grid.png" alt="semiconductor-grid.png"/>
-</div>
-<p>The height of the mesh is the length of the nanowire and is set in,</p>
-<p><code> set mesh height = ... </code></p>
-<p>The top length is set by setting the top radius of the nano wire,</p>
-<p><code> set radius one = ... </code></p>
-<p>the bottom length is set by setting the bottom radius of the nano wire,</p>
-<p><code> set radius two = ... </code></p>
-<p>Refining the mesh globally is achieved through,</p>
-<p><code> set global refinements = ... </code></p>
-<p>Refining the mesh locally is achieved through,</p>
-<p><code> set local refinements = ... </code></p>
-<p>Local refinement only occurs within a distance of the interface (on the right) and is controlled by,</p>
-<p><code> set boundary layer = ... </code></p>
-<p>The whole simulation mesh is seen below,</p>
-<div class="image">
-<img src="Poisson-grid.png" alt="Poisson-grid.png"/>
-</div>
-<p>The details of this mesh (refinements, height, radii, boundary layer) are controlled as described above. The length of the domain is set by,</p>
-<p><code> set mesh length = ... </code></p>
-<p>Both radii <b>MUST</b> be smaller than the mesh length. See <a class="el" href="class_grid___maker_1_1_grid.html" title="This object will be used to build meshes over triangulations provided. ">Grid_Maker::Grid</a> for more information. Finally, the left and the right boundaries of the the entire domain will have Dirchlet boundary conditions (explained in Model section), while the top and bottom of the domain will have Neumann conditions (explained in Model section) by,</p>
-<p><code> set insulated = true </code></p>
-<p>otherwise the top and bottom of the domain will have Dirichlet conditions. Finally, the initial conditions are set in the source code file:</p>
-<p><code> InitialConditions.cpp </code></p>
-<p>and must be set before compilation.</p>
-<p><b>Note</b></p>
-<p>If your simulation seems to be losing stability, there are two options:</p>
-<p>1.) Choose a smaller time step, in</p>
-<p><code> set time step size = ... </code></p>
-<p>2.) Refining the mesh.</p>
-<h1><a class="anchor" id="Background"></a>
-Background</h1>
-<p>The software provides simulations of a photoelectrocrhemical solar cell by solving the reaction diffusion equations that describe the macroscopic dynamics of charge transport in photoelectrochemical (PEC) solar cell. The main objective is to accurately capture the reactive dynamics of the semiconductor-electrolyte interface. The underlying spatial descritizations are based on the local discontinuous Galerkin (<a class="el" href="class_l_d_g___system_1_1_l_d_g.html" title="This class builds two system matrices using the LDG method for the two ChargeCarrierSpace::Carrier ob...">LDG_System::LDG</a>) and mixed finite element method (<a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html">MixedPoisson::MixedFEM</a>). The use of specific tailored implicit-explicit (IMEX) methods to capture transient solutions of the time dependent nonlinear systems of PDES. The main class in which everything is put together is in <a class="el" href="class_s_o_l_a_r_c_e_l_l_1_1_solar_cell_problem.html">SOLARCELL::SolarCellProblem</a>. Information on the numerical methods are provided in the links above as well as in the <a href="http://www.ma.utexas.edu/users/gamba/papers/Harmon-IMG-Ren.pdf">paper </a> based of this software.</p>
-<p>We present the mathematical model below, however a more through introduction can be found <a href="http://www.ma.utexas.edu/users/gamba/papers/Semi-Elec-Interf.pdf">here </a>.</p>
-<h2><a class="anchor" id="Model"></a>
-Model</h2>
-<p>We focus on the reactive dynamics of the semiconductor-electrolyte interface. Therfore our domain is the half cell, whose abstract representation is, </p><div class="image">
-<img src="DomainDecomposition.png" alt="DomainDecomposition.png"/>
-</div>
-<p>In the semiconductor component ( \( \Omega_{S} \)) the transport of electrons \((\rho_{n})\) and holes \((\rho_{p})\) is governed by the drift-diffusion-Poisson system of equations for electrons </p><p class="formulaDsp">
-\[ \begin{align} \frac{\partial \rho_{n}}{\partial t} \, + \, \boldsymbol \nabla \cdot \,\left( - \alpha_{n} \, \mu_{n} \boldsymbol \nabla \Phi \, \rho_{n} \, - \, D_{n} \ \boldsymbol \nabla \, \rho_{n} \, \right) \; &amp;= \; R(\rho_{n}, \rho_{p}) \, + \, G &amp;&amp; \text{in} \ (0,T] \ \times \ \Omega_{S} \nonumber \\ \frac{\partial \rho_{p}}{\partial t} \, + \, \boldsymbol \nabla \cdot \, \left( - \alpha_{p} \, \mu_{p} \boldsymbol \nabla \Phi \, \rho_{p} \, - \, D_{p} \ \boldsymbol \nabla \, \rho_{p} \, \right) \; &amp;= \; R(\rho_{n}, \rho_{p}) \, + \, G &amp;&amp; \text{in} \ (0,T] \ \times \ \Omega_{S} \\ -\boldsymbol \nabla \cdot \left( \, \epsilon_{r}^{S} \, \boldsymbol \nabla \Phi \right) \; &amp;= \; \frac{q}{\epsilon_{0}} \left[ \rho_{p}^{e} - \rho_{n}^{e} - (\rho_{n} -\rho_{p}) \right] &amp;&amp; \text{in} \ (0,T] \ \times \ \Omega_{S} \nonumber . \end{align} \]
-</p>
-<p>Where \(\alpha_{i} \), \(\mu_{i}\) and \(D_{i}\) are the charge numbers mobility and diffusivity of carrier \(i = n,p\) respectively. The functions \(\rho_{n}^{e}\) and \(\rho_{p}^{e}\) are the equilibrium electron and hole densities respectively. The constants \(q\) and \(\epsilon_{0}\) charge of the electron and permittivity of free space. The material permittivity is \(\epsilon_{r}\) is assumed to be an invertible tensor.</p>
-<p>We use Shockley-Reed-Hall recombination <a class="el" href="namespace_s_o_l_a_r_c_e_l_l.html#a8aaa79c354d036a507e965151ce17e82" title="The recombination model. ">SOLARCELL::SRH_Recombination</a> as our sink functional, </p><p class="formulaDsp">
-\[ \begin{equation} R(\rho_{n}, \rho_{p}) \; = \; \frac{\rho_{i}^{2} \, -\, \rho_{n} \, \rho_{p}} {\tau_{n} \, (\rho_{n} \, + \, \rho_{i}) \, + \, \tau_{p} \, ( \rho_{p} \, + \, \rho_{i})}. \end{equation} \]
-</p>
-<p>The term \(\rho_{i}\) is the intrinsic electron density and can be spatially varying. \(\tau_{n}, \ \tau_{p} \) are constants called the electron and hole lifetimes. The generation of electrons and holes is modeled using a macroscopic source function, <a class="el" href="class_generation.html" title="Function for macroscopic generation of electrons and holes. ">Generation</a>,</p>
-<p class="formulaDsp">
-\[ \begin{equation} G(\textbf{x}) \; = \; \left\{ \begin{array}{lr} \alpha (\textbf{x}) \, G_{0} \, e^{- \, \int_{0}^{s} \, \alpha (\, \textbf{x}_{0} \, + \, s&#39; \, \boldsymbol \theta_{0} \, ) \, ds&#39;} \qquad &amp; \qquad \text{if} \quad \textbf{x} \; = \; \textbf{x}_{0} \, + \, s \, \boldsymbol \theta_{0} \\ 0 \qquad &amp; \qquad \text{otherwise} \end{array} \right. \end{equation} \]
-</p>
-<p>The point \(\textbf{x}_{0}\) is the photon's incident location and \(\boldsymbol \theta_{0}\) is the incident direction. The absorption coefficient \(\alpha(\textbf{x}) \) has been averaged over all energy values of light that generate free carriers. The term \(G(\textbf{x}_{0}) \; [ \, \text{cm}^{-2} \, \text{s}^{-1} \, ]\) represents the surface photon flux at the point \(\textbf{x}_{0}\).</p>
-<p>The portion of the boundary of the semiconductor \(\Gamma_{S,D}\) is an Ohmic metal contact where the charge densities take on their equilibrium values (<a class="el" href="class_electrons___equilibrium.html" title="Initial/Boundary conditions for electrons, . ">Electrons_Equilibrium</a> and <a class="el" href="class_holes___equilibrium.html" title="Initial/Boundary conditions for holes, . ">Holes_Equilibrium</a>), </p><p class="formulaDsp">
-\[ \begin{align} \rho_{n} \; &amp;= \; \rho_{n}^{e} &amp;&amp; \text{on} \ (0,T] \ \times \ \Gamma_{S,D} \\ \rho_{p} \; &amp;= \; \rho_{p}^{e} &amp;&amp; \text{on} \ (0,T] \ \times \ \Gamma_{S,D} \end{align} \]
-</p>
-<p>The potential on an Ohmic contact is the sum of the applied voltage \(\Phi_{\text{app}} \) Applied_Bias and the so-called ``built-in'' potential \(\Phi_{\text{bi}}\) Built_In_Bias,</p>
-<p class="formulaDsp">
-\[ \begin{align} \Phi \; = \; \Phi_{\text{bi}} \, + \, \Phi_{\text{app.}} &amp;&amp; \text{on} \ (0,T] \ \times \ \Gamma_{S,D}. \end{align} \]
-</p>
-<p>The location of \( \Gamma_{S,D} \) is decided in <a class="el" href="class_grid___maker_1_1_grid.html#a853d717616bd1c6882a3cddca5bdf101" title="Subroutine that tags boundaries to be Dirichlet portions. ">Grid_Maker::Grid::make_Dirichlet_boundaries</a>. The portion of the boundary of the semiconductor \(\Gamma_{S,N}\) is an oxide where the normal component of currents and electric field are zero,</p>
-<p class="formulaDsp">
-\[ \begin{align} \left( - \alpha_{n} \, \mu_{n} \, \,\boldsymbol \nabla \Phi \, \rho_{n} \, - \, D_{n} \, \boldsymbol \nabla \, \rho_{n} \, \right) \ \cdot \ \boldsymbol \eta \; &amp;= \; 0 &amp;&amp; \text{on} \ (0,T] \ \times \ \Gamma_{S,N} \\ \left( - \alpha_{p} \, \mu_{p} \, \,\boldsymbol \nabla \Phi \, \rho_{p} \, - \, D_{p} \, \boldsymbol \nabla \, \rho_{n} \, \right) \ \cdot \ \boldsymbol \eta \; &amp;= \; 0 &amp;&amp; \text{on} \ (0,T] \ \times \ \Gamma_{S,N} \\ -\boldsymbol \nabla \Phi \ \cdot \ \boldsymbol \eta \; &amp;= \; 0 &amp;&amp; \text{on} \ (0,T] \ \times \ \Gamma_{S,N} \\ \end{align} \]
-</p>
-<p>The location of \( \Gamma_{S,N} \) is set in <a class="el" href="class_grid___maker_1_1_grid.html#ab3b80943c768b6ad9d49f9fcfdf9b476" title="Tags boundaries of the semiconductor as Neumann/Insulating portions. ">Grid_Maker::Grid::make_Neumann_boundaries</a>.</p>
-<p>In the electrolyte component \((\Omega_{E})\) the transport of reductants ( \( \rho_{r} \)) and oxidants ( \( \rho_{o} \) ) is governed by a similar drift-diffusion-Poisson system,</p>
-<p class="formulaDsp">
-\[ \begin{align} \frac{\partial \rho_{r}}{\partial t} \, + \, \boldsymbol \nabla \cdot \, \left( - \alpha_{r} \, \mu_{r} \, \boldsymbol \nabla \Phi \, \rho_{r} \, - \, D_{r} \, \boldsymbol \nabla \, \rho_{r} \, \right) \; &amp;= \; 0 , &amp;&amp; \text{in} \ (0,T] \ \times \ \Omega_{E} \nonumber \\ \frac{\partial \rho_{o}}{\partial t} \, + \, \boldsymbol \nabla \cdot \, \left( - \alpha_{o} \, \alpha_{o} \, \boldsymbol \nabla \Phi \, \rho_{o} \, - \, D_{o} \, \boldsymbol \nabla \, \rho_{o} \, \right) \; &amp;= \; 0, &amp;&amp; \text{in} \ (0,T] \ \times \ \Omega_{E} \\ -\boldsymbol \nabla \cdot \left( \, \epsilon^{E}_{r} \, \boldsymbol \nabla \Phi \right) \; &amp;= \; - \, \frac{q}{\epsilon_{0}} \, ( \rho_{r} - \rho_{o}). &amp;&amp; \text{in} \ (0,T] \ \times \ \Omega_{E} \nonumber \end{align} \]
-</p>
-<p>Where \(\alpha_{i} \), \(\mu_{i}\) and \(D_{i}\) are the charge numbers mobility and diffusivity of carrier \(i = r,o\) respectively. The electrolyte permittivity is \(\epsilon_{r}^{E}\). The lack of doping profile in our electrolyte reflects the fact that it is charge neutral. Our model does not include any generation or recombination mechanisms in the electrolyte domain since we are only considering so-called ``heterogenous reactions." That is chemical reactions can only occur at the interface and not within the bulk of the electrolyte.</p>
-<p>We assume the interface is isolated and that the electrolyte variables take on their bulk values (<a class="el" href="class_reductants___equilibrium.html" title="Initial/Boundary conditions for reductants, . ">Reductants_Equilibrium</a>, <a class="el" href="class_oxidants___equilibrium.html" title="Initial/Boundary conditions for oxidants, . ">Oxidants_Equilibrium</a>, Bulk_Bias) on boundary \(\Gamma_{E,D}\),</p>
-<p class="formulaDsp">
-\[ \begin{align} \rho_{r} \vert_{\Gamma_{E,D}} \; = \; \rho_{r}^{\infty} , &amp;&amp; \rho_{o} \vert_{\Gamma_{E,D}} \; = \; \rho_{o}^{\infty} , &amp;&amp; \Phi \vert_{\Gamma_{E,D}} \; = \; \Phi^{\infty} , &amp;&amp; \text{on} \ (0,T] \ \times \ \Gamma_{E,D} \end{align} \]
-</p>
-<p>The location of \(\Gamma_{E,D}\) is again set in <a class="el" href="class_grid___maker_1_1_grid.html#a853d717616bd1c6882a3cddca5bdf101" title="Subroutine that tags boundaries to be Dirichlet portions. ">Grid_Maker::Grid::make_Dirichlet_boundaries</a>. The insulating portion of the electrolyte \(\Gamma_{E,N} \) is set in <a class="el" href="class_grid___maker_1_1_grid.html#ab3b80943c768b6ad9d49f9fcfdf9b476" title="Tags boundaries of the semiconductor as Neumann/Insulating portions. ">Grid_Maker::Grid::make_Neumann_boundaries</a>. On the insulting portion of the electrolyte we have,</p>
-<p class="formulaDsp">
-\[ \begin{align} \left( - \alpha_{r} \, \mu_{r} \, \,\boldsymbol \nabla \Phi \, \rho_{r} \, - \, D_{r} \, \boldsymbol \nabla \, \rho_{n} \, \right) \ \cdot \ \boldsymbol \eta \; &amp;= \; 0 &amp;&amp; \text{on} \ (0,T] \ \times \ \Gamma_{E,N} \\ \left( -\alpha_{o} \, \mu_{o} \, \,\boldsymbol \nabla \Phi \, \rho_{o} \, - \, D_{o} \, \boldsymbol \nabla \, \rho_{n} \, \right) \ \cdot \ \boldsymbol \eta \; &amp;= \; 0 &amp;&amp; \text{on} \ (0,T] \ \times \ \Gamma_{E,N} \\ -\boldsymbol \nabla \Phi \ \cdot \ \boldsymbol \eta \; &amp;= \; 0 &amp;&amp; \text{on} \ (0,T] \ \times \ \Gamma_{E,N} \\ \end{align} \]
-</p>
-<p>The default values of the boundaries of the semiconductor and electrolyte domain are set to be the interface \(\Sigma\), so any portion of the boundaries which are not set by the object <a class="el" href="class_grid___maker_1_1_grid.html" title="This object will be used to build meshes over triangulations provided. ">Grid_Maker::Grid</a> are defined as the interface. The potential and displacement electric field are continuous across \(\Sigma\),</p>
-<p class="formulaDsp">
-\[ \begin{align} \Phi \, \vert_{\Sigma^{-}} \, = \, \Phi \, \vert_{\Sigma^{+}} &amp;&amp; -\epsilon_{r}^{S} \, \boldsymbol \nabla \, \Phi \ \cdot \ \boldsymbol \eta_{\Sigma} \ \vert_{\Sigma^{-}} \, = \, -\epsilon^{E}_{r} \, \boldsymbol \nabla \, \Phi \, \cdot \ \boldsymbol \eta_{\Sigma} \ \vert_{\Sigma^{+}} &amp;&amp; \text{on} \ (0,T] \ \times \ \Sigma \end{align} \]
-</p>
-<p>The chemical reactions of the charge carriers on the interface are modeled using the following boundary conditions on the currents,</p>
-<p class="formulaDsp">
-\[ \begin{align} \textbf{J}_{n} \cdot \boldsymbol \eta_{\Sigma} \; = \; \left( - \alpha_{n} \, \mu_{n} \, \,\boldsymbol \nabla \Phi \, \rho_{n} \, - \, D_{n} \, \boldsymbol \nabla \, \rho_{n} \, \right) \cdot \boldsymbol \eta_{\Sigma} \; &amp;= \; k_{et} \, ( \, \rho_{n} \, - \, \rho_{n}^{e} \, ) \, \rho_{o} , \\ \textbf{J}_{p} \cdot \boldsymbol \eta_{\Sigma} \; = \; \left( - \alpha_{p} \, \mu_{p} \, \boldsymbol \nabla \Phi \, \rho_{p} \, - \, D_{p} \, \boldsymbol \nabla \, \rho_{p} \, \right) \cdot \boldsymbol \eta_{\Sigma} \; &amp;= \; k_{ht} \, ( \, \rho_{p} \, - \, \rho_{p}^{e} \, ) \, \rho_{r}, \\ \textbf{J}_{r} \cdot \boldsymbol \eta_{\Sigma} \; = \; \left( - \alpha_{r} \, \mu_{r} \,\boldsymbol \nabla \Phi \, \rho_{r} \, - \, D_{r} \, \boldsymbol \nabla \, \rho_{r} \, \right) \cdot \boldsymbol \eta_{\Sigma} \; &amp;= \; \, k_{ht} \, (\rho_{p} \, - \, \rho_{p}^{e}) \rho_{r} \, - \, k_{et} \, (\rho_{n} \, - \, \rho_{n}^{e}) \, \rho_{o} , \\ \textbf{J}_{o} \cdot \boldsymbol \eta_{\Sigma} \; = \; \left( - \alpha_{o} \, \mu_{o} \ \boldsymbol \nabla \Phi \, \rho_{o} \, - \, D_{o} \ \boldsymbol \nabla \, \rho_{o} \, \right) \cdot \boldsymbol \eta_{\Sigma} \; &amp;= \; - k_{ht} \, (\rho_{p} \, - \, \rho_{p}^{e}) \, \rho_{r} \, + \, k_{et} \, (\rho_{n} \, - \, \rho_{n}^{e}) \, \, \rho_{o}. \end{align} \]
-</p>
-<p>The initial conditions are taken to be, </p><p class="formulaDsp">
-\[ \begin{align} \rho_{n} \; &amp;= \; \rho_{n}^{e} &amp;&amp; \text{on} \ \{0\} \ \times \ \Omega_{S} \\ \rho_{p} \; &amp;= \; \rho_{p}^{e} &amp;&amp; \text{on} \ \{0\} \ \times \ \Omega_{S} \\ \rho_{r} \; &amp;= \; \rho_{r}^{\infty} &amp;&amp; \text{on} \ \{0\} \ \times \ \Omega_{E} \\ \rho_{o} \; &amp;= \; \rho_{o}^{\infty} &amp;&amp; \text{on} \ \{0\} \ \times \ \Omega_{E} \end{align} \]
-</p>
-<p>These functions are assigned as objects of the classes, <a class="el" href="class_electrons___equilibrium.html" title="Initial/Boundary conditions for electrons, . ">Electrons_Equilibrium</a>, <a class="el" href="class_holes___equilibrium.html" title="Initial/Boundary conditions for holes, . ">Holes_Equilibrium</a>, <a class="el" href="class_reductants___equilibrium.html" title="Initial/Boundary conditions for reductants, . ">Reductants_Equilibrium</a>, <a class="el" href="class_oxidants___equilibrium.html" title="Initial/Boundary conditions for oxidants, . ">Oxidants_Equilibrium</a>.</p>
-<dl class="section note"><dt>Note</dt><dd>In scaling our equations we use Einstein's relations \( D \ = \ U_{T} \ \mu \) and singular perturbation scaling, for more information see the <a href="http://www.ma.utexas.edu/users/gamba/papers/Semi-Elec-Interf.pdf">paper</a> on this model. This eliminates the need for inputing diffusion constants.</dd>
-<dd>
-We take \( \alpha_{n} = -1\), \(\alpha_{p} = 1\) and have the constraint, \( \alpha_{o} \, - \, \alpha_{r} = 1\). These can be set in the constructor, <a class="el" href="class_s_o_l_a_r_c_e_l_l_1_1_solar_cell_problem.html">SOLARCELL::SolarCellProblem()</a>.</dd></dl>
-<p>The output of these simulations will be the calculations of potential, electric field, charge densities and the current. The although in our model we have eliminated the charge of an electron, \(q\), the output current through the device will involve the charge of the electron and is defined to be:</p>
-<p class="formulaDsp">
-\[ \textbf{J}(\textbf{x}) \; = \; \left\{ \begin{array}{cc} -q \, \alpha_{n} \, \textbf{J}_{n} \, - \, q \, \alpha_{p} \, \textbf{J}_{p}, &amp; \textbf{x} \in \Omega_{S} \\ -q \, \alpha_{r} \, \textbf{J}_{r} \, - \, q \, \alpha_{o} \, \textbf{J}_{o}, &amp; \textbf{x} \in \Omega_{E} \\ \end{array} \right. \]
-</p>
-<dl class="section note"><dt>Note</dt><dd>This definition of the current is continuous across the interface so long as \( \alpha_{o} \, - \, \alpha_{r} = 1\).</dd></dl>
-<h2><a class="anchor" id="Methods"></a>
-Methods</h2>
-<p>The overall stragy is to create a domain decomposition where in each subdomain we have a reaction-drift-diffusion system of equations for a pair of charge carriers. The potential and electric field live in a superset of these two domains and information is passed between the two subdomains as well as the superset domain.</p>
-<p>The drift-diffusion transport equations are numerically approximated by the a local discontinuous Galerkin method in space, see <a class="el" href="namespace_l_d_g___system.html" title="Basically just the namespace for LDG_System::LDG. ">LDG_System</a> and the classes within this namesapace for more details. <a class="el" href="namespace_poisson.html" title="Contains all of the local CopyData for Poisson&#39;s equation. ">Poisson</a>'s equation for the potential and electric field is approximated using a mixed finite element method see <a class="el" href="class_mixed_poisson_1_1_mixed_f_e_m.html">MixedPoisson::MixedFEM()</a> for more details.</p>
-<p>Time stepping is handeled in a specific way such that nonlinear terms are linearized by time lagging. Solutions to <a class="el" href="namespace_poisson.html" title="Contains all of the local CopyData for Poisson&#39;s equation. ">Poisson</a> equations are updated using implicit density values, while the charge carriers use an IMEX strategy. The overall time stepping strategy is termed a "parallel Gummel-Schwarz method." The steps in this algorithm are presented in the flow chart, </p><div class="image">
-<img src="parallel_gummel_schwarz.jpg" alt="parallel_gummel_schwarz.jpg"/>
-</div>
-<p> For more deail see <a class="el" href="class_l_d_g___system_1_1_l_d_g.html" title="This class builds two system matrices using the LDG method for the two ChargeCarrierSpace::Carrier ob...">LDG_System::LDG</a>. </p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
