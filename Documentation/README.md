@@ -81,8 +81,10 @@ deal.ii's explanation on parallel computing with shared memory</a> to see why th
 necessary and how it works. 
 
 
-\subsection Using the code
-The source code can be downloaded from <a href="https://github.com/mdh266/PECS">here</a>.
+\subsection Using Using the code
+**The source code can be downloaded from <a href="https://github.com/mdh266/PECS">here</a>.**
+
+
 You first need to obtain and install a copy of the 
 <a href="https://www.dealii.org">deal.ii library</a> 
 version 8.3.0 or higher. After downloading and installing the deal.II library.  
