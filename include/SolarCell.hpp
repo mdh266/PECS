@@ -118,9 +118,6 @@ namespace SOLARCELL
 			void 
 			run_full_system();
 
-			void
-			run_Schottky_approx();
-
 			/** \brief Solves test Poisson problem and prints convergence rates.*/
 			/** Runs mixed method and LDG method sovler for a test Poisson problem
  			*	with Dirichlet and Neumann boundary conditions.  Computes solutions over a 
@@ -680,19 +677,8 @@ namespace SOLARCELL
 			assemble_local_electrolyte_rhs(
 					const typename DoFHandler<dim>::active_cell_iterator & cell,
 					Assembly::AssemblyScratch<dim>			 & scratch,
-					Assembly::DriftDiffusion::CopyData<dim>		 & data,
-					const double 					 & penalty);
-
-
-			void
-			assemble_Schottky_rhs();
-
-			void
-			assemble_local_Schottky_rhs(
-					const typename DoFHandler<dim>::active_cell_iterator & cell,
-					Assembly::AssemblyScratch<dim>			 & scratch,
-					Assembly::DriftDiffusion::CopyData<dim>		 & data,
-					const double 					 & penalty);
+					Assembly::DriftDiffusion::CopyData<dim>  & data,
+					const double 					 		 & penalty);
 
 
 			/** Factorizes all the matrices (Poisson and carriers). */	
@@ -726,15 +712,6 @@ namespace SOLARCELL
  			* values on the boundary of their respective domains. */
 			void
 			print_results_on_boundary(unsigned int time_step_number);
-
-			void
-			print_convergence(double & time);
-
-			void
-			print_semiconductor_current();
-
-			void
-			print_semiconductor_current_2();
 
 			/** Assembles the local cell rhs term for the LDG method applied to the 
 			* drift-diffusion equation defined in
