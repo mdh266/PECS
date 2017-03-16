@@ -367,60 +367,19 @@ namespace LDG_System
 	
 							// get the smaller of the h's
 							double h = std::min(cell->diameter(), 
-									neighbor->diameter());
+												neighbor->diameter());
 
-							assemble_local_child_flux_terms(scratch,
+							assemble_local_flux_terms(scratch,
 											data,
 											(carrier_pair.penalty/h) );
 					
 							// now add the local ldg flux matrices to the global one
 							// for the carrier_1s and carrier_2s. 
-								
-							// NOTE: There are the same for carrier_1s and carrier_2s 
-							// only the A matrix will be changed by scaling 
-							carrier_pair.constraints.distribute_local_to_global(
-											data.vi_ui_matrix,
-											data.local_dof_indices,
-											carrier_pair.carrier_1.system_matrix);
+							distribute_local_fluxes_to_global(carrier_pair,
+															  data);
+
+
 							
-							carrier_pair.constraints.distribute_local_to_global(
-											data.vi_ue_matrix,
-											data.local_dof_indices,
-											data.local_neighbor_dof_indices,
-											carrier_pair.carrier_1.system_matrix);
-	
-							carrier_pair.constraints.distribute_local_to_global(
-											data.ve_ui_matrix,
-											data.local_neighbor_dof_indices,
-											data.local_dof_indices,
-											carrier_pair.carrier_1.system_matrix);
-
-							carrier_pair.constraints.distribute_local_to_global(
-											data.ve_ue_matrix,
-											data.local_neighbor_dof_indices,
-											carrier_pair.carrier_1.system_matrix);
-
-							carrier_pair.constraints.distribute_local_to_global(
-											data.vi_ui_matrix,
-											data.local_dof_indices,
-											carrier_pair.carrier_2.system_matrix);
-		
-							carrier_pair.constraints.distribute_local_to_global(
-											data.vi_ue_matrix,
-											data.local_dof_indices,
-											data.local_neighbor_dof_indices,
-											carrier_pair.carrier_2.system_matrix);
-				
-							carrier_pair.constraints.distribute_local_to_global(
-											data.ve_ui_matrix,
-											data.local_neighbor_dof_indices,
-											data.local_dof_indices,
-											carrier_pair.carrier_2.system_matrix);
-
-							carrier_pair.constraints.distribute_local_to_global(
-											data.ve_ue_matrix,
-											data.local_neighbor_dof_indices,
-											carrier_pair.carrier_2.system_matrix);
 						} // for subface_no	
 					} // if face has children
 					else
@@ -449,60 +408,16 @@ namespace LDG_System
 							
 							// get the smaller of the h's
 							double h = std::min(cell->diameter(), 
-									neighbor->diameter());
+												neighbor->diameter());
 
 							assemble_local_flux_terms(scratch, 
-										data,
-										(carrier_pair.penalty/h));
+													data,
+													(carrier_pair.penalty/h));
 
 							// now add the local ldg flux matrices to the global one
 							// for the carrier_1s and carrier_2s. 
-						
-							// NOTE: There are the same for carrier_1s and carrier_2s 
-							// only the A matrix will be changed by scaling 
-							carrier_pair.constraints.distribute_local_to_global(
-											data.vi_ui_matrix,
-											data.local_dof_indices,
-											carrier_pair.carrier_1.system_matrix);
-							
-							carrier_pair.constraints.distribute_local_to_global(
-											data.vi_ue_matrix,
-											data.local_dof_indices,
-											data.local_neighbor_dof_indices,
-											carrier_pair.carrier_1.system_matrix);
-	
-							carrier_pair.constraints.distribute_local_to_global(
-											data.ve_ui_matrix,
-											data.local_neighbor_dof_indices,
-											data.local_dof_indices,
-											carrier_pair.carrier_1.system_matrix);
-
-							carrier_pair.constraints.distribute_local_to_global(
-											data.ve_ue_matrix,
-											data.local_neighbor_dof_indices,
-											carrier_pair.carrier_1.system_matrix);
-
-							carrier_pair.constraints.distribute_local_to_global(
-											data.vi_ui_matrix,
-											data.local_dof_indices,
-											carrier_pair.carrier_2.system_matrix);
-		
-							carrier_pair.constraints.distribute_local_to_global(
-											data.vi_ue_matrix,
-											data.local_dof_indices,
-											data.local_neighbor_dof_indices,
-											carrier_pair.carrier_2.system_matrix);
-				
-							carrier_pair.constraints.distribute_local_to_global(
-											data.ve_ui_matrix,
-											data.local_neighbor_dof_indices,
-											data.local_dof_indices,
-											carrier_pair.carrier_2.system_matrix);
-
-							carrier_pair.constraints.distribute_local_to_global(
-											data.ve_ue_matrix,
-											data.local_neighbor_dof_indices,
-											carrier_pair.carrier_2.system_matrix);
+							distribute_local_fluxes_to_global(carrier_pair,
+															  data);
 						}	// end if index() >
 					} // else cell not have children
 				} // end if interior
@@ -515,9 +430,9 @@ namespace LDG_System
 	void 
 	LDG<dim>::
 	assemble_local_flux_terms(
-				Assembly::AssemblyScratch<dim>		 & scratch,
+				Assembly::AssemblyScratch<dim>		 	 & scratch,
 				Assembly::DriftDiffusion::CopyData<dim>	 & data,
-				const double 				 & penalty)
+				const double 				 			 & penalty)
 	{
 		// this has been called from a cells face and constructs the local ldg flux
 		// matrices across that face
@@ -706,201 +621,62 @@ namespace LDG_System
 		} // for q
 	} // end assemble_flux_terms() 
 
-	template<int dim>	
-	void 
+	template<int dim>
+	void
 	LDG<dim>::
-	assemble_local_child_flux_terms(
-				Assembly::AssemblyScratch<dim>		 & scratch,
-				Assembly::DriftDiffusion::CopyData<dim>	 & data,
-				const double 				 & penalty)
+	distribute_local_fluxes_to_global(
+					ChargeCarrierSpace::CarrierPair<dim>  & carrier_pair,
+					Assembly::DriftDiffusion::CopyData<dim>	& data)
 	{
-		// this has been called from a cells face and constructs the local ldg flux
-		// matrices across that face
-		const unsigned int n_face_points	  =	
-						scratch.carrier_fe_subface_values.n_quadrature_points;
-	 	const unsigned int dofs_this_cell 	  = 
-						scratch.carrier_fe_subface_values.dofs_per_cell;
-		const unsigned int dofs_neighbor_cell =
-						scratch.carrier_fe_neighbor_face_values.dofs_per_cell;	
 
-		const FEValuesExtractors::Vector Current(0);
-		const FEValuesExtractors::Scalar Density(dim);
-
-		//reset the local LDG flux matrices to zero
-		data.vi_ui_matrix = 0;
-		data.vi_ue_matrix = 0;
-		data.ve_ui_matrix = 0;
-		data.ve_ue_matrix = 0;
-
-		Point<dim> beta;
-		for(unsigned int d=0; d<dim; d++)
-			beta(d) = 1.0;
-		beta /= sqrt(beta.square());
-
-			// loop over all the quadrature points on this face	
-		for(unsigned int q=0; q<n_face_points; q++)
-		{
-			// loop over all the test functiion dofs of this face
-			// and get the test function values at this quadrature point
-			for(unsigned int i=0; i<dofs_this_cell; i++)
-			{	
-				const Tensor<1,dim>  psi_i_field_minus	  = 
-							scratch.carrier_fe_subface_values[Current].value(i,q);
-				const double	    psi_i_density_minus	  = 
-							scratch.carrier_fe_subface_values[Density].value(i,q);
-		
-				// loop over all the trial function dofs of this face
-				for(unsigned int j=0; j<dofs_this_cell; j++)
-				{
-					// loop over all the trial functiion dofs of this face
-					// and get the trial function values at this quadrature point
-
-					const Tensor<1,dim>	psi_j_field_minus	= 
-								scratch.carrier_fe_subface_values[Current].value(j,q);
-					const double 		psi_j_density_minus	=
-								scratch.carrier_fe_subface_values[Density].value(j,q);
-	
-					// int_{face} n^{-} * ( p_{i}^{-} u_{j}^{-} + v^{-} q^{-} ) dx
-					// 					  + penalty v^{-}u^{-} dx
-					data.vi_ui_matrix(i,j)	+= (
-									0.5 * (
-									psi_i_field_minus * 
-									scratch.carrier_fe_subface_values.normal_vector(q) *
-									psi_j_density_minus
-									+ 
-									psi_i_density_minus *
-									scratch.carrier_fe_subface_values.normal_vector(q) *
-									psi_j_field_minus )
-									+ 
-									beta *
-									psi_i_field_minus *
-									psi_j_density_minus
-									-
-									beta *
-									psi_i_density_minus *
-									psi_j_field_minus 
-									+
-									penalty * 
-									psi_i_density_minus *
-									psi_j_density_minus
-									) * 
-									scratch.carrier_fe_subface_values.JxW(q);				
-				} // for j
-			
-				for(unsigned int j=0; j<dofs_neighbor_cell; j++)
-				{
-					const Tensor<1, dim>	psi_j_field_plus	= 
-									scratch.carrier_fe_neighbor_face_values[Current].value(j,q);
-					const double 			psi_j_density_plus	=
-									scratch.carrier_fe_neighbor_face_values[Density].value(j,q);
+		// NOTE: There are the same for carrier_1s and carrier_2s 
+		// only the A matrix will be changed by scaling 
+		carrier_pair.constraints.distribute_local_to_global(
+											data.vi_ui_matrix,
+											data.local_dof_indices,
+											carrier_pair.carrier_1.system_matrix);
 							
-					// int_{face} n^{-} * ( p_{i}^{-} u_{j}^{+} + v^{-} q^{+} ) dx
-					// 					  - penalty v^{-}u^{+} dx
-					data.vi_ue_matrix(i,j) += (	
-									0.5 * (
-									psi_i_field_minus * 
-									scratch.carrier_fe_subface_values.normal_vector(q) *
-									psi_j_density_plus 
-									+ 
-									psi_i_density_minus *
-									scratch.carrier_fe_subface_values.normal_vector(q) *
-									psi_j_field_plus ) 
-									-
-		 							beta *
-									psi_i_field_minus *
-									psi_j_density_plus
-									+
-									beta *
-									psi_i_density_minus *
-									psi_j_field_plus
-									-
-									penalty * 
-									psi_i_density_minus *
-									psi_j_density_plus
-									) *
-								 	scratch.carrier_fe_subface_values.JxW(q);				
-				} // for j
-			} // for i
-
-			for(unsigned int i=0; i<dofs_neighbor_cell; i++)
-			{
-				const Tensor<1,dim>  psi_i_field_plus	 = 
-									scratch.carrier_fe_neighbor_face_values[Current].value(i,q);
-				const double		psi_i_density_plus	 = 
-									scratch.carrier_fe_neighbor_face_values[Density].value(i,q);
-
-				for(unsigned int j=0; j<dofs_this_cell; j++)
-				{
-					const Tensor<1, dim>	psi_j_field_minus	= 
-											scratch.carrier_fe_subface_values[Current].value(j,q);
-					const double 			psi_j_density_minus	=
-											scratch.carrier_fe_subface_values[Density].value(j,q);
-
-					// int_{face} -n^{-} * ( p_{i}^{+} u_{j}^{-} + v^{+} q^{-} )
-					// 					  - penalty v^{+}u^{-} dx
-				
-					data.ve_ui_matrix(i,j) +=	( 
-									-0.5 * (
-									psi_i_field_plus * 
-									scratch.carrier_fe_subface_values.normal_vector(q) *
-									psi_j_density_minus 
-									+
-									psi_i_density_plus *
-									scratch.carrier_fe_subface_values.normal_vector(q) *
-								 	psi_j_field_minus)
-									-
-									beta *
-									psi_i_field_plus *
-									psi_j_density_minus
-									+
-									beta *
-									psi_i_density_plus *
-									psi_j_field_minus 
-									-
-									penalty * 
-									psi_i_density_plus *
-									psi_j_density_minus
-									) *
-									scratch.carrier_fe_subface_values.JxW(q);				
-				} // for j
-			
-				for(unsigned int j=0; j<dofs_neighbor_cell; j++)
-				{
-					const Tensor<1, dim>	psi_j_field_plus	= 
-									scratch.carrier_fe_neighbor_face_values[Current].value(j,q);
-					const double 			psi_j_density_plus	=
-									scratch.carrier_fe_neighbor_face_values[Density].value(j,q);
-						
-					// int_{face} -n^{-} * ( p_{i}^{+} u_{j}^{+} + v^{+} q^{+} )
-					// 					  + penalty v^{+}u^{+} dx
-					data.ve_ue_matrix(i,j) +=	( 
-									-0.5 * (
-									psi_i_field_plus * 
-									scratch.carrier_fe_subface_values.normal_vector(q) *
-									psi_j_density_plus 
-								 	+
-									psi_i_density_plus *
-									scratch.carrier_fe_subface_values.normal_vector(q) *
-									psi_j_field_plus ) 
-									+
-									beta *
-									psi_i_field_plus *
-									psi_j_density_plus
-									-
-									beta *
-									psi_i_density_plus *
-									psi_j_field_plus 
-									+
-									penalty * 
-									psi_i_density_plus *
-									psi_j_density_plus
-									) *
-									scratch.carrier_fe_subface_values.JxW(q);				
-				} // for j
-			} // for i
-		} // for q
-	} // end assemble_flux_terms() 
+		carrier_pair.constraints.distribute_local_to_global(
+											data.vi_ue_matrix,
+											data.local_dof_indices,
+											data.local_neighbor_dof_indices,
+											carrier_pair.carrier_1.system_matrix);
 	
+		carrier_pair.constraints.distribute_local_to_global(
+											data.ve_ui_matrix,
+											data.local_neighbor_dof_indices,
+											data.local_dof_indices,
+											carrier_pair.carrier_1.system_matrix);
+
+		carrier_pair.constraints.distribute_local_to_global(
+											data.ve_ue_matrix,
+											data.local_neighbor_dof_indices,
+											carrier_pair.carrier_1.system_matrix);
+
+		carrier_pair.constraints.distribute_local_to_global(
+											data.vi_ui_matrix,
+											data.local_dof_indices,
+											carrier_pair.carrier_2.system_matrix);
+		
+		carrier_pair.constraints.distribute_local_to_global(
+											data.vi_ue_matrix,
+											data.local_dof_indices,
+											data.local_neighbor_dof_indices,
+											carrier_pair.carrier_2.system_matrix);
+				
+		carrier_pair.constraints.distribute_local_to_global(
+											data.ve_ui_matrix,
+											data.local_neighbor_dof_indices,
+											data.local_dof_indices,
+											carrier_pair.carrier_2.system_matrix);
+
+		carrier_pair.constraints.distribute_local_to_global(
+											data.ve_ue_matrix,
+											data.local_neighbor_dof_indices,
+											carrier_pair.carrier_2.system_matrix);
+
+	}
+
 
 	template<int dim>
 	void
@@ -1042,6 +818,7 @@ namespace LDG_System
 		} // end for face_no
 	}
 
+	
 
 	template<int dim>
 	void

@@ -735,16 +735,7 @@ namespace SOLARCELL
 		scratch.carrier_fe_values[Density].get_function_values(
 						redox_pair.carrier_2.solution,
 						scratch.old_carrier_2_density_values);
-	
-		// get background charge profile values on this cell
-//		reductants_e.value_list(scratch.carrier_fe_values.get_quadrature_points(),
-//								scratch.donor_doping_values,
-//								dim); // calls the density values of the donor profile
 
-//		oxidants_e.value_list(scratch.carrier_fe_values.get_quadrature_points(),
-//								scratch.acceptor_doping_values,
-//								dim); // calls the density values of the donor profile
-	
 
 		// Loop over all the quadrature points in this cell
 		for(unsigned int q=0; q<n_q_points; q++)
@@ -761,15 +752,11 @@ namespace SOLARCELL
 				// get the local RHS values for this cell
 				// = - 1/\lambda^{2} \int v (-\rho_{r} + \rho_{o} )dx
 				data.local_rhs(i) += -scratch.psi_i_potential[i] * 
-						(
-//						(scratch.donor_doping_values[q] 
-//						- scratch.acceptor_doping_values[q])
-//						+
 						(redox_pair.carrier_1.charge_number *
 						scratch.old_carrier_1_density_values[q]	
 						+
 						redox_pair.carrier_2.charge_number *
-						scratch.old_carrier_2_density_values[q])
+						scratch.old_carrier_2_density_values[q]
 						) * scratch.Poisson_fe_values.JxW(q);
 			} // for i
 		} // for q
@@ -1100,8 +1087,10 @@ namespace SOLARCELL
 		// this assembles the drift term in the ldg formulation.  it uses the 
 		// electric field at the current iteration and the density of the 
 		// carrier at the previous time step
-		const unsigned int dofs_per_cell	= scratch.carrier_fe_values.dofs_per_cell;
-		const unsigned int n_q_points		=  scratch.carrier_fe_values.n_quadrature_points;
+		const unsigned int dofs_per_cell	= 
+							scratch.carrier_fe_values.dofs_per_cell;
+		const unsigned int n_q_points		=  
+							scratch.carrier_fe_values.n_quadrature_points;
 		const unsigned int n_face_q_points	=	
 							scratch.carrier_fe_face_values.n_quadrature_points;
 
@@ -1133,7 +1122,8 @@ namespace SOLARCELL
 
 		const FEValuesExtractors::Vector ElectricField(0);
 
-		// get the values of carrier_1 and carrier_2 densities at the pevious time step
+		// get the values of carrier_1 and carrier_2 densities at 
+		// the pevious time step
 		scratch.carrier_fe_values[Density].get_function_values(
 							electron_hole_pair.carrier_1.solution,
 							scratch.old_carrier_1_density_values);
@@ -2698,7 +2688,8 @@ namespace SOLARCELL
 						// get neighboring cell
 					unsigned interface_index = elec_interface_map[
 							std::pair<unsigned int, unsigned>(cell->level(),
-																		      cell->index())];
+															  cell->index())];
+					
 					typename DoFHandler<dim>::active_cell_iterator
 							neighbor_cell(&semiconductor_triangulation,
 									semi_interface_cells[interface_index].first, // level

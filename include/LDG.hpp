@@ -266,7 +266,7 @@ namespace LDG_System
 					FESystem<dim>			     & Poisson_fe,
 					FESystem<dim>			     & carrier_fe);
 
-			/** 	\brief Assemble the local LDG flux matrices with no local refinement
+			/** \brief Assemble the local LDG flux matrices with no local refinement
  			*  This corresponds to the case for two cells where they are on the same 
  			*  refinement level. */ 
 			void
@@ -275,16 +275,19 @@ namespace LDG_System
 				Assembly::DriftDiffusion::CopyData<dim>	    & data,
 				const double 				    & penalty);
 
+			/** \brief Function which distributes local fluxes to global matrices.*/
+			/*
+			* In this function we use the ConstraintMatrix to distribute
+			* the local flux matrices to the global system matrix.  
+			* Since I have to do this twice in assembling the 
+			* system matrix, I made function to do it rather than have
+			* repeated code.
+			*/
 
-			/** 	\brief Assemble the local LDG flux matrices with local refinement.
- 			*			This corresponds to the case for two cells, one is refined and 
- 			*			the other isnt. */ 
-			void
-			assemble_local_child_flux_terms(
-					Assembly::AssemblyScratch<dim>		  & scratch,
-					Assembly::DriftDiffusion::CopyData<dim>	  & data,
-					const double 				  & penalty);
-
+			void 
+			distribute_local_fluxes_to_global(
+					ChargeCarrierSpace::CarrierPair<dim> & carrier_pair,
+					Assembly::DriftDiffusion::CopyData<dim>	& data);
 
 			/** Assembles the right hand sides carrier 
  				* test case locally on each cell.  Corresponds to the problem
@@ -309,7 +312,8 @@ namespace LDG_System
 				const Vector<double>				     & old_solution,
 				const double 					     & time,
 				const double					     & penalty);
-						
+			
+
 
 			/** \brief Computes the local error of your approximation for the 
 			*  LDG method on the cell and stores the errors in

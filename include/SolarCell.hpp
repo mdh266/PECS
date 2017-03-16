@@ -409,7 +409,7 @@ namespace SOLARCELL
 			/*	Initial Conditions										   */
  			/*-------------------------------------------------------------*/
 			/// \f$ \rho_{n}^{e}(\textbf{x}) \f$
-			const	Electrons_Equilibrium<dim>			electrons_e;
+			const Electrons_Equilibrium<dim>			electrons_e;
 			/// \f$ \rho_{p}^{e} (\textbf{x}) \f$
 			const Holes_Equilibrium<dim>				holes_e;
 			/// \f$ \rho_{r}^{\infty}(\textbf{x})  \f$
@@ -720,8 +720,8 @@ namespace SOLARCELL
 			assemble_local_coupled_DD_test_rhs(
 					const typename DoFHandler<dim>::active_cell_iterator & cell,
 					Assembly::AssemblyScratch<dim>			 & scratch,
-					Assembly::DriftDiffusion::CopyData<dim>		 & data,
-					const double					 & time,
+					Assembly::DriftDiffusion::CopyData<dim>	 & data,
+					const double					 		 & time,
 					const double 					 & penalty);								
 			/** Assembles the local cell rhs term for the mixed FEM applied to the 
 			* Poisson equation defined in
