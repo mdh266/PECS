@@ -193,21 +193,21 @@ namespace MixedPoisson
 			compute_errors(const Triangulation<dim>	& triangulation,
 					DoFHandler<dim>		& Poisson_dof_handler,
 					Vector<double>		& solution,
-					double 			& potential_error,
-					double 			& field_error) const;
+					double 				& potential_error,
+					double 				& field_error) const;
 
 			/** Prints the electric field and potential with units put back in.*/
 			/** \note:  I think this will only work when the code is compiled in
  			*						release mode. */	
-			void	output_rescaled_results(DoFHandler<dim>		& dof_handler,
-						const Vector<double> 		& solution,
-						const ParameterSpace::Parameters & sim_params,
+			void	output_rescaled_results(DoFHandler<dim>	 & dof_handler,
+						const Vector<double> 				 & solution,
+						const ParameterSpace::Parameters 	 & sim_params,
 						const unsigned int time_step_number) const;
 		
 			/** Prints the electric field and potential without the units. */	
 			void	output_unscaled_results(DoFHandler<dim>		& dof_handler,
-						const Vector<double> 		& solution,
-						const unsigned int time_step_number) const;
+						const Vector<double> 					& solution,
+						const unsigned int 						time_step_number) const;
 	
 		private:
 			enum
@@ -238,13 +238,13 @@ namespace MixedPoisson
 		public:
 			/** Uncoupled test problem solution. 
 			 * 	See SOLARCELL::SolarCellProblem::test_steady_state*/
-			const test_Poisson::TrueSolution<dim>			test_Poisson_solution;
+			const test_Poisson::TrueSolution<dim>			 test_Poisson_solution;
 			/** Uncoupled test problem Dirichlet BC function.
 			 * 	See SOLARCELL::SolarCellProblem::test_steady_state*/
-			const test_Poisson::DirichletBoundaryValues<dim>	test_Poisson_bc;
+			const test_Poisson::DirichletBoundaryValues<dim> test_Poisson_bc;
 			/** Uncoupled test problem RHS function.
 			 * 	See SOLARCELL::SolarCellProblem::test_steady_state*/
-			const test_Poisson::RightHandSide<dim>			test_Poisson_rhs;
+			const test_Poisson::RightHandSide<dim>			 test_Poisson_rhs;
 
 			/** Coupled test problem RHS function.
 			 * 	See SOLARCELL::SolarCellProblem::test_DD_Poisson.*/

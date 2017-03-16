@@ -33,9 +33,9 @@ namespace MixedPoisson
 		const typename DoFHandler<dim>::active_cell_iterator & cell,
 		Assembly::AssemblyScratch<dim>			& scratch,
 		Assembly::Poisson::CopyData<dim>		& data,
-		const double 					& semi_permittivity,
-		const double 					& elec_permittivity,
-		const double 					& scaled_debye_length)
+		const double 							& semi_permittivity,
+		const double 							& elec_permittivity,
+		const double 							& scaled_debye_length)
 	{
 		const unsigned int	dofs_per_cell =	scratch.Poisson_fe_values.dofs_per_cell;
 		const unsigned int 	n_q_points    = scratch.Poisson_fe_values.n_quadrature_points;
@@ -167,14 +167,15 @@ namespace MixedPoisson
 	void
 	MixedFEM<dim>::
 	assemble_local_test_rhs(
-		const typename DoFHandler<dim>::active_cell_iterator 	& cell,
+		const typename DoFHandler<dim>::active_cell_iterator & cell,
 		Assembly::AssemblyScratch<dim>			  	& scratch,
 		Assembly::Poisson::CopyData<dim>			& data)
 	{
 		const unsigned int	dofs_per_cell 	=  scratch.Poisson_fe_values.dofs_per_cell;
 		const unsigned int 	n_q_points 	=  scratch.Poisson_fe_values.n_quadrature_points;
 
-		const unsigned int	n_face_q_points =  scratch.Poisson_fe_face_values.n_quadrature_points;
+		const unsigned int	n_face_q_points =  
+									scratch.Poisson_fe_face_values.n_quadrature_points;
 
 		cell->get_dof_indices(data.local_dof_indices);
 
@@ -191,7 +192,7 @@ namespace MixedPoisson
 		data.local_rhs=0;
 		// get the test rhs for poisson
 		test_Poisson_rhs.value_list(scratch.Poisson_fe_values.get_quadrature_points(),
-					    scratch.Poisson_rhs_values);
+					    			scratch.Poisson_rhs_values);
 
 
 		// Loop over all the quadrature points in this cell
@@ -268,8 +269,8 @@ namespace MixedPoisson
 		unsigned int n_cells = triangulation.n_active_cells();
 
 		QTrapez<1>		q_trapez;
-		QIterated<dim> 		quadrature(q_trapez, degree+2);
-		Vector<double> 		cellwise_errors(n_cells);
+		QIterated<dim> 	quadrature(q_trapez, degree+2);
+		Vector<double> 	cellwise_errors(n_cells);
 
 
 		VectorTools::integrate_difference(Poisson_dof_handler, 

@@ -189,9 +189,9 @@ namespace LDG_System
 			void		
 			assemble_local_LDG_mass_matrix(
 					const typename DoFHandler<dim>::active_cell_iterator & cell,
-					Assembly::AssemblyScratch<dim>		& scratch,
+					Assembly::AssemblyScratch<dim>			& scratch,
 					Assembly::DriftDiffusion::CopyData<dim>	& data,
-					const double			 	& delta_t);
+					const double			 				& delta_t);
 							
 			/** \brief Assembles the local sytem matrix for this cell. */
 			/** This function can either be called when looping throug the cells by 
@@ -239,7 +239,7 @@ namespace LDG_System
 			assemble_local_LDG_cell_and_bc_terms(
 				const typename DoFHandler<dim>::active_cell_iterator & cell,
 				Assembly::AssemblyScratch<dim>			     & scratch,
-				Assembly::DriftDiffusion::CopyData<dim>		     & data,
+				Assembly::DriftDiffusion::CopyData<dim>		 & data,
 				const double					     & scaled_mobility_1,
 				const double					     & scaled_mobility_2,
 				const double 					     & delta_t,
@@ -263,8 +263,8 @@ namespace LDG_System
 			void
 			assemble_flux_terms(DoFHandler<dim>		     & carrier_dof_handler,
 					ChargeCarrierSpace::CarrierPair<dim> &	carrier_pair,
-					FESystem<dim>			     & Poisson_fe,
-					FESystem<dim>			     & carrier_fe);
+					FESystem<dim>			     		 & Poisson_fe,
+					FESystem<dim>			     		 & carrier_fe);
 
 			/** \brief Assemble the local LDG flux matrices with no local refinement
  			*  This corresponds to the case for two cells where they are on the same 
@@ -272,8 +272,8 @@ namespace LDG_System
 			void
 			assemble_local_flux_terms(
 				Assembly::AssemblyScratch<dim>		    & scratch,
-				Assembly::DriftDiffusion::CopyData<dim>	    & data,
-				const double 				    & penalty);
+				Assembly::DriftDiffusion::CopyData<dim> & data,
+				const double 				    		& penalty);
 
 			/** \brief Function which distributes local fluxes to global matrices.*/
 			/*
@@ -286,7 +286,7 @@ namespace LDG_System
 
 			void 
 			distribute_local_fluxes_to_global(
-					ChargeCarrierSpace::CarrierPair<dim> & carrier_pair,
+					ChargeCarrierSpace::CarrierPair<dim> 	& carrier_pair,
 					Assembly::DriftDiffusion::CopyData<dim>	& data);
 
 			/** Assembles the right hand sides carrier 
@@ -297,8 +297,8 @@ namespace LDG_System
 			assemble_local_test_rhs(
 				const typename DoFHandler<dim>::active_cell_iterator & cell,
 				Assembly::AssemblyScratch<dim>			     & scratch,
-				Assembly::DriftDiffusion::CopyData<dim>		     & data,
-				const double					     & penalty);
+				Assembly::DriftDiffusion::CopyData<dim>		 & data,
+				const double					     		 & penalty);
 	
 			/**	Assembles the right hand side for 
  				* test case locally on each cell.  Corresponds to the problem
@@ -307,11 +307,11 @@ namespace LDG_System
 			void
 			assemble_local_test_transient_rhs(
 				const typename DoFHandler<dim>::active_cell_iterator & cell,
-				Assembly::AssemblyScratch<dim>			     & scratch,
-				Assembly::DriftDiffusion::CopyData<dim>		     & data,
+				Assembly::AssemblyScratch<dim>			 & scratch,
+				Assembly::DriftDiffusion::CopyData<dim>  & data,
 				const Vector<double>				     & old_solution,
-				const double 					     & time,
-				const double					     & penalty);
+				const double 					     	 & time,
+				const double					    	 & penalty);
 			
 
 
@@ -332,9 +332,9 @@ namespace LDG_System
 			compute_errors(const Triangulation<dim>	& triangulation,
 				       DoFHandler<dim>		& carrier_dof_handler,
 				       Vector<double>		& solution,
-				       double 			& potential_error,
-				       double 			& field_error,
-				       const bool		& steady_state,
+				       double 				& potential_error,
+				       double 				& field_error,
+				       const bool			& steady_state,
 				       const double 		& time); // const;
 	
 			/** \brief Computes the local error of your approximation for the 
@@ -354,8 +354,8 @@ namespace LDG_System
 			compute_coupled_errors(const Triangulation<dim>	& triangulation,
 						DoFHandler<dim>		& carrier_dof_handler,
 						Vector<double>		& solution,
-						double 			& potential_error,
-						double 			& field_error,
+						double 				& potential_error,
+						double 				& field_error,
 						const double 		& time); // const;
 
 			/** \brief Computes the local error of your approximation for the 
@@ -374,32 +374,33 @@ namespace LDG_System
 			void
 			compute_interface_errors(
 					const Triangulation<dim>	& triangulation,
-					DoFHandler<dim>			& carrier_dof_handler,
-					Vector<double>			& solution,
-					double 				& potential_error,
-					double 				& field_error,
-					const double			& time);// const
+					DoFHandler<dim>				& carrier_dof_handler,
+					Vector<double>				& solution,
+					double 						& potential_error,
+					double 						& field_error,
+					const double				& time);// const
 
 			/** \brief Prints the current and density of each carrier in carrier pair without units.*/
 			void
-			output_unscaled_results(DoFHandler<dim>		     & carrier_dof_handler,
+			output_unscaled_results(DoFHandler<dim>		 & carrier_dof_handler,
 					ChargeCarrierSpace::CarrierPair<dim> & carrier_pair,
-					const unsigned int 		       time_step_number) const;
+					const unsigned int 		      		 time_step_number) const;
 
 			/** \brief Prints the current and density of each carrier in carrier pair with units.
  			*	\note The densities will still be without units because Paraview cant handle it otherwise.
- 			*	\note I think this will only work when code is compiled in release mode.	 	*/
+ 			*	\note I think this will only work when code is compiled in release mode, */
 			void
 			output_rescaled_results(DoFHandler<dim>			 & carrier_dof_handler,
 					ChargeCarrierSpace::CarrierPair<dim> 	 & carrier_pair,
-					const ParameterSpace::Parameters 	 & sim_params,
-					const unsigned int 			   time_step_number) const;
+					const ParameterSpace::Parameters 		 & sim_params,
+					const unsigned int 			  			 time_step_number) const;
 
-			/** \brief Does the same as LDG_System::LDG::output_unscaled_results but only on the boundary.*/
+			/** \brief Does the same as LDG_System::LDG::output_unscaled_results 
+			but only on the boundary.*/
 			void
 			output_unscaled_results_on_boundary(DoFHandler<dim>	& carrier_dof_handler,
-					ChargeCarrierSpace::CarrierPair<dim> 	& carrier_pair,
-					const unsigned int 		   	time_step_number) const;
+					ChargeCarrierSpace::CarrierPair<dim> 		& carrier_pair,
+					const unsigned int 		   					time_step_number) const;
 
 
 		private:
@@ -412,15 +413,15 @@ namespace LDG_System
 			};
 
 			// Testing functions	
-			const test_Poisson::TrueSolution<dim>			test_Poisson_solution;
-			const test_Poisson::DirichletBoundaryValues<dim>	test_Poisson_bc;
-			const test_Poisson::RightHandSide<dim>			test_Poisson_rhs;
+			const test_Poisson::TrueSolution<dim>			 test_Poisson_solution;
+			const test_Poisson::DirichletBoundaryValues<dim> test_Poisson_bc;
+			const test_Poisson::RightHandSide<dim>			 test_Poisson_rhs;
 
 		public:
-			test_LDG_IMEX::RightHandSide<dim>			test_LDG_rhs;
-			test_LDG_IMEX::DirichletBC<dim>				test_LDG_bc;
+			test_LDG_IMEX::RightHandSide<dim>				test_LDG_rhs;
+			test_LDG_IMEX::DirichletBC<dim>					test_LDG_bc;
 			test_LDG_IMEX::InterfaceFunction<dim>			test_LDG_interface;
-			test_LDG_IMEX::TrueSolution<dim>			test_LDG_solution;						
+			test_LDG_IMEX::TrueSolution<dim>				test_LDG_solution;						
 	
 			test_DD_Poisson::DD_RightHandSide<dim>			test_DD_rhs;
 			test_DD_Poisson::DD_DirichletBC<dim>			test_DD_bc;
@@ -428,10 +429,10 @@ namespace LDG_System
 		
 			test_interface_problem::RightHandSide<dim>		test_interface_rhs;
 			test_interface_problem::DirichletBC<dim>		test_interface_bc;
-			test_interface_problem::InterfaceFunction<dim>		test_interface_function;
+			test_interface_problem::InterfaceFunction<dim>	test_interface_function;
 			test_interface_problem::TrueSolution<dim>		test_interface_solution;						
 		
-			const test_interface_problem::InitialConditions<dim>	test_interface_initial;
+			const test_interface_problem::InitialConditions<dim> test_interface_initial;
 
 	};
 

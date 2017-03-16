@@ -298,7 +298,7 @@ namespace SOLARCELL
 			* since they are basically the same mesh. */
 			void
 			test_interface_coupling(const unsigned int  & n_refine,
-						ConvergenceTable    & Table);
+									ConvergenceTable    & Table);
 
 
 		private:
@@ -307,7 +307,7 @@ namespace SOLARCELL
 			/// Time step.
 			double delta_t;
 			/**  Boolean that keeps track of whether we are solving semiconductor-Poisson 
- 			* 	problem or semiconductor-electrolyte-Poisson. */
+ 			* 	problem or semiconductor-electrolyte-Poisson. This is for testing. */
 			bool full_system;
 
 	
@@ -549,9 +549,9 @@ namespace SOLARCELL
 			*/
 			void
 			assemble_local_Poisson_rhs_for_semiconductor(
-				const typename DoFHandler<dim>::active_cell_iterator 	& cell,
-				Assembly::AssemblyScratch<dim>				& scratch,
-				Assembly::Poisson::CopyData<dim>			& data);
+				const typename DoFHandler<dim>::active_cell_iterator & cell,
+				Assembly::AssemblyScratch<dim>						 & scratch,
+				Assembly::Poisson::CopyData<dim>					 & data);
 	
 			/** \brief Assembles the local poisson rhs for the coupled problem
  			*		in the electrolyte triangulation. */
@@ -570,9 +570,9 @@ namespace SOLARCELL
 			*  Assembly::Poisson::CopyData. */
 			void 
 			assemble_local_Poisson_rhs_for_electrolyte(
-				const typename DoFHandler<dim>::active_cell_iterator 	& cell,
-				Assembly::AssemblyScratch<dim>				& scratch,
-				Assembly::Poisson::CopyData<dim>			& data);
+				const typename DoFHandler<dim>::active_cell_iterator & cell,
+				Assembly::AssemblyScratch<dim>						 & scratch,
+				Assembly::Poisson::CopyData<dim>					 & data);
 
 
 			/** Assembles the LDG system that asembles the mass matrix and system matrix for the
@@ -646,9 +646,9 @@ namespace SOLARCELL
 			void
 			assemble_local_semiconductor_rhs(
 						const typename DoFHandler<dim>::active_cell_iterator & cell,
-						Assembly::AssemblyScratch<dim>			 & scratch,
-						Assembly::DriftDiffusion::CopyData<dim>		 & data,
-						const double 					 & penalty);
+						Assembly::AssemblyScratch<dim>						 & scratch,
+						Assembly::DriftDiffusion::CopyData<dim>		 		 & data,
+						const double 					 					 & penalty);
 
 			/** Builds the RHSes for the reductant and oxidant equations.*/
 			/**	This function loops through all the cells in the electrolyte
@@ -722,7 +722,7 @@ namespace SOLARCELL
 					Assembly::AssemblyScratch<dim>			 & scratch,
 					Assembly::DriftDiffusion::CopyData<dim>	 & data,
 					const double					 		 & time,
-					const double 					 & penalty);								
+					const double 					 		 & penalty);								
 			/** Assembles the local cell rhs term for the mixed FEM applied to the 
 			* Poisson equation defined in
  			*	SOLARCELL::SolarCellProblem::test_DD_Poisson.*/
@@ -731,27 +731,27 @@ namespace SOLARCELL
 					const typename DoFHandler<dim>::active_cell_iterator & cell,
 					Assembly::AssemblyScratch<dim>			& scratch,
 					Assembly::Poisson::CopyData<dim>	 	& data,
-					const double					& time);
+					const double							& time);
 	
 			/** Assembles the local cell rhs term for the \$f u \f$ in problem defined in
  			*	SOLARCELL::SolarCellProblem::test_interface_coupling.*/
 			void
 			assemble_local_test_semiconductor_rhs(
 					const typename DoFHandler<dim>::active_cell_iterator & cell,
-					Assembly::AssemblyScratch<dim>		 & scratch,
-					Assembly::DriftDiffusion::CopyData<dim>	 & data,
-					const double				 & time,
-					const double 				 & penalty);								
+					Assembly::AssemblyScratch<dim>		 				 & scratch,
+					Assembly::DriftDiffusion::CopyData<dim>	 			 & data,
+					const double										 & time,
+					const double 				 						 & penalty);								
 
 			/** Assembles the local cell rhs term for the \f$ v \f$ in problem defined in
  			*	SOLARCELL::SolarCellProblem::test_interface_coupling.*/
 			void
 			assemble_local_test_electrolyte_rhs(
 					const typename DoFHandler<dim>::active_cell_iterator & cell,
-					Assembly::AssemblyScratch<dim>			 & scratch,
-					Assembly::DriftDiffusion::CopyData<dim>		 & data,
-					const double 					 & time,
-					const double 					 & penalty);									
+					Assembly::AssemblyScratch<dim>						 & scratch,
+					Assembly::DriftDiffusion::CopyData<dim>				 & data,
+					const double 										 & time,
+					const double 					 					 & penalty);									
 
 
 	}; // END CLASS
