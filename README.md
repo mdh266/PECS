@@ -30,9 +30,14 @@ The resulting output files from simulations are in <a href="http://www.vtk.org/"
 ![Densities](./Documentation/images/densities_bias_0.png)
 
 
+## Documentation
+For **much more** background on the model and algorithms as well as code itself please see the  <a href="http://mdh266.github.io/PECS/">documentation page</a>.
 
-For **much more** background on the model and algorithms used in this project please see the  <a href="http://mdh266.github.io/PECS/">documentation page</a>.
+To build the documentation locally, you need <a href="http://www.stack.nl/~dimitri/doxygen/">doxygen</a>.  Once doxygen has been installed, cd into the <code>Documentation/</code> directory and run,
 
+	doxygen dox
+
+This will write the documentation locally in a folder <code>html</code> which should have been created in the main directory.  Open the file <code>index.html</code> within the <code>html</code> folder in your browser to access the documentation.
 
 
 ## Requirements
