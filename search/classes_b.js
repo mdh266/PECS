@@ -14,6 +14,7 @@ var searchData=
   ['locallyownedcell',['LocallyOwnedCell',['http://www.dealii.org/8.3.0/doxygen/deal.II/classIteratorFilters_1_1LocallyOwnedCell.html',1,'IteratorFilters']]],
   ['locallyownedlevelcell',['LocallyOwnedLevelCell',['http://www.dealii.org/8.3.0/doxygen/deal.II/classIteratorFilters_1_1LocallyOwnedLevelCell.html',1,'IteratorFilters']]],
   ['localresults',['LocalResults',['http://www.dealii.org/8.3.0/doxygen/deal.II/classMeshWorker_1_1LocalResults.html',1,'MeshWorker']]],
+  ['localtoglobal',['LocalToGlobal',['../class_local_to_global.html',1,'']]],
   ['logstream',['LogStream',['http://www.dealii.org/8.3.0/doxygen/deal.II/classLogStream.html',1,'']]],
   ['loopcontrol',['LoopControl',['http://www.dealii.org/8.3.0/doxygen/deal.II/classMeshWorker_1_1LoopControl.html',1,'MeshWorker']]],
   ['lsingularityfunction',['LSingularityFunction',['http://www.dealii.org/8.3.0/doxygen/deal.II/classFunctions_1_1LSingularityFunction.html',1,'Functions']]],

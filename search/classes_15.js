@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['vector',['Vector',['http://www.dealii.org/8.3.0/doxygen/deal.II/classFEValuesViews_1_1Vector.html',1,'FEValuesViews']]],
-  ['vector',['Vector',['http://www.dealii.org/8.3.0/doxygen/deal.II/classparallel_1_1distributed_1_1Vector.html',1,'parallel::distributed']]],
-  ['vector',['Vector',['http://www.dealii.org/8.3.0/doxygen/deal.II/classTrilinosWrappers_1_1Vector.html',1,'TrilinosWrappers']]],
   ['vector',['Vector',['http://www.dealii.org/8.3.0/doxygen/deal.II/classTrilinosWrappers_1_1MPI_1_1Vector.html',1,'TrilinosWrappers::MPI']]],
-  ['vector',['Vector',['http://www.dealii.org/8.3.0/doxygen/deal.II/structFEValuesExtractors_1_1Vector.html',1,'FEValuesExtractors']]],
+  ['vector',['Vector',['http://www.dealii.org/8.3.0/doxygen/deal.II/classTrilinosWrappers_1_1Vector.html',1,'TrilinosWrappers']]],
   ['vector',['Vector',['http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html',1,'']]],
   ['vector',['Vector',['http://www.dealii.org/8.3.0/doxygen/deal.II/classPETScWrappers_1_1MPI_1_1Vector.html',1,'PETScWrappers::MPI']]],
+  ['vector',['Vector',['http://www.dealii.org/8.3.0/doxygen/deal.II/classparallel_1_1distributed_1_1Vector.html',1,'parallel::distributed']]],
+  ['vector',['Vector',['http://www.dealii.org/8.3.0/doxygen/deal.II/classFEValuesViews_1_1Vector.html',1,'FEValuesViews']]],
+  ['vector',['Vector',['http://www.dealii.org/8.3.0/doxygen/deal.II/structFEValuesExtractors_1_1Vector.html',1,'FEValuesExtractors']]],
   ['vector',['Vector',['http://www.dealii.org/8.3.0/doxygen/deal.II/classPETScWrappers_1_1Vector.html',1,'PETScWrappers']]],
   ['vector_3c_20double_20_3e',['Vector&lt; double &gt;',['http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html',1,'']]],
   ['vector_3c_20number_20_3e',['Vector&lt; number &gt;',['http://www.dealii.org/8.3.0/doxygen/deal.II/classVector.html',1,'']]],
