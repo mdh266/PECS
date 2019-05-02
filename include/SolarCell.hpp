@@ -88,13 +88,13 @@ namespace SOLARCELL
 					 const double & hole_density,
 					 const ParameterSpace::Parameters & params)
 	{
-		return /*0.0;*/ ((params.scaled_intrinsic_density *
+		return 0.0; /*((params.scaled_intrinsic_density *
 				params.scaled_intrinsic_density - 
 				electron_density * hole_density) /
 				(params.scaled_hole_recombo_t * (electron_density +
 				 params.scaled_intrinsic_density) + 
 				(params.scaled_electron_recombo_t * (hole_density -
-				 params.scaled_intrinsic_density)) ) );	
+				 params.scaled_intrinsic_density)) ) )*/;	
 
 	}
 
