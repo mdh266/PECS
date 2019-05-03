@@ -15,7 +15,7 @@ namespace ParameterSpace
 	read_parameters(const std::string parameter_file)
 	{
 		declare_parameters();
-		prm.read_input(parameter_file);
+		prm.parse_input(parameter_file);
 	}
 
 	void
@@ -23,7 +23,7 @@ namespace ParameterSpace
 	read_test_parameters(const std::string parameter_file)
 	{
 		declare_test_parameters();
-		prm.read_input(parameter_file);
+		prm.parse_input(parameter_file);
 	}
 
 	void 

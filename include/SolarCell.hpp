@@ -8,6 +8,7 @@
 #include <deal.II/base/tensor_function.h>
 #include <deal.II/base/timer.h>
 #include <deal.II/base/parameter_handler.h>
+#include <deal.II/base/std_cxx11/bind.h>
 
 #include <deal.II/lac/full_matrix.h>
 #include <deal.II/lac/sparse_matrix.h>
@@ -87,14 +88,14 @@ namespace SOLARCELL
 					 const double & hole_density,
 					 const ParameterSpace::Parameters & params)
 	{
-		return 0.0; /*((params.scaled_intrinsic_density * 
+		return 0.0; /*((params.scaled_intrinsic_density *
 				params.scaled_intrinsic_density - 
 				electron_density * hole_density) /
-				(params.scaled_electron_recombo_t * (electron_density -
+				(params.scaled_hole_recombo_t * (electron_density +
 				 params.scaled_intrinsic_density) + 
-				(params.scaled_hole_recombo_t * (hole_density -
-				 params.scaled_intrinsic_density)) ) );	
-				*/
+				(params.scaled_electron_recombo_t * (hole_density -
+				 params.scaled_intrinsic_density)) ) )*/;	
+
 	}
 
 ///////////////////////////////////////////////////////////////////////////////
